@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Hero() {
     return (
         <header className="max-w-6xl mx-auto px-6 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <motion.h1 
                         initial={{ y: 10, opacity: 0 }} 
@@ -46,19 +47,43 @@ export default function Hero() {
                     </motion.div>
                 </div>
 
-                <motion.div 
-                    initial={{ y: 10, opacity: 0 }} 
-                    animate={{ y: 0, opacity: 1 }} 
-                    transition={{ delay: 0.2 }}
-                    className="p-6 bg-white rounded-2xl shadow-md"
-                >
-                    <div className="text-sm text-gray-600 font-medium">Highlights</div>
-                    <ul className="mt-4 space-y-2 text-gray-700 text-sm">
-                        <li>• Built production apps with Next.js & Laravel</li>
-                        <li>• Deployed CI/CD pipelines on GitHub Actions</li>
-                        <li>• Research: I-SORT IoT product sorting robot</li>
-                    </ul>
-                </motion.div>
+                <div className="flex flex-col items-center md:items-end gap-6">
+                    {/* Profile Image */}
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                        className="relative"
+                    >
+                        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ring-4 ring-white ring-offset-4 ring-offset-gray-50">
+                            <Image
+                                src="/profile.jpg"
+                                alt="Fayaj Nakib - Full-stack Software Engineer"
+                                fill
+                                className="object-cover"
+                                priority
+                                sizes="(max-width: 768px) 256px, 320px"
+                            />
+                        </div>
+                        {/* Decorative gradient overlay */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 pointer-events-none"></div>
+                    </motion.div>
+
+                    {/* Highlights Card */}
+                    <motion.div 
+                        initial={{ y: 10, opacity: 0 }} 
+                        animate={{ y: 0, opacity: 1 }} 
+                        transition={{ delay: 0.3 }}
+                        className="w-full md:w-auto p-6 bg-white rounded-2xl shadow-md"
+                    >
+                        <div className="text-sm text-gray-600 font-medium">Highlights</div>
+                        <ul className="mt-4 space-y-2 text-gray-700 text-sm">
+                            <li>• Built production apps with Next.js & Laravel</li>
+                            <li>• Deployed CI/CD pipelines on GitHub Actions</li>
+                            <li>• Research: I-SORT IoT product sorting robot</li>
+                        </ul>
+                    </motion.div>
+                </div>
             </div>
         </header>
     )
