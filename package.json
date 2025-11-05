@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next build"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
