@@ -29,15 +29,15 @@ export default function Skills() {
     ]
 
     return (
-        <section id="skills" className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-b from-transparent to-gray-50/50">
+        <section id="skills" className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50">
             <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">Skills</h2>
-                <p className="text-gray-600 mb-10 text-lg">Technologies and tools I work with</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">Technical Skills</h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">Technologies, frameworks, and tools I use to build modern web applications</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {skillCategories.map((category, idx) => (
                         <motion.div
@@ -46,7 +46,7 @@ export default function Skills() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                            className="p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
                         >
                             <h3 className="font-semibold text-lg mb-4 text-brand-primary">{category.title}</h3>
                             <div className="flex flex-wrap gap-2">

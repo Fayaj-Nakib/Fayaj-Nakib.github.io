@@ -33,8 +33,10 @@ export default function Education() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">Education</h2>
-                <p className="text-gray-600 mb-10 text-lg">Academic background and achievements</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                    Education<span className="text-brand-accent">.</span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">Academic qualifications and educational achievements</p>
                 <div className="space-y-6">
                     {education.map((edu, idx) => (
                         <motion.div
@@ -43,13 +45,13 @@ export default function Education() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            className="p-6 bg-white rounded-xl shadow-sm border-l-4 border-brand-accent hover:shadow-md transition-all duration-300"
+                            className="p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-md border-l-4 border-brand-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                         >
                             <div className="flex items-start justify-between flex-wrap gap-2">
                                 <div className="flex-1">
-                                    <div className="font-bold text-xl text-gray-900">{edu.degree}</div>
-                                    <div className="text-base text-gray-700 mt-1 font-medium">{edu.institution}</div>
-                                    <div className="text-sm text-gray-600 mt-1">
+                                    <div className="font-bold text-xl text-gray-900 dark:text-white">{edu.degree}</div>
+                                    <div className="text-base text-gray-700 dark:text-gray-300 mt-1 font-medium">{edu.institution}</div>
+                                    <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                                         <span>{edu.period}</span>
                                         {edu.location && <span> • {edu.location}</span>}
                                     </div>

@@ -61,8 +61,10 @@ export default function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">Selected Projects</h2>
-                <p className="text-gray-600 mb-10 text-lg">A selection of recent work and research projects showcasing my technical skills.</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                    Featured Projects<span className="text-brand-accent">.</span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">A selection of my recent work building scalable web applications and innovative solutions</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((p, i) => (
                         <motion.div

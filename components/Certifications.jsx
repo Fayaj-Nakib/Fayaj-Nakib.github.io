@@ -43,7 +43,7 @@ export default function Certifications() {
     ]
 
     return (
-        <section id="certifications" className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-b from-transparent to-gray-50/50">
+        <section id="certifications" className="max-w-6xl mx-auto px-6 py-16 md:py-20 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {/* Certifications */}
                 <motion.div
@@ -52,8 +52,10 @@ export default function Certifications() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3">Certifications</h2>
-                    <p className="text-gray-600 mb-8 text-lg">Professional certifications and courses</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                        Certifications<span className="text-brand-accent">.</span>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">Professional certifications and courses</p>
                     <div className="space-y-4">
                         {certifications.map((cert, idx) => (
                             <motion.div
@@ -62,12 +64,12 @@ export default function Certifications() {
                                 whileInView={{ y: 0, opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                className="p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+                                className="p-5 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:-translate-y-0.5"
                             >
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="flex-1">
-                                        <div className="font-semibold text-lg text-gray-900">{cert.title}</div>
-                                        <div className="text-sm text-gray-600 mt-1">{cert.issuer}</div>
+                                        <div className="font-semibold text-lg text-gray-900 dark:text-white">{cert.title}</div>
+                                        <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">{cert.issuer}</div>
                                     </div>
                                     <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full whitespace-nowrap">
                                         {cert.year}
@@ -85,8 +87,10 @@ export default function Certifications() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3">Honors & Awards</h2>
-                    <p className="text-gray-600 mb-8 text-lg">Recognition and achievements</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                        Honors & Awards<span className="text-brand-accent">.</span>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">Recognition and achievements</p>
                     <div className="space-y-4">
                         {awards.map((award, idx) => (
                             <motion.div
@@ -95,12 +99,12 @@ export default function Certifications() {
                                 whileInView={{ y: 0, opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                className="p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-brand-accent"
+                                className="p-5 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-brand-accent hover:-translate-y-0.5"
                             >
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="flex-1">
-                                        <div className="font-semibold text-lg text-gray-900">{award.title}</div>
-                                        <div className="text-sm text-gray-600 mt-1">{award.description}</div>
+                                        <div className="font-semibold text-lg text-gray-900 dark:text-white">{award.title}</div>
+                                        <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">{award.description}</div>
                                     </div>
                                     <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full whitespace-nowrap">
                                         {award.year}
