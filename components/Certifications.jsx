@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 export default function Certifications() {
     const certifications = [
+        
         {
             title: 'Getting Started with Git and GitHub',
             issuer: 'IBM by Coursera',
@@ -44,6 +45,13 @@ export default function Certifications() {
             year: '2023',
             verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/BRGXTAZBUP5B',
             pdfPath: '/Technical Support Fundamentals.pdf'
+        },
+        {
+            title: 'IELTS Academic',
+            issuer: 'British Council / IDP Education',
+            year: '2025',
+            description: 'Overall Band Score: 6.5',
+            pdfPath: '/IOC-TRF.pdf'
         }
     ]
 
@@ -66,20 +74,20 @@ export default function Certifications() {
     ]
 
     return (
-        <section id="certifications" className="max-w-6xl mx-auto px-6 py-16 md:py-20 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {/* Certifications */}
+        <>
+            {/* Certifications Section */}
+            <section id="certifications" className="max-w-6xl mx-auto px-6 py-16 md:py-20 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50">
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white" id="certifications-heading">
                         Certifications<span className="text-brand-accent">.</span>
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">Professional certifications and courses</p>
-                    <div className="space-y-4">
+                    <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">Professional certifications and courses</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {certifications.map((cert, idx) => (
                             <motion.div
                                 key={idx}
@@ -93,6 +101,9 @@ export default function Certifications() {
                                     <div className="flex-1">
                                         <div className="font-semibold text-lg text-gray-900 dark:text-white">{cert.title}</div>
                                         <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">{cert.issuer}</div>
+                                        {cert.description && (
+                                            <div className="text-sm text-brand-primary dark:text-brand-accent font-medium mt-1">{cert.description}</div>
+                                        )}
                                         <div className="flex gap-3 mt-3">
                                             {cert.verifyUrl && (
                                                 <Link
@@ -100,8 +111,9 @@ export default function Certifications() {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-xs font-medium text-brand-primary hover:text-brand-accent transition-colors flex items-center gap-1"
+                                                    aria-label={`Verify ${cert.title} certificate`}
                                                 >
-                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                                     </svg>
                                                     Verify
@@ -113,8 +125,9 @@ export default function Certifications() {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-xs font-medium text-brand-primary hover:text-brand-accent transition-colors flex items-center gap-1"
+                                                    aria-label={`Download ${cert.title} certificate PDF`}
                                                 >
-                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                                     </svg>
                                                     PDF
@@ -122,7 +135,7 @@ export default function Certifications() {
                                             )}
                                         </div>
                                     </div>
-                                    <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full whitespace-nowrap">
+                                    <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0">
                                         {cert.year}
                                     </span>
                                 </div>
@@ -130,19 +143,21 @@ export default function Certifications() {
                         ))}
                     </div>
                 </motion.div>
+            </section>
 
-                {/* Awards */}
+            {/* Honors & Awards Section */}
+            <section id="awards" className="max-w-6xl mx-auto px-6 py-16 md:py-20 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50">
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white" id="awards-heading">
                         Honors & Awards<span className="text-brand-accent">.</span>
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">Recognition and achievements</p>
-                    <div className="space-y-4">
+                    <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">Recognition and achievements</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {awards.map((award, idx) => (
                             <motion.div
                                 key={idx}
@@ -152,12 +167,12 @@ export default function Certifications() {
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                                 className="p-5 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-brand-accent hover:-translate-y-0.5"
                             >
-                                <div className="flex items-start justify-between gap-3">
+                                <div className="flex flex-col gap-3">
                                     <div className="flex-1">
                                         <div className="font-semibold text-lg text-gray-900 dark:text-white">{award.title}</div>
                                         <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">{award.description}</div>
                                     </div>
-                                    <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full whitespace-nowrap">
+                                    <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full whitespace-nowrap self-start">
                                         {award.year}
                                     </span>
                                 </div>
@@ -165,8 +180,8 @@ export default function Certifications() {
                         ))}
                     </div>
                 </motion.div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 }
 

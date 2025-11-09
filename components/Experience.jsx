@@ -27,14 +27,14 @@ export default function Experience() {
         }
     ]
     return (
-        <section id="experience" className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <section id="experience" className="max-w-6xl mx-auto px-6 py-16 md:py-20" aria-labelledby="experience-heading">
             <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                <h2 id="experience-heading" className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
                     Work Experience<span className="text-brand-accent">.</span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">My professional journey building innovative solutions</p>

@@ -10,7 +10,7 @@ export default function Hero() {
     const [imageError, setImageError] = useState(false)
     
     return (
-        <header className="max-w-6xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
+        <header className="max-w-6xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20" role="banner">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 {/* Left Column - Profile & Info */}
                 <div className="order-2 md:order-1">
@@ -137,16 +137,29 @@ export default function Hero() {
                         >
                             <a 
                                 href="#contact" 
-                                className="px-6 py-3 rounded-lg bg-brand-primary dark:bg-brand-accent text-white hover:bg-brand-accent dark:hover:bg-blue-500 transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
+                                className="px-6 py-3 rounded-lg bg-brand-primary dark:bg-brand-accent text-white hover:bg-brand-accent dark:hover:bg-blue-500 transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2"
+                                aria-label="Navigate to contact section"
                             >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                 </svg>
                                 Contact Me
                             </a>
                             <a 
+                                href="/Md_Fayaj_Nakib.pdf" 
+                                download="Md_Fayaj_Nakib.pdf"
+                                className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 font-medium flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2"
+                                aria-label="Download resume PDF"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Download Resume
+                            </a>
+                            <a 
                                 href="#projects" 
-                                className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 font-medium"
+                                className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2"
+                                aria-label="Navigate to projects section"
                             >
                                 View My Work
                             </a>

@@ -54,14 +54,14 @@ export default function Projects() {
         }
     ]
     return (
-        <section id="projects" className="max-w-6xl mx-auto px-6 py-16 md:py-20 bg-gradient-to-b from-transparent to-gray-50/30">
+        <section id="projects" className="max-w-6xl mx-auto px-6 py-16 md:py-20 bg-gradient-to-b from-transparent to-gray-50/30" aria-labelledby="projects-heading">
             <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
+                <h2 id="projects-heading" className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
                     Featured Projects<span className="text-brand-accent">.</span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">A selection of my recent work building scalable web applications and innovative solutions</p>

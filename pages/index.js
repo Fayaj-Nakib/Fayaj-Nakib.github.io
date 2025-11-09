@@ -1,20 +1,23 @@
+import dynamic from 'next/dynamic'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
-import Experience from '../components/Experience'
-import Projects from '../components/Projects'
-import WhatIDo from '../components/WhatIDo'
-import TechnicalOverview from '../components/TechnicalOverview'
-import SkillsNew from '../components/SkillsNew'
-import Education from '../components/Education'
-import Certifications from '../components/Certifications'
-import Contact from '../components/Contact'
-import CallToAction from '../components/CallToAction'
+
+// Lazy load components below the fold for better performance
+const WhatIDo = dynamic(() => import('../components/WhatIDo'), { ssr: true })
+const Experience = dynamic(() => import('../components/Experience'), { ssr: true })
+const Projects = dynamic(() => import('../components/Projects'), { ssr: true })
+const TechnicalOverview = dynamic(() => import('../components/TechnicalOverview'), { ssr: true })
+const SkillsNew = dynamic(() => import('../components/SkillsNew'), { ssr: true })
+const Education = dynamic(() => import('../components/Education'), { ssr: true })
+const Certifications = dynamic(() => import('../components/Certifications'), { ssr: true })
+const Contact = dynamic(() => import('../components/Contact'), { ssr: true })
+const CallToAction = dynamic(() => import('../components/CallToAction'), { ssr: true })
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Nav />
-      <main>
+      <main role="main">
         <Hero />
         <WhatIDo />
         <Experience />

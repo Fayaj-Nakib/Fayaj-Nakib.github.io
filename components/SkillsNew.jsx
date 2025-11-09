@@ -67,7 +67,7 @@ export default function SkillsNew() {
         {
             title: 'Language',
             skills: [
-                { name: 'English (Fluent) - IELTS 6.5', icon: 'fa-solid fa-language', pdf: '/IOC-TRF.pdf' },
+                { name: 'English (Fluent)', icon: 'fa-solid fa-language' },
                 { name: 'Bengali (Native)', icon: 'fa-solid fa-language' }
             ]
         },
