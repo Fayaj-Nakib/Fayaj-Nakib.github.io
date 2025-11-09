@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Skills() {
     const skillCategories = [
@@ -12,19 +13,30 @@ export default function Skills() {
         },
         {
             title: 'Backend Development',
-            skills: ['Laravel', 'Django', 'REST APIs', 'Node.js']
+            skills: ['Laravel', 'Django', 'REST APIs']
         },
         {
             title: 'Databases',
             skills: ['PostgreSQL', 'MySQL', 'SQLite', 'Firebase']
         },
         {
-            title: 'Data Science & ML',
-            skills: ['TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy', 'SVM', 'Matplotlib']
+            title: 'Data Science & Machine Learning',
+            skills: ['TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib', 'Support Vector Machine (SVM)']
         },
         {
             title: 'Tools & Platforms',
-            skills: ['Git', 'Docker', 'GitHub Actions', 'VS Code', 'Postman', 'Vercel', 'Linux']
+            skills: ['Git', 'Docker', 'VS Code', 'Postman', 'Vercel', 'GitHub Actions', 'Linux', 'draw.io', 'Trello', 'Taiga']
+        },
+        {
+            title: 'Language',
+            skills: [
+                { name: 'English (Fluent) - IELTS 6.5', pdf: '/IOC-TRF.pdf' },
+                'Bengali (Native)'
+            ]
+        },
+        {
+            title: 'Soft Skills',
+            skills: ['Problem-Solving', 'Teamwork', 'Communication', 'Critical Thinking']
         }
     ]
 
@@ -50,14 +62,32 @@ export default function Skills() {
                         >
                             <h3 className="font-semibold text-lg mb-4 text-brand-primary">{category.title}</h3>
                             <div className="flex flex-wrap gap-2">
-                                {category.skills.map((skill, i) => (
-                                    <span
-                                        key={i}
-                                        className="px-3 py-1.5 text-sm bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 text-brand-primary rounded-lg font-medium border border-brand-primary/20"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
+                                {category.skills.map((skill, i) => {
+                                    const skillName = typeof skill === 'object' ? skill.name : skill
+                                    const skillPdf = typeof skill === 'object' ? skill.pdf : null
+                                    
+                                    return (
+                                        <span
+                                            key={i}
+                                            className="px-3 py-1.5 text-sm bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 text-brand-primary rounded-lg font-medium border border-brand-primary/20 flex items-center gap-1.5"
+                                        >
+                                            {skillName}
+                                            {skillPdf && (
+                                                <Link
+                                                    href={skillPdf}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="hover:text-brand-accent transition-colors"
+                                                    title="View IELTS TRF"
+                                                >
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                                    </svg>
+                                                </Link>
+                                            )}
+                                        </span>
+                                    )
+                                })}
                             </div>
                         </motion.div>
                     ))}
