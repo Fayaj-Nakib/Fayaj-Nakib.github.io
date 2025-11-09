@@ -12,7 +12,8 @@ export default function WhatIDo() {
             ),
             title: 'Full-stack Web Development',
             description: 'Build scalable web applications using modern frameworks and best practices.',
-            metric: '⚡ Production-ready deployments',
+            metric: 'Production-ready deployments',
+            metricIcon: 'fa-solid fa-bolt',
             tags: ['Next.js', 'Laravel', 'React', 'PostgreSQL']
         },
         {
@@ -23,7 +24,8 @@ export default function WhatIDo() {
             ),
             title: 'Backend Architecture',
             description: 'Design and implement robust APIs and microservices that handle high traffic.',
-            metric: '⚡ Scalable & secure APIs',
+            metric: 'Scalable & secure APIs',
+            metricIcon: 'fa-solid fa-bolt',
             tags: ['REST APIs', 'PostgreSQL', 'Laravel', 'Node.js']
         },
         {
@@ -34,7 +36,8 @@ export default function WhatIDo() {
             ),
             title: 'CI/CD & DevOps',
             description: 'Automated deployment pipelines and cloud infrastructure for optimal performance.',
-            metric: '⚡ 50% faster deployments',
+            metric: '50% faster deployments',
+            metricIcon: 'fa-solid fa-bolt',
             tags: ['GitHub Actions', 'Docker', 'Linux', 'Vercel']
         },
         {
@@ -45,7 +48,8 @@ export default function WhatIDo() {
             ),
             title: 'Database Design & Optimization',
             description: 'Efficient database schemas and query optimization for performance.',
-            metric: '⚡ Optimized queries',
+            metric: 'Optimized queries',
+            metricIcon: 'fa-solid fa-bolt',
             tags: ['PostgreSQL', 'MySQL', 'Database Design', 'SQL']
         }
     ]
@@ -83,7 +87,8 @@ export default function WhatIDo() {
                                     <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">{service.title}</h3>
                                     <p className="text-gray-600 dark:text-gray-400 mb-3 text-sm leading-relaxed">{service.description}</p>
                                     <div className="flex items-center gap-2 mb-3 text-sm text-brand-primary dark:text-brand-accent font-medium">
-                                        {service.metric}
+                                        {service.metricIcon && <i className={`${service.metricIcon} flex-shrink-0`}></i>}
+                                        <span>{service.metric}</span>
                                     </div>
                                     <div className="flex flex-wrap gap-2">
                                         {service.tags.map((tag, i) => (

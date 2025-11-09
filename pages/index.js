@@ -74,7 +74,7 @@ export default function Home() {
           </div>
           <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center text-sm text-gray-600 dark:text-gray-400">
             <p>© {new Date().getFullYear()} Fayaj Nakib. All rights reserved.</p>
-            <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Built with React, Tailwind CSS and ❤️</p>
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Built with React, Tailwind CSS</p>
           </div>
         </div>
       </footer>

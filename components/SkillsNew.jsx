@@ -7,59 +7,59 @@ export default function SkillsNew() {
         {
             title: 'Programming Languages',
             skills: [
-                { name: 'Python', icon: '🐍' },
-                { name: 'JavaScript', icon: '📜' },
-                { name: 'TypeScript', icon: '📘' },
-                { name: 'C/C++', icon: '⚙️' },
-                { name: 'Java', icon: '☕' }
+                { name: 'Python', icon: 'fa-brands fa-python' },
+                { name: 'JavaScript', icon: 'fa-brands fa-js' },
+                { name: 'TypeScript', icon: 'fa-brands fa-js-square' },
+                { name: 'C/C++', icon: 'devicon-cplusplus-plain' },
+                { name: 'Java', icon: 'fa-brands fa-java' }
             ]
         },
         {
             title: 'Frontend Technologies',
             skills: [
-                { name: 'React', icon: '⚛️' },
-                { name: 'Next.js', icon: '▲' },
-                { name: 'Tailwind CSS', icon: '🎨' },
-                { name: 'HTML/CSS', icon: '🌐' }
+                { name: 'React', icon: 'fa-brands fa-react' },
+                { name: 'Next.js', icon: 'fa-solid fa-code' },
+                { name: 'Tailwind CSS', icon: 'fa-solid fa-paintbrush' },
+                { name: 'HTML/CSS', icon: 'fa-brands fa-html5' }
             ]
         },
         {
             title: 'Backend Frameworks',
             skills: [
-                { name: 'Laravel', icon: '🔴' },
-                { name: 'Django', icon: '🐍' },
-                { name: 'FastAPI', icon: '⚡' },
-                { name: 'Node.js', icon: '🟢' },
-                { name: 'Express.js', icon: '🚂' }
+                { name: 'Laravel', icon: 'fa-brands fa-laravel' },
+                { name: 'Django', icon: 'fa-brands fa-python' },
+                { name: 'FastAPI', icon: 'fa-solid fa-bolt' },
+                { name: 'Node.js', icon: 'fa-brands fa-node-js' },
+                { name: 'Express.js', icon: 'fa-solid fa-server' }
             ]
         },
         {
             title: 'Databases',
             skills: [
-                { name: 'PostgreSQL', icon: '🐘' },
-                { name: 'MySQL', icon: '🐬' },
-                { name: 'SQLite', icon: '💾' },
-                { name: 'Firebase', icon: '🔥' },
-                { name: 'Redis', icon: '📦' }
+                { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
+                { name: 'MySQL', icon: 'devicon-mysql-plain' },
+                { name: 'SQLite', icon: 'devicon-sqlite-plain' },
+                { name: 'Firebase', icon: 'fa-solid fa-fire' },
+                { name: 'Redis', icon: 'fa-solid fa-database' }
             ]
         },
         {
             title: 'DevOps & Tools',
             skills: [
-                { name: 'Git', icon: '📚' },
-                { name: 'Docker', icon: '🐳' },
-                { name: 'GitHub Actions', icon: '⚙️' },
-                { name: 'VS Code', icon: '💻' },
-                { name: 'Linux', icon: '🐧' }
+                { name: 'Git', icon: 'fa-brands fa-git-alt' },
+                { name: 'Docker', icon: 'fa-brands fa-docker' },
+                { name: 'GitHub Actions', icon: 'fa-brands fa-github' },
+                { name: 'VS Code', icon: 'fa-solid fa-code' },
+                { name: 'Linux', icon: 'fa-brands fa-linux' }
             ]
         },
         {
             title: 'Data Science & ML',
             skills: [
-                { name: 'TensorFlow', icon: '🧠' },
-                { name: 'Scikit-learn', icon: '🔬' },
-                { name: 'Pandas', icon: '🐼' },
-                { name: 'NumPy', icon: '🔢' }
+                { name: 'TensorFlow', icon: 'devicon-tensorflow-original' },
+                { name: 'Scikit-learn', icon: 'devicon-scikitlearn-plain' },
+                { name: 'Pandas', icon: 'devicon-pandas-original' },
+                { name: 'NumPy', icon: 'devicon-numpy-original' }
             ]
         }
     ]
@@ -95,7 +95,7 @@ export default function SkillsNew() {
                                             whileHover={{ scale: 1.05 }}
                                             className="p-3 bg-white dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-brand-primary dark:hover:border-brand-accent transition-all cursor-pointer flex items-center gap-2"
                                         >
-                                            <span className="text-lg">{skill.icon}</span>
+                                            <i className={`${skill.icon} text-brand-primary dark:text-brand-accent flex-shrink-0`}></i>
                                             <span className="text-xs font-medium text-gray-900 dark:text-white">{skill.name}</span>
                                         </motion.div>
                                     ))}
