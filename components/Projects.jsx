@@ -33,10 +33,10 @@ export default function Projects() {
         },
         { 
             title: 'Self Portfolio', 
-            desc: 'Created a personal portfolio website to showcase skills and projects with modern design and responsive layout.', 
-            tags: ['JavaScript', 'CSS', 'HTML', 'PHP', 'Django'], 
-            github: '',
-            year: '2023'
+            desc: 'A modern, responsive portfolio website showcasing my skills, projects, and experience. Built with Next.js and featuring smooth animations, dark mode, and a clean, professional design.', 
+            tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'], 
+            github: 'https://github.com/Fayaj-Nakib/Fayaj-Nakib.github.io',
+            year: '2025'
         },
         { 
             title: 'Automobile Shop Database', 
