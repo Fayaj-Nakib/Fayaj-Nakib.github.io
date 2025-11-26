@@ -1,4 +1,4 @@
-# 📌 Fayaj Nakib — Personal Portfolio Website
+# 📌 Fayaj Nakib —  Portfolio Website
 
 ## 📍 Overview
 
