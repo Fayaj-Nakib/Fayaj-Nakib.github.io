@@ -460,7 +460,7 @@ function renderProjects() {
             <button onclick="moveItem('projects', ${i}, 1)" ${i===items.length-1?'disabled':''} title="Move down">▼</button>
           </div>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(p).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${jsonAttr(p)})">${editing ? 'Cancel' : 'Edit'}</button>
             <button class="btn btn-danger btn-sm" onclick="deleteItem('projects', ${i})">Delete</button>
           </div>
         </div>
@@ -565,7 +565,7 @@ function renderSkills() {
             <button onclick="moveItem('skills', ${i}, 1)" ${i===categories.length-1?'disabled':''} title="Move down">▼</button>
           </div>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(cat).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${jsonAttr(cat)})">${editing ? 'Cancel' : 'Edit'}</button>
             <button class="btn btn-danger btn-sm" onclick="deleteItem('skills', ${i})">Delete</button>
           </div>
         </div>
@@ -693,7 +693,7 @@ function renderExperience() {
             <button onclick="moveItem('experience', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
           </div>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(it).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${jsonAttr(it)})">${editing ? 'Cancel' : 'Edit'}</button>
             <button class="btn btn-danger btn-sm" onclick="deleteItem('experience', ${i})">Delete</button>
           </div>
         </div>
@@ -819,7 +819,7 @@ function renderEducation() {
             <button onclick="moveItem('education', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
           </div>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(edu).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${jsonAttr(edu)})">${editing ? 'Cancel' : 'Edit'}</button>
             <button class="btn btn-danger btn-sm" onclick="deleteItem('education', ${i})">Delete</button>
           </div>
         </div>
@@ -925,7 +925,7 @@ function renderCertifications() {
               <button onclick="moveCertItem('certifications', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
             </div>
             <div class="card-actions">
-              <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(c).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+              <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${jsonAttr(c)})">${editing ? 'Cancel' : 'Edit'}</button>
               <button class="btn btn-danger btn-sm" onclick="deleteCertItem('certifications', ${i})">Delete</button>
             </div>
           </div>
@@ -971,7 +971,7 @@ function renderCertifications() {
               <button onclick="moveCertItem('awards', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
             </div>
             <div class="card-actions">
-              <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(a).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+              <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${jsonAttr(a)})">${editing ? 'Cancel' : 'Edit'}</button>
               <button class="btn btn-danger btn-sm" onclick="deleteCertItem('awards', ${i})">Delete</button>
             </div>
           </div>
@@ -1008,7 +1008,7 @@ function certForm(key, data) {
         <div style="display:flex;gap:8px;align-items:center;">
           <input id="${key}-pdfPath" value="${esc(data.pdfPath||'')}" placeholder="/Certificate Name.pdf" style="flex:1;min-width:0;" />
           <label class="btn btn-ghost" style="cursor:pointer;white-space:nowrap;padding:6px 12px;font-size:12px;" title="Upload PDF to /public">
-            Upload PDF
+            <span>Upload PDF</span>
             <input type="file" accept=".pdf" style="display:none;" onchange="uploadFile(this,'${key}-pdfPath')" />
           </label>
         </div>
@@ -1105,14 +1105,15 @@ async function moveCertItem(sub, idx, dir) {
 //  SHARED CRUD helpers
 // ════════════════════════════════════════════════════════════
 function toggleEdit(key, data) {
-  // Parse data if it's a string (from HTML attribute)
   const parsed = typeof data === 'string' ? JSON.parse(data) : data
   if (editState[key]) {
     delete editState[key]
   } else {
-    // Close all others in same section
+    // Close all others in same section prefix (e.g. "projects-", "certifications-cert-")
+    // Use the full prefix up to the last "-" segment that holds the index
+    const prefix = key.replace(/-\d+$/, '-').replace(/-new$/, '-')
     Object.keys(editState).forEach(k => {
-      if (k.startsWith(key.split('-')[0])) delete editState[k]
+      if (k.startsWith(prefix)) delete editState[k]
     })
     editState[key] = parsed
   }
@@ -1168,8 +1169,9 @@ async function uploadFile(inputEl, targetFieldId) {
   if (!file) return
 
   const label = inputEl.closest('label')
-  const originalText = label.childNodes[0].textContent.trim()
-  label.childNodes[0].textContent = 'Uploading…'
+  const span   = label.querySelector('span')
+  const originalText = span.textContent
+  span.textContent = 'Uploading…'
   label.style.opacity = '0.6'
   label.style.pointerEvents = 'none'
 
@@ -1183,20 +1185,20 @@ async function uploadFile(inputEl, targetFieldId) {
     if (!res.ok || !data.path) throw new Error(data.error || 'Upload failed')
 
     document.getElementById(targetFieldId).value = data.path
-    label.childNodes[0].textContent = '✓ Uploaded'
+    span.textContent = '✓ Uploaded'
     label.style.color = 'var(--success)'
     setTimeout(() => {
-      label.childNodes[0].textContent = originalText
+      span.textContent = originalText
       label.style.opacity = ''
       label.style.pointerEvents = ''
       label.style.color = ''
       inputEl.value = ''
     }, 2500)
   } catch (err) {
-    label.childNodes[0].textContent = '✗ Failed'
+    span.textContent = '✗ Failed'
     label.style.color = 'var(--danger)'
     setTimeout(() => {
-      label.childNodes[0].textContent = originalText
+      span.textContent = originalText
       label.style.opacity = ''
       label.style.pointerEvents = ''
       label.style.color = ''
@@ -1221,6 +1223,17 @@ function esc(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;')
+}
+
+// Safely embed a JS object as an HTML attribute value for onclick handlers.
+// Escapes &, <, >, " so the attribute is valid HTML and the browser
+// decodes it back to a proper JS object literal when the event fires.
+function jsonAttr(obj) {
+  return JSON.stringify(obj)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
 }
 
 // ════════════════════════════════════════════════════════════
