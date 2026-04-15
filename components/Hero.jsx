@@ -1,9 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import TypingEffect from './TypingEffect'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import projectsData   from '@/data/projects.json'
 import experienceData from '@/data/experience.json'
 
@@ -46,6 +46,49 @@ function calcStats() {
     ]
 }
 
+// ── Animated count-up for a numeric prefix ──
+function useCountUp(target, isInView) {
+    const [display, setDisplay] = useState('0')
+
+    useEffect(() => {
+        if (!isInView) return
+        // Extract numeric part and suffix (e.g. "2+" → num=2, suffix="+")
+        const match = String(target).match(/^(\d+)(.*)$/)
+        if (!match) { setDisplay(target); return }
+        const num    = parseInt(match[1], 10)
+        const suffix = match[2] || ''
+        if (num === 0) { setDisplay(target); return }
+
+        let start = null
+        const duration = 900
+        const step = (timestamp) => {
+            if (!start) start = timestamp
+            const elapsed  = timestamp - start
+            const progress = Math.min(elapsed / duration, 1)
+            // Ease out cubic
+            const eased    = 1 - Math.pow(1 - progress, 3)
+            const current  = Math.round(eased * num)
+            setDisplay(`${current}${suffix}`)
+            if (progress < 1) requestAnimationFrame(step)
+        }
+        requestAnimationFrame(step)
+    }, [isInView, target])
+
+    return display
+}
+
+function StatItem({ value, label }) {
+    const ref     = useRef(null)
+    const inView  = useInView(ref, { once: true, margin: '-40px' })
+    const display = useCountUp(value, inView)
+    return (
+        <div ref={ref}>
+            <div className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{display}</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-medium">{label}</div>
+        </div>
+    )
+}
+
 export default function Hero() {
     const roles = ['Full-stack Developer', 'Software Engineer', 'Problem Solver']
     const [imageError, setImageError] = useState(false)
@@ -64,7 +107,7 @@ export default function Hero() {
             fill: true,
         },
         {
-            href: 'https://www.linkedin.com/in/fayaj-nakib/',
+            href: 'https://www.linkedin.com/in/fayajnakib/',
             label: 'LinkedIn',
             icon: (
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -162,10 +205,7 @@ export default function Hero() {
                     <motion.div {...fadeUp(0.3)} className="pt-5 border-t border-gray-100 dark:border-gray-800">
                         <div className="flex gap-8">
                             {stats.map((s, i) => (
-                                <div key={i}>
-                                    <div className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{s.value}</div>
-                                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-medium">{s.label}</div>
-                                </div>
+                                <StatItem key={i} value={s.value} label={s.label} />
                             ))}
                         </div>
                     </motion.div>

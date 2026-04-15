@@ -4,6 +4,7 @@
     "skills": [
       { "name": "Python", "icon": "fa-brands fa-python" },
       { "name": "JavaScript", "icon": "fa-brands fa-js" },
+      { "name": "PHP", "icon": "fa-brands fa-php" },
       { "name": "C/C++", "icon": "devicon-cplusplus-plain" },
       { "name": "Java", "icon": "fa-brands fa-java" }
     ]
@@ -21,6 +22,8 @@
     "title": "Backend Development",
     "skills": [
       { "name": "Laravel", "icon": "fa-brands fa-laravel" },
+      { "name": "Laravel Queues", "icon": "fa-solid fa-layer-group" },
+      { "name": "JWT / Sanctum Auth", "icon": "fa-solid fa-shield-halved" },
       { "name": "Django", "icon": "fa-brands fa-python" },
       { "name": "REST APIs", "icon": "fa-solid fa-server" }
     ]
@@ -50,19 +53,28 @@
     "skills": [
       { "name": "Git", "icon": "fa-brands fa-git-alt" },
       { "name": "Docker", "icon": "fa-brands fa-docker" },
-      { "name": "VS Code", "icon": "fa-solid fa-code" },
-      { "name": "Postman", "icon": "fa-solid fa-paper-plane" },
-      { "name": "Vercel", "icon": "fa-solid fa-rocket" },
       { "name": "GitHub Actions", "icon": "fa-brands fa-github" },
       { "name": "Linux", "icon": "fa-brands fa-linux" },
+      { "name": "Postman", "icon": "fa-solid fa-paper-plane" },
+      { "name": "VS Code", "icon": "fa-solid fa-code" },
+      { "name": "Vercel", "icon": "fa-solid fa-rocket" },
       { "name": "Taiga", "icon": "fa-solid fa-list-check" }
+    ]
+  },
+  {
+    "title": "Security & Practices",
+    "skills": [
+      { "name": "Application Security", "icon": "fa-solid fa-lock" },
+      { "name": "Agile / Scrum", "icon": "fa-solid fa-arrows-spin" }
     ]
   },
   {
     "title": "Language",
     "skills": [
       { "name": "English (Fluent)", "icon": "fa-solid fa-language" },
-      { "name": "Bengali (Native)", "icon": "fa-solid fa-language" }
+      { "name": "Bengali (Native)", "icon": "fa-solid fa-language" },
+      { "name": "Japanese (Elementary)", "icon": "fa-solid fa-language" },
+      { "name": "German (Elementary)", "icon": "fa-solid fa-language" }
     ]
   },
   {

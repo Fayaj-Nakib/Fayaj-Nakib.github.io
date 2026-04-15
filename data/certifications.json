@@ -1,6 +1,30 @@
 {
   "certifications": [
     {
+      "title": "Introduction to DevOps",
+      "issuer": "IBM by Coursera",
+      "year": "2026",
+      "verifyUrl": "",
+      "pdfPath": "",
+      "description": ""
+    },
+    {
+      "title": "Hands-on Introduction to Linux Commands and Shell Scripting",
+      "issuer": "IBM by Coursera",
+      "year": "2026",
+      "verifyUrl": "",
+      "pdfPath": "",
+      "description": ""
+    },
+    {
+      "title": "Introduction to Software Engineering",
+      "issuer": "IBM by Coursera",
+      "year": "2025",
+      "verifyUrl": "",
+      "pdfPath": "",
+      "description": ""
+    },
+    {
       "title": "Getting Started with Git and GitHub",
       "issuer": "IBM by Coursera",
       "year": "2025",
@@ -15,6 +39,14 @@
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/BAX7ZV95RF5S",
       "pdfPath": "/Computer Vision YOLO Custom Object Detection with Colab GPU.pdf",
       "description": ""
+    },
+    {
+      "title": "IELTS Academic",
+      "issuer": "British Council / IDP Education",
+      "year": "2025",
+      "verifyUrl": "",
+      "pdfPath": "/IOC-TRF.pdf",
+      "description": "Overall Band Score: 6.5"
     },
     {
       "title": "Neural Networks and Deep Learning",
@@ -47,14 +79,6 @@
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/BRGXTAZBUP5B",
       "pdfPath": "/Technical Support Fundamentals.pdf",
       "description": ""
-    },
-    {
-      "title": "IELTS Academic",
-      "issuer": "British Council / IDP Education",
-      "year": "2025",
-      "verifyUrl": "",
-      "pdfPath": "/IOC-TRF.pdf",
-      "description": "Overall Band Score: 6.5"
     }
   ],
   "awards": [
@@ -72,6 +96,16 @@
       "title": "Photography Awards",
       "description": "Won 1st Prize in Mobile Category (Bangladesh Youth Club) and Champion in UAP Diary Segment",
       "year": "2022"
+    },
+    {
+      "title": "ICPC Volunteer",
+      "description": "Volunteered at the International Collegiate Programming Contest (ICPC) — supported event logistics and contestant coordination",
+      "year": "2023"
+    },
+    {
+      "title": "UAP Film Club — Leadership",
+      "description": "Served in a leadership role at the UAP Film Club, organizing events and managing club activities",
+      "year": "2022–2023"
     }
   ]
 }

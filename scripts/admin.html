@@ -1004,8 +1004,14 @@ function certForm(key, data) {
         <input id="${key}-verifyUrl" value="${esc(data.verifyUrl||'')}" placeholder="https://www.coursera.org/account/accomplishments/verify/..." />
       </div>
       <div class="form-group">
-        <label>PDF Path <span class="form-hint">(file in /public)</span></label>
-        <input id="${key}-pdfPath" value="${esc(data.pdfPath||'')}" placeholder="/Certificate Name.pdf" />
+        <label>PDF File <span class="form-hint">(upload or type path)</span></label>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input id="${key}-pdfPath" value="${esc(data.pdfPath||'')}" placeholder="/Certificate Name.pdf" style="flex:1;min-width:0;" />
+          <label class="btn btn-ghost" style="cursor:pointer;white-space:nowrap;padding:6px 12px;font-size:12px;" title="Upload PDF to /public">
+            Upload PDF
+            <input type="file" accept=".pdf" style="display:none;" onchange="uploadFile(this,'${key}-pdfPath')" />
+          </label>
+        </div>
       </div>
       <div class="form-group">
         <label>Extra Note <span class="form-hint">(optional)</span></label>
@@ -1155,6 +1161,51 @@ async function persist(section, newData) {
 }
 
 // ════════════════════════════════════════════════════════════
+//  File Upload
+// ════════════════════════════════════════════════════════════
+async function uploadFile(inputEl, targetFieldId) {
+  const file = inputEl.files[0]
+  if (!file) return
+
+  const label = inputEl.closest('label')
+  const originalText = label.childNodes[0].textContent.trim()
+  label.childNodes[0].textContent = 'Uploading…'
+  label.style.opacity = '0.6'
+  label.style.pointerEvents = 'none'
+
+  try {
+    const form = new FormData()
+    form.append('file', file, file.name)
+
+    const res  = await fetch('/api/upload', { method: 'POST', body: form })
+    const data = await res.json()
+
+    if (!res.ok || !data.path) throw new Error(data.error || 'Upload failed')
+
+    document.getElementById(targetFieldId).value = data.path
+    label.childNodes[0].textContent = '✓ Uploaded'
+    label.style.color = 'var(--success)'
+    setTimeout(() => {
+      label.childNodes[0].textContent = originalText
+      label.style.opacity = ''
+      label.style.pointerEvents = ''
+      label.style.color = ''
+      inputEl.value = ''
+    }, 2500)
+  } catch (err) {
+    label.childNodes[0].textContent = '✗ Failed'
+    label.style.color = 'var(--danger)'
+    setTimeout(() => {
+      label.childNodes[0].textContent = originalText
+      label.style.opacity = ''
+      label.style.pointerEvents = ''
+      label.style.color = ''
+      inputEl.value = ''
+    }, 2500)
+    console.error('Upload error:', err)
+  }
+}
+
 //  Utilities
 // ════════════════════════════════════════════════════════════
 function v(id) {

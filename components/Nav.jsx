@@ -5,12 +5,12 @@ export default function Nav() {
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const [progress, setProgress] = useState(0)
+    const [activeSection, setActiveSection] = useState('')
 
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY
             setScrolled(scrollY > 20)
-
             const docHeight = document.documentElement.scrollHeight - window.innerHeight
             setProgress(docHeight > 0 ? (scrollY / docHeight) * 100 : 0)
         }
@@ -18,16 +18,38 @@ export default function Nav() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    useEffect(() => {
+        const sectionIds = ['projects', 'experience', 'skills', 'education', 'certifications']
+        const observers = []
+
+        sectionIds.forEach((id) => {
+            const el = document.getElementById(id)
+            if (!el) return
+            const obs = new IntersectionObserver(
+                ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
+                { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+            )
+            obs.observe(el)
+            observers.push(obs)
+        })
+
+        return () => observers.forEach((o) => o.disconnect())
+    }, [])
+
     const navLinks = [
-        { href: '#projects',       label: 'Projects' },
-        { href: '#experience',     label: 'Experience' },
-        { href: '#skills',         label: 'Skills' },
-        { href: '#education',      label: 'Education' },
-        { href: '#certifications', label: 'Certifications' },
+        { href: '#projects',       label: 'Projects',       id: 'projects' },
+        { href: '#experience',     label: 'Experience',     id: 'experience' },
+        { href: '#skills',         label: 'Skills',         id: 'skills' },
+        { href: '#education',      label: 'Education',      id: 'education' },
+        { href: '#certifications', label: 'Certifications', id: 'certifications' },
     ]
 
-    const linkClass =
-        'px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-1'
+    const linkClass = (id) =>
+        `px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-1 ${
+            activeSection === id
+                ? 'text-brand-primary dark:text-brand-accent bg-blue-50 dark:bg-blue-950/30'
+                : 'text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-blue-50 dark:hover:bg-blue-950/30'
+        }`
 
     return (
         <nav
@@ -66,7 +88,7 @@ export default function Nav() {
                 {/* Desktop links */}
                 <div className="hidden md:flex items-center gap-1">
                     {navLinks.map((link) => (
-                        <a key={link.href} href={link.href} className={linkClass}>
+                        <a key={link.href} href={link.href} className={linkClass(link.id)}>
                             {link.label}
                         </a>
                     ))}
@@ -118,7 +140,11 @@ export default function Nav() {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors"
+                                className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                                    activeSection === link.id
+                                        ? 'text-brand-primary dark:text-brand-accent bg-blue-50 dark:bg-blue-950/30'
+                                        : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-blue-50 dark:hover:bg-blue-950/30'
+                                }`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.label}

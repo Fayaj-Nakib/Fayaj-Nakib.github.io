@@ -1,10 +1,16 @@
+'use client'
+
 import { motion } from 'framer-motion'
+import { useState } from 'react'
+
+const EMAIL = 'nakibfayaj99@gmail.com'
 
 const contactDetails = [
     {
         label: 'Email',
-        value: 'nakibfayaj99@gmail.com',
-        href: 'mailto:nakibfayaj99@gmail.com',
+        value: EMAIL,
+        href: `mailto:${EMAIL}`,
+        copyable: true,
         icon: (
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -23,8 +29,8 @@ const contactDetails = [
     },
     {
         label: 'LinkedIn',
-        value: 'linkedin.com/in/fayaj-nakib',
-        href: 'https://www.linkedin.com/in/fayaj-nakib/',
+        value: 'linkedin.com/in/fayajnakib',
+        href: 'https://www.linkedin.com/in/fayajnakib/',
         external: true,
         icon: (
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -60,6 +66,15 @@ const inputClass =
     'w-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500'
 
 export default function Contact() {
+    const [copied, setCopied] = useState(false)
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText(EMAIL).then(() => {
+            setCopied(true)
+            setTimeout(() => setCopied(false), 2000)
+        })
+    }
+
     return (
         <section id="contact" className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <motion.div
@@ -100,7 +115,7 @@ export default function Contact() {
                                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/50 text-brand-primary dark:text-brand-accent border border-blue-100 dark:border-blue-900/40">
                                     {item.icon}
                                 </div>
-                                <div className="min-w-0">
+                                <div className="min-w-0 flex-1">
                                     <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-0.5">{item.label}</div>
                                     {item.href ? (
                                         <a
@@ -115,6 +130,24 @@ export default function Contact() {
                                         <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{item.value}</span>
                                     )}
                                 </div>
+                                {item.copyable && (
+                                    <button
+                                        onClick={handleCopyEmail}
+                                        title={copied ? 'Copied!' : 'Copy email'}
+                                        className="flex-shrink-0 ml-auto p-1 rounded text-gray-400 hover:text-brand-primary dark:hover:text-brand-accent transition-colors"
+                                        aria-label="Copy email address"
+                                    >
+                                        {copied ? (
+                                            <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                            </svg>
+                                        )}
+                                    </button>
+                                )}
                             </div>
                         ))}
                     </motion.div>

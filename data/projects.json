@@ -1,5 +1,12 @@
 [
   {
+    "title": "DevBoard — Developer Project & Task Tracker",
+    "desc": "A SaaS Kanban-style project and task management tool built for developer teams. Features real-time board updates, role-based access control, Docker-based deployment, and automated CI/CD pipelines.",
+    "tags": ["Laravel", "React.js", "Next.js", "MySQL", "PostgreSQL", "Docker", "GitHub Actions"],
+    "github": "",
+    "year": "2026"
+  },
+  {
     "title": "IELTS Preparation App",
     "desc": "Developed an application with reading, writing, and vocabulary modules; implemented Firebase authentication and database for seamless user experience.",
     "tags": ["React.js", "Tailwind CSS", "Firebase"],
