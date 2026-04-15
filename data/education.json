@@ -1,0 +1,23 @@
+[
+  {
+    "degree": "B.Sc.(Engg) in Computer Science and Engineering",
+    "institution": "University of Asia Pacific",
+    "period": "Jun 2020 - Jun 2024",
+    "location": "Dhaka, Bangladesh",
+    "details": "CGPA: 3.60/4.00"
+  },
+  {
+    "degree": "H.S.C: Science",
+    "institution": "Naogaon Govt. College",
+    "period": "2019",
+    "location": "Rajshahi Board",
+    "details": "Grade: 4.00/5.00"
+  },
+  {
+    "degree": "S.S.C: Science",
+    "institution": "Naogaon K.D. Govt. High School",
+    "period": "2017",
+    "location": "Rajshahi Board",
+    "details": "GPA: 5.00/5.00"
+  }
+]

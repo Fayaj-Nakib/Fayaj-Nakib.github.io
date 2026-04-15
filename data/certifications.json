@@ -1,0 +1,77 @@
+{
+  "certifications": [
+    {
+      "title": "Getting Started with Git and GitHub",
+      "issuer": "IBM by Coursera",
+      "year": "2025",
+      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/75BRNW1U70KG",
+      "pdfPath": "/Getting Started with Git and GitHub.pdf",
+      "description": ""
+    },
+    {
+      "title": "Computer Vision: YOLO Custom Object Detection with Colab GPU",
+      "issuer": "Packt by Coursera",
+      "year": "2025",
+      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/BAX7ZV95RF5S",
+      "pdfPath": "/Computer Vision YOLO Custom Object Detection with Colab GPU.pdf",
+      "description": ""
+    },
+    {
+      "title": "Neural Networks and Deep Learning",
+      "issuer": "DeepLearning.AI by Coursera",
+      "year": "2024",
+      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/8ZLFIW54ZDT2",
+      "pdfPath": "/Neural Networks and Deep Learning.pdf",
+      "description": ""
+    },
+    {
+      "title": "Supervised Machine Learning: Regression and Classification",
+      "issuer": "DeepLearning.AI by Coursera",
+      "year": "2024",
+      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/F7GZ64XVX653",
+      "pdfPath": "/Supervised Machine Learning RC.pdf",
+      "description": ""
+    },
+    {
+      "title": "Foundations of Project Management",
+      "issuer": "Google by Coursera",
+      "year": "2023",
+      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/A9LZQXEJK95Y",
+      "pdfPath": "/Foundations of Project Management.pdf",
+      "description": ""
+    },
+    {
+      "title": "Technical Support Fundamentals",
+      "issuer": "Google by Coursera",
+      "year": "2023",
+      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/BRGXTAZBUP5B",
+      "pdfPath": "/Technical Support Fundamentals.pdf",
+      "description": ""
+    },
+    {
+      "title": "IELTS Academic",
+      "issuer": "British Council / IDP Education",
+      "year": "2025",
+      "verifyUrl": "",
+      "pdfPath": "/IOC-TRF.pdf",
+      "description": "Overall Band Score: 6.5"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Vice Chancellor's and Dean's Awards",
+      "description": "Recognizing academic excellence and discipline",
+      "year": "Fall 2022, Fall 2020"
+    },
+    {
+      "title": "Intra-UAP Programming Contest",
+      "description": "Secured fourth runner-up position, solving algorithmic challenges in C++ and Python",
+      "year": "2022"
+    },
+    {
+      "title": "Photography Awards",
+      "description": "Won 1st Prize in Mobile Category (Bangladesh Youth Club) and Champion in UAP Diary Segment",
+      "year": "2022"
+    }
+  ]
+}

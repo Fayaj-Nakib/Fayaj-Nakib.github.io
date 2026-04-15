@@ -1,43 +1,29 @@
 import { motion } from 'framer-motion'
+import educationData from '@/data/education.json'
 
 export default function Education() {
-    const education = [
-        {
-            degree: 'B.Sc.(Engg) in Computer Science and Engineering',
-            institution: 'University of Asia Pacific',
-            period: 'Jun 2020 - Jun 2024',
-            location: 'Dhaka, Bangladesh',
-            details: 'CGPA: 3.60/4.00'
-        },
-        {
-            degree: 'H.S.C: Science',
-            institution: 'Naogaon Govt. College',
-            period: '2019',
-            location: 'Rajshahi Board',
-            details: 'Grade: 4.00/5.00'
-        },
-        {
-            degree: 'S.S.C: Science',
-            institution: 'Naogaon K.D. Govt. High School',
-            period: '2017',
-            location: 'Rajshahi Board',
-            details: 'GPA: 5.00/5.00'
-        }
-    ]
+    const education = educationData
 
     return (
-        <section id="education" className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <section id="education" className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-white">
-                    Education<span className="text-brand-accent">.</span>
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">Academic qualifications and educational achievements</p>
-                <div className="space-y-6">
+                {/* Section header */}
+                <div className="mb-12">
+                    <span className="section-label">05 &nbsp;·&nbsp; Education</span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                        Education<span className="text-brand-accent">.</span>
+                    </h2>
+                    <p className="mt-3 text-gray-500 dark:text-gray-400 text-base max-w-2xl">
+                        Academic qualifications and the institutions that shaped my foundation.
+                    </p>
+                </div>
+
+                <div className="space-y-4">
                     {education.map((edu, idx) => (
                         <motion.div
                             key={idx}
@@ -45,18 +31,25 @@ export default function Education() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            className="p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-md border-l-4 border-brand-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                            className="p-6 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 border-l-[3px] border-l-brand-accent shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250"
                         >
-                            <div className="flex items-start justify-between flex-wrap gap-2">
+                            <div className="flex items-start justify-between flex-wrap gap-3">
                                 <div className="flex-1">
-                                    <div className="font-bold text-xl text-gray-900 dark:text-white">{edu.degree}</div>
-                                    <div className="text-base text-gray-700 dark:text-gray-300 mt-1 font-medium">{edu.institution}</div>
-                                    <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                    <h3 className="font-bold text-base text-gray-900 dark:text-white">{edu.degree}</h3>
+                                    <div className="text-sm text-gray-600 dark:text-gray-300 font-medium mt-1">{edu.institution}</div>
+                                    <div className="text-xs text-gray-400 dark:text-gray-500 mt-1.5 flex items-center gap-2">
                                         <span>{edu.period}</span>
-                                        {edu.location && <span> • {edu.location}</span>}
+                                        {edu.location && (
+                                            <>
+                                                <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600" />
+                                                <span>{edu.location}</span>
+                                            </>
+                                        )}
                                     </div>
                                     {edu.details && (
-                                        <div className="mt-2 text-sm font-medium text-brand-primary">{edu.details}</div>
+                                        <div className="mt-2.5 inline-block text-xs font-semibold px-2.5 py-1 bg-blue-50 dark:bg-blue-950/40 text-brand-primary dark:text-blue-400 rounded-lg border border-blue-100 dark:border-blue-900/50">
+                                            {edu.details}
+                                        </div>
                                     )}
                                 </div>
                             </div>
@@ -67,4 +60,3 @@ export default function Education() {
         </section>
     )
 }
-

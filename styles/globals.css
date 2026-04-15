@@ -5,15 +5,16 @@
   --color-brand-accent: #3B82F6;
   --color-brand-bg: #F9FAFB;
   --color-brand-text: #111827;
-  
+
   --color-indigo-800: #1E3A8A;
   --color-indigo-600: #3B82F6;
 }
 
 @layer base {
   :root {
-    --bg: #F9FAFB;
-    --text: #111827;
+    --bg: #F8FAFC;
+    --surface: #FFFFFF;
+    --text: #0F172A;
     --primary: #1E3A8A;
     --accent: #3B82F6;
   }
@@ -40,77 +41,107 @@ body {
 }
 
 .dark body {
-  background-color: #111827;
-  color: #F9FAFB;
+  background-color: #0F172A;
+  color: #E2E8F0;
 }
 
-/* Smooth scrolling with offset for fixed header */
+/* Smooth scrolling offset for fixed header */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-padding-top: 80px;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #4b5563;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
-}
-
-/* Enhanced focus styles for accessibility */
+/* ── Focus styles ── */
 *:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* Smooth transitions for interactive elements */
-a, button {
-  transition: all 0.2s ease-in-out;
-}
+/* ── Transitions ── */
+a, button { transition: all 0.2s ease-in-out; }
 
-/* Improve text rendering */
+/* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
-/* Selection styling */
-::selection {
-  background-color: var(--color-brand-primary);
-  color: white;
-}
+/* ── Selection ── */
+::selection { background-color: #3B82F6; color: white; }
+.dark ::selection { background-color: #1D4ED8; color: white; }
 
-.dark ::selection {
-  background-color: var(--color-brand-accent);
-  color: white;
-}
-
-/* Code styling */
+/* ── Code ── */
 code {
-  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 0.9em;
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.875em;
+}
+
+/* ── Hero dot pattern ── */
+.hero-pattern {
+  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.07) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+.dark .hero-pattern {
+  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1.5px, transparent 1.5px);
+}
+
+/* ── Section label ── */
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brand-accent);
+  margin-bottom: 0.875rem;
+}
+
+/* ── Alternating section backgrounds ── */
+.section-alt {
+  background-color: #F1F5F9;
+}
+.dark .section-alt {
+  background-color: rgba(15, 23, 42, 0.6);
+}
+
+/* ── Card base ── */
+.card-base {
+  background-color: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card-base:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.09), 0 2px 6px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+}
+.dark .card-base {
+  background-color: #1E293B;
+  border-color: #334155;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.dark .card-base:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Progress bar animation (transform-based for GPU compositing) ── */
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.progress-bar {
+  transform-origin: left center;
+  animation: progress-fill 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }

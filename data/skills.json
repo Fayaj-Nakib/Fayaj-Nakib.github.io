@@ -1,0 +1,77 @@
+[
+  {
+    "title": "Programming Languages",
+    "skills": [
+      { "name": "Python", "icon": "fa-brands fa-python" },
+      { "name": "JavaScript", "icon": "fa-brands fa-js" },
+      { "name": "C/C++", "icon": "devicon-cplusplus-plain" },
+      { "name": "Java", "icon": "fa-brands fa-java" }
+    ]
+  },
+  {
+    "title": "Frontend Development",
+    "skills": [
+      { "name": "React.js", "icon": "fa-brands fa-react" },
+      { "name": "Next.js", "icon": "fa-solid fa-code" },
+      { "name": "TailwindCSS", "icon": "fa-solid fa-paintbrush" },
+      { "name": "HTML/CSS", "icon": "fa-brands fa-html5" }
+    ]
+  },
+  {
+    "title": "Backend Development",
+    "skills": [
+      { "name": "Laravel", "icon": "fa-brands fa-laravel" },
+      { "name": "Django", "icon": "fa-brands fa-python" },
+      { "name": "REST APIs", "icon": "fa-solid fa-server" }
+    ]
+  },
+  {
+    "title": "Databases",
+    "skills": [
+      { "name": "PostgreSQL", "icon": "devicon-postgresql-plain" },
+      { "name": "MySQL", "icon": "devicon-mysql-plain" },
+      { "name": "SQLite", "icon": "devicon-sqlite-plain" },
+      { "name": "Firebase", "icon": "fa-solid fa-fire" }
+    ]
+  },
+  {
+    "title": "Data Science & Machine Learning",
+    "skills": [
+      { "name": "TensorFlow", "icon": "devicon-tensorflow-original" },
+      { "name": "Scikit-learn", "icon": "devicon-scikitlearn-plain" },
+      { "name": "Pandas", "icon": "devicon-pandas-original" },
+      { "name": "NumPy", "icon": "devicon-numpy-original" },
+      { "name": "Matplotlib", "icon": "fa-solid fa-chart-line" },
+      { "name": "Support Vector Machine (SVM)", "icon": "fa-solid fa-brain" }
+    ]
+  },
+  {
+    "title": "Tools & Platforms",
+    "skills": [
+      { "name": "Git", "icon": "fa-brands fa-git-alt" },
+      { "name": "Docker", "icon": "fa-brands fa-docker" },
+      { "name": "VS Code", "icon": "fa-solid fa-code" },
+      { "name": "Postman", "icon": "fa-solid fa-paper-plane" },
+      { "name": "Vercel", "icon": "fa-solid fa-rocket" },
+      { "name": "GitHub Actions", "icon": "fa-brands fa-github" },
+      { "name": "Linux", "icon": "fa-brands fa-linux" },
+      { "name": "Taiga", "icon": "fa-solid fa-list-check" }
+    ]
+  },
+  {
+    "title": "Language",
+    "skills": [
+      { "name": "English (Fluent)", "icon": "fa-solid fa-language" },
+      { "name": "Bengali (Native)", "icon": "fa-solid fa-language" }
+    ]
+  },
+  {
+    "title": "Soft Skills",
+    "skills": [
+      { "name": "Problem-Solving", "icon": "fa-solid fa-lightbulb" },
+      { "name": "Teamwork", "icon": "fa-solid fa-people-group" },
+      { "name": "Communication", "icon": "fa-solid fa-comments" },
+      { "name": "Critical Thinking", "icon": "fa-solid fa-brain" }
+    ]
+  }
+]

@@ -7,7 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "export": "next build"
+    "export": "next build",
+    "admin": "node scripts/admin-server.js"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",

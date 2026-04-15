@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Admin</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #293548;
+      --border: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-dim: #1d4ed8;
+      --success: #22c55e;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --radius: 10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { font-size: 18px; font-weight: 700; }
+    header p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 6px 12px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      transition: background 0.15s;
+    }
+    header a:hover { background: var(--accent); color: white; }
+
+    /* ── Tabs ── */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+    }
+    nav button {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 12px 16px;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    nav button:hover { color: var(--text); }
+    nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Main content ── */
+    main { padding: 24px; max-width: 900px; margin: 0 auto; }
+
+    /* ── Section header ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .section-header h2 { font-size: 16px; font-weight: 600; }
+
+    /* ── Sub-tabs (for certifications) ── */
+    .sub-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .sub-tabs button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.15s;
+    }
+    .sub-tabs button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      transition: opacity 0.15s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-success { background: var(--success); color: white; }
+    .btn-danger  { background: var(--danger);  color: white; }
+    .btn-ghost   { background: var(--surface2); color: var(--text); }
+    .btn-sm { padding: 4px 10px; font-size: 12px; }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 14px 16px;
+      gap: 12px;
+    }
+    .card-title { font-weight: 600; font-size: 14px; }
+    .card-sub   { color: var(--muted); font-size: 12px; margin-top: 3px; }
+    .card-actions { display: flex; gap: 6px; flex-shrink: 0; align-items: center; }
+    .card-body { padding: 0 16px 14px; }
+
+    /* tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 11px;
+      padding: 2px 8px;
+      color: var(--muted);
+    }
+
+    /* ── Form ── */
+    .form-panel {
+      border-top: 1px solid var(--border);
+      padding: 16px;
+      background: var(--surface2);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-full  { grid-column: 1 / -1; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 12px; font-weight: 500; color: var(--muted); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      font-size: 13px;
+      padding: 8px 10px;
+      outline: none;
+      transition: border-color 0.15s;
+      font-family: inherit;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 90px; resize: vertical; }
+    .form-hint { font-size: 11px; color: var(--muted); }
+    .form-actions { display: flex; gap: 8px; margin-top: 14px; }
+
+    /* ── Skill rows ── */
+    .skill-rows { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .skill-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+    .skill-row input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      font-size: 13px;
+      padding: 7px 9px;
+      outline: none;
+      width: 100%;
+    }
+    .skill-row input:focus { border-color: var(--accent); }
+    .icon-remove {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 2px 6px;
+      border-radius: 5px;
+      line-height: 1;
+    }
+    .icon-remove:hover { background: rgba(239,68,68,0.1); }
+    .skill-row-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 8px;
+      padding-bottom: 4px;
+    }
+    .skill-row-header span { font-size: 11px; color: var(--muted); font-weight: 500; }
+
+    /* ── Bullet rows ── */
+    .bullet-rows { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+    .bullet-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
+    .bullet-row input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      font-size: 13px;
+      padding: 7px 9px;
+      outline: none;
+      width: 100%;
+    }
+    .bullet-row input:focus { border-color: var(--accent); }
+
+    /* ── Empty state ── */
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 48px 24px;
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+    }
+    .empty p { margin-top: 6px; font-size: 13px; }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast-item {
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      animation: slideIn 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .toast-success { background: var(--success); color: white; }
+    .toast-error   { background: var(--danger);  color: white; }
+    @keyframes slideIn {
+      from { transform: translateY(8px); opacity: 0; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+
+    /* ── Loading ── */
+    #loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--muted);
+    }
+    .spinner {
+      width: 28px; height: 28px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Add-new card ── */
+    .add-card {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    /* ── Reorder buttons ── */
+    .reorder { display: flex; flex-direction: column; gap: 2px; }
+    .reorder button {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 12px;
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1;
+    }
+    .reorder button:hover { background: var(--surface2); color: var(--text); }
+
+    hr.divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Portfolio Admin</h1>
+    <p>Edit your portfolio content without touching code</p>
+  </div>
+  <a href="http://localhost:3000" target="_blank">View Portfolio &rarr;</a>
+</header>
+
+<nav id="tabs"></nav>
+
+<main id="app">
+  <div id="loading">
+    <div class="spinner"></div>
+    <span>Loading portfolio data&hellip;</span>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════
+const SECTIONS = ['projects', 'skills', 'experience', 'education', 'certifications']
+let DATA = {}
+let activeTab = 'projects'
+let certSubTab = 'certifications' // or 'awards'
+let editState = {}  // { [key]: boolean }  key = "section-index" or "section-new"
+
+// ════════════════════════════════════════════════════════════
+//  API helpers
+// ════════════════════════════════════════════════════════════
+async function apiGet(section) {
+  const r = await fetch(`/api/${section}`)
+  if (!r.ok) throw new Error(`Failed to load ${section}`)
+  return r.json()
+}
+
+async function apiSave(section, data) {
+  const r = await fetch(`/api/${section}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  if (!r.ok) throw new Error(`Failed to save ${section}`)
+  return r.json()
+}
+
+// ════════════════════════════════════════════════════════════
+//  Toast
+// ════════════════════════════════════════════════════════════
+function toast(msg, type = 'success') {
+  const el = document.createElement('div')
+  el.className = `toast-item toast-${type}`
+  el.textContent = msg
+  document.getElementById('toast').appendChild(el)
+  setTimeout(() => el.remove(), 3000)
+}
+
+// ════════════════════════════════════════════════════════════
+//  Tabs
+// ════════════════════════════════════════════════════════════
+function renderTabs() {
+  const labels = { projects: 'Projects', skills: 'Skills', experience: 'Experience', education: 'Education', certifications: 'Certifications' }
+  document.getElementById('tabs').innerHTML = SECTIONS.map(s =>
+    `<button class="${s === activeTab ? 'active' : ''}" onclick="switchTab('${s}')">${labels[s]}</button>`
+  ).join('')
+}
+
+function switchTab(tab) {
+  activeTab = tab
+  editState = {}
+  renderTabs()
+  renderContent()
+}
+
+// ════════════════════════════════════════════════════════════
+//  Main render dispatcher
+// ════════════════════════════════════════════════════════════
+function renderContent() {
+  const app = document.getElementById('app')
+  switch (activeTab) {
+    case 'projects':        app.innerHTML = renderProjects(); break
+    case 'skills':          app.innerHTML = renderSkills(); break
+    case 'experience':      app.innerHTML = renderExperience(); break
+    case 'education':       app.innerHTML = renderEducation(); break
+    case 'certifications':  app.innerHTML = renderCertifications(); break
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+//  PROJECTS
+// ════════════════════════════════════════════════════════════
+function renderProjects() {
+  const items = DATA.projects || []
+  const newKey = 'projects-new'
+  const addingNew = editState[newKey]
+
+  let html = `<div class="section-header">
+    <h2>Projects <span style="color:var(--muted);font-weight:400;font-size:13px">(${items.length})</span></h2>
+    <button class="btn btn-primary" onclick="toggleNew('projects-new', defaultProject())">+ Add Project</button>
+  </div>`
+
+  if (addingNew) {
+    html += `<div class="add-card">
+      <div class="card-header"><div><div class="card-title">New Project</div></div></div>
+      ${projectForm(newKey, editState[newKey])}
+    </div>`
+  }
+
+  if (items.length === 0 && !addingNew) {
+    html += `<div class="empty"><div style="font-size:32px">📁</div><p>No projects yet. Add your first one!</p></div>`
+  }
+
+  items.forEach((p, i) => {
+    const key = `projects-${i}`
+    const editing = editState[key]
+    html += `<div class="card">
+      <div class="card-header">
+        <div style="flex:1">
+          <div class="card-title">${esc(p.title)}</div>
+          <div class="card-sub">${esc(p.year)} ${p.github ? '· <a href="'+esc(p.github)+'" target="_blank" style="color:var(--accent)">GitHub</a>' : ''}</div>
+          <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="reorder">
+            <button onclick="moveItem('projects', ${i}, -1)" ${i===0?'disabled':''} title="Move up">▲</button>
+            <button onclick="moveItem('projects', ${i}, 1)" ${i===items.length-1?'disabled':''} title="Move down">▼</button>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(p).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteItem('projects', ${i})">Delete</button>
+          </div>
+        </div>
+      </div>
+      ${editing ? projectForm(key, editing) : ''}
+    </div>`
+  })
+  return html
+}
+
+function projectForm(key, data) {
+  const tagsStr = (data.tags || []).join(', ')
+  return `<div class="form-panel">
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <label>Title</label>
+        <input id="${key}-title" value="${esc(data.title||'')}" placeholder="Project title" />
+      </div>
+      <div class="form-group form-full">
+        <label>Description</label>
+        <textarea id="${key}-desc" placeholder="Project description">${esc(data.desc||'')}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Tags <span class="form-hint">(comma-separated)</span></label>
+        <input id="${key}-tags" value="${esc(tagsStr)}" placeholder="React.js, Tailwind CSS, Firebase" />
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input id="${key}-year" value="${esc(data.year||'')}" placeholder="2025" />
+      </div>
+      <div class="form-group form-full">
+        <label>GitHub URL <span class="form-hint">(leave blank if private)</span></label>
+        <input id="${key}-github" value="${esc(data.github||'')}" placeholder="https://github.com/..." />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveProject('${key}')">Save</button>
+      <button class="btn btn-ghost" onclick="cancelEdit('${key}')">Cancel</button>
+    </div>
+  </div>`
+}
+
+function defaultProject() {
+  return { title: '', desc: '', tags: [], github: '', year: new Date().getFullYear().toString() }
+}
+
+async function saveProject(key) {
+  const isNew = key.endsWith('-new')
+  const title  = v(`${key}-title`)
+  const desc   = v(`${key}-desc`)
+  const tags   = v(`${key}-tags`).split(',').map(t=>t.trim()).filter(Boolean)
+  const year   = v(`${key}-year`)
+  const github = v(`${key}-github`)
+  if (!title) { toast('Title is required', 'error'); return }
+  const item = { title, desc, tags, year, github }
+  const items = [...(DATA.projects || [])]
+  if (isNew) {
+    items.unshift(item)
+  } else {
+    const idx = parseInt(key.split('-')[1])
+    items[idx] = item
+  }
+  await persist('projects', items)
+}
+
+// ════════════════════════════════════════════════════════════
+//  SKILLS
+// ════════════════════════════════════════════════════════════
+function renderSkills() {
+  const categories = DATA.skills || []
+  const newKey = 'skills-new'
+  const addingNew = editState[newKey]
+
+  let html = `<div class="section-header">
+    <h2>Skills <span style="color:var(--muted);font-weight:400;font-size:13px">(${categories.length} categories)</span></h2>
+    <button class="btn btn-primary" onclick="toggleNew('skills-new', {title:'', skills:[]})">+ Add Category</button>
+  </div>`
+
+  if (addingNew) {
+    html += `<div class="add-card">
+      <div class="card-header"><div class="card-title">New Category</div></div>
+      ${skillCategoryForm(newKey, editState[newKey])}
+    </div>`
+  }
+
+  if (categories.length === 0 && !addingNew) {
+    html += `<div class="empty"><div style="font-size:32px">⚡</div><p>No skill categories yet.</p></div>`
+  }
+
+  categories.forEach((cat, i) => {
+    const key = `skills-${i}`
+    const editing = editState[key]
+    html += `<div class="card">
+      <div class="card-header">
+        <div style="flex:1">
+          <div class="card-title">${esc(cat.title)}</div>
+          <div class="card-sub">${cat.skills.length} skill${cat.skills.length !== 1 ? 's' : ''}: ${cat.skills.map(s=>esc(s.name)).join(', ')}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="reorder">
+            <button onclick="moveItem('skills', ${i}, -1)" ${i===0?'disabled':''} title="Move up">▲</button>
+            <button onclick="moveItem('skills', ${i}, 1)" ${i===categories.length-1?'disabled':''} title="Move down">▼</button>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(cat).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteItem('skills', ${i})">Delete</button>
+          </div>
+        </div>
+      </div>
+      ${editing ? skillCategoryForm(key, editing) : ''}
+    </div>`
+  })
+  return html
+}
+
+function skillCategoryForm(key, data) {
+  const skills = data.skills || []
+  let skillRows = `<div class="skill-row-header">
+    <span>Skill Name</span>
+    <span>Icon Class <a href="https://fontawesome.com/icons" target="_blank" style="color:var(--accent)">FA</a> / <a href="https://devicon.dev" target="_blank" style="color:var(--accent)">Devicon</a></span>
+    <span></span>
+  </div>`
+  skills.forEach((s, si) => {
+    skillRows += `<div class="skill-row" id="${key}-skill-${si}">
+      <input value="${esc(s.name||'')}" placeholder="e.g. Python" data-skill-name />
+      <input value="${esc(s.icon||'')}" placeholder="e.g. fa-brands fa-python" data-skill-icon />
+      <button class="icon-remove" onclick="removeSkillRow('${key}', ${si})" title="Remove">✕</button>
+    </div>`
+  })
+
+  return `<div class="form-panel">
+    <div class="form-group" style="margin-bottom:12px">
+      <label>Category Title</label>
+      <input id="${key}-title" value="${esc(data.title||'')}" placeholder="e.g. Programming Languages" />
+    </div>
+    <label style="font-size:12px;font-weight:500;color:var(--muted)">Skills</label>
+    <div class="skill-rows" id="${key}-skills">
+      ${skillRows}
+    </div>
+    <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="addSkillRow('${key}')">+ Add Skill</button>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveSkillCategory('${key}')">Save</button>
+      <button class="btn btn-ghost" onclick="cancelEdit('${key}')">Cancel</button>
+    </div>
+  </div>`
+}
+
+function addSkillRow(key) {
+  const container = document.getElementById(`${key}-skills`)
+  const rows = container.querySelectorAll('.skill-row')
+  const si = rows.length
+  const div = document.createElement('div')
+  div.className = 'skill-row'
+  div.id = `${key}-skill-${si}`
+  div.innerHTML = `
+    <input value="" placeholder="e.g. TypeScript" data-skill-name />
+    <input value="" placeholder="e.g. fa-brands fa-js" data-skill-icon />
+    <button class="icon-remove" onclick="this.closest('.skill-row').remove()" title="Remove">✕</button>
+  `
+  container.appendChild(div)
+}
+
+function removeSkillRow(key, si) {
+  const row = document.getElementById(`${key}-skill-${si}`)
+  if (row) row.remove()
+}
+
+async function saveSkillCategory(key) {
+  const isNew = key.endsWith('-new')
+  const title = v(`${key}-title`)
+  if (!title) { toast('Category title is required', 'error'); return }
+
+  const container = document.getElementById(`${key}-skills`)
+  const rows = container.querySelectorAll('.skill-row')
+  const skills = []
+  rows.forEach(row => {
+    const name = row.querySelector('[data-skill-name]').value.trim()
+    const icon = row.querySelector('[data-skill-icon]').value.trim()
+    if (name) skills.push({ name, icon })
+  })
+
+  const item = { title, skills }
+  const categories = [...(DATA.skills || [])]
+  if (isNew) {
+    categories.push(item)
+  } else {
+    const idx = parseInt(key.split('-')[1])
+    categories[idx] = item
+  }
+  await persist('skills', categories)
+}
+
+// ════════════════════════════════════════════════════════════
+//  EXPERIENCE
+// ════════════════════════════════════════════════════════════
+function renderExperience() {
+  const items = DATA.experience || []
+  const newKey = 'experience-new'
+  const addingNew = editState[newKey]
+
+  let html = `<div class="section-header">
+    <h2>Work Experience <span style="color:var(--muted);font-weight:400;font-size:13px">(${items.length})</span></h2>
+    <button class="btn btn-primary" onclick="toggleNew('experience-new', defaultExperience())">+ Add Job</button>
+  </div>`
+
+  if (addingNew) {
+    html += `<div class="add-card">
+      <div class="card-header"><div class="card-title">New Position</div></div>
+      ${experienceForm(newKey, editState[newKey])}
+    </div>`
+  }
+
+  if (items.length === 0 && !addingNew) {
+    html += `<div class="empty"><div style="font-size:32px">💼</div><p>No experience entries yet.</p></div>`
+  }
+
+  items.forEach((it, i) => {
+    const key = `experience-${i}`
+    const editing = editState[key]
+    html += `<div class="card">
+      <div class="card-header">
+        <div style="flex:1">
+          <div class="card-title">${esc(it.title)}</div>
+          <div class="card-sub">${esc(it.org)} · ${esc(it.period)}</div>
+          ${it.location ? `<div class="card-sub">📍 ${esc(it.location)}</div>` : ''}
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="reorder">
+            <button onclick="moveItem('experience', ${i}, -1)" ${i===0?'disabled':''}>▲</button>
+            <button onclick="moveItem('experience', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(it).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteItem('experience', ${i})">Delete</button>
+          </div>
+        </div>
+      </div>
+      ${editing ? experienceForm(key, editing) : ''}
+    </div>`
+  })
+  return html
+}
+
+function experienceForm(key, data) {
+  return `<div class="form-panel">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Job Title</label>
+        <input id="${key}-title" value="${esc(data.title||'')}" placeholder="e.g. Software Engineer" />
+      </div>
+      <div class="form-group">
+        <label>Organization</label>
+        <input id="${key}-org" value="${esc(data.org||'')}" placeholder="Company name" />
+      </div>
+      <div class="form-group">
+        <label>Period</label>
+        <input id="${key}-period" value="${esc(data.period||'')}" placeholder="Jan 2024 - Present" />
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input id="${key}-location" value="${esc(data.location||'')}" placeholder="City, Country" />
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <label style="font-size:12px;font-weight:500;color:var(--muted)">Bullet Points (responsibilities)</label>
+      <div class="bullet-rows" id="${key}-bullets">
+        ${(data.bullets||[]).map((b,bi) => bulletRow(key, bi, b)).join('')}
+      </div>
+      <button class="btn btn-ghost btn-sm" style="margin-top:8px" onclick="addBulletRow('${key}')">+ Add Bullet</button>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveExperience('${key}')">Save</button>
+      <button class="btn btn-ghost" onclick="cancelEdit('${key}')">Cancel</button>
+    </div>
+  </div>`
+}
+
+function bulletRow(key, bi, text) {
+  return `<div class="bullet-row" id="${key}-bullet-${bi}">
+    <input value="${esc(text||'')}" placeholder="Describe a responsibility or achievement" data-bullet />
+    <button class="icon-remove" onclick="this.closest('.bullet-row').remove()" title="Remove">✕</button>
+  </div>`
+}
+
+function addBulletRow(key) {
+  const container = document.getElementById(`${key}-bullets`)
+  const bi = container.querySelectorAll('.bullet-row').length
+  const div = document.createElement('div')
+  div.className = 'bullet-row'
+  div.innerHTML = `
+    <input value="" placeholder="Describe a responsibility or achievement" data-bullet />
+    <button class="icon-remove" onclick="this.closest('.bullet-row').remove()">✕</button>
+  `
+  container.appendChild(div)
+}
+
+function defaultExperience() {
+  return { title: '', org: '', location: '', period: '', bullets: [''] }
+}
+
+async function saveExperience(key) {
+  const isNew = key.endsWith('-new')
+  const title    = v(`${key}-title`)
+  const org      = v(`${key}-org`)
+  const location = v(`${key}-location`)
+  const period   = v(`${key}-period`)
+  if (!title || !org) { toast('Title and organization are required', 'error'); return }
+
+  const container = document.getElementById(`${key}-bullets`)
+  const bullets = Array.from(container.querySelectorAll('[data-bullet]'))
+    .map(el => el.value.trim()).filter(Boolean)
+
+  const item = { title, org, location, period, bullets }
+  const items = [...(DATA.experience || [])]
+  if (isNew) { items.unshift(item) } else { items[parseInt(key.split('-')[1])] = item }
+  await persist('experience', items)
+}
+
+// ════════════════════════════════════════════════════════════
+//  EDUCATION
+// ════════════════════════════════════════════════════════════
+function renderEducation() {
+  const items = DATA.education || []
+  const newKey = 'education-new'
+  const addingNew = editState[newKey]
+
+  let html = `<div class="section-header">
+    <h2>Education <span style="color:var(--muted);font-weight:400;font-size:13px">(${items.length})</span></h2>
+    <button class="btn btn-primary" onclick="toggleNew('education-new', {degree:'',institution:'',period:'',location:'',details:''})">+ Add Education</button>
+  </div>`
+
+  if (addingNew) {
+    html += `<div class="add-card">
+      <div class="card-header"><div class="card-title">New Education Entry</div></div>
+      ${educationForm(newKey, editState[newKey])}
+    </div>`
+  }
+
+  if (items.length === 0 && !addingNew) {
+    html += `<div class="empty"><div style="font-size:32px">🎓</div><p>No education entries yet.</p></div>`
+  }
+
+  items.forEach((edu, i) => {
+    const key = `education-${i}`
+    const editing = editState[key]
+    html += `<div class="card">
+      <div class="card-header">
+        <div style="flex:1">
+          <div class="card-title">${esc(edu.degree)}</div>
+          <div class="card-sub">${esc(edu.institution)} · ${esc(edu.period)}</div>
+          ${edu.details ? `<div class="card-sub" style="color:var(--accent)">${esc(edu.details)}</div>` : ''}
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="reorder">
+            <button onclick="moveItem('education', ${i}, -1)" ${i===0?'disabled':''}>▲</button>
+            <button onclick="moveItem('education', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(edu).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteItem('education', ${i})">Delete</button>
+          </div>
+        </div>
+      </div>
+      ${editing ? educationForm(key, editing) : ''}
+    </div>`
+  })
+  return html
+}
+
+function educationForm(key, data) {
+  return `<div class="form-panel">
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <label>Degree / Certificate</label>
+        <input id="${key}-degree" value="${esc(data.degree||'')}" placeholder="B.Sc. in Computer Science" />
+      </div>
+      <div class="form-group">
+        <label>Institution</label>
+        <input id="${key}-institution" value="${esc(data.institution||'')}" placeholder="University name" />
+      </div>
+      <div class="form-group">
+        <label>Period</label>
+        <input id="${key}-period" value="${esc(data.period||'')}" placeholder="2020 - 2024" />
+      </div>
+      <div class="form-group">
+        <label>Location / Board</label>
+        <input id="${key}-location" value="${esc(data.location||'')}" placeholder="Dhaka, Bangladesh" />
+      </div>
+      <div class="form-group">
+        <label>Result / GPA</label>
+        <input id="${key}-details" value="${esc(data.details||'')}" placeholder="CGPA: 3.60/4.00" />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveEducation('${key}')">Save</button>
+      <button class="btn btn-ghost" onclick="cancelEdit('${key}')">Cancel</button>
+    </div>
+  </div>`
+}
+
+async function saveEducation(key) {
+  const isNew = key.endsWith('-new')
+  const degree      = v(`${key}-degree`)
+  const institution = v(`${key}-institution`)
+  const period      = v(`${key}-period`)
+  const location    = v(`${key}-location`)
+  const details     = v(`${key}-details`)
+  if (!degree) { toast('Degree is required', 'error'); return }
+  const item = { degree, institution, period, location, details }
+  const items = [...(DATA.education || [])]
+  if (isNew) { items.unshift(item) } else { items[parseInt(key.split('-')[1])] = item }
+  await persist('education', items)
+}
+
+// ════════════════════════════════════════════════════════════
+//  CERTIFICATIONS
+// ════════════════════════════════════════════════════════════
+function renderCertifications() {
+  const data = DATA.certifications || { certifications: [], awards: [] }
+
+  let html = `<div class="section-header">
+    <h2>Certifications &amp; Awards</h2>
+  </div>
+  <div class="sub-tabs">
+    <button class="${certSubTab==='certifications'?'active':''}" onclick="switchCertTab('certifications')">Certifications (${data.certifications.length})</button>
+    <button class="${certSubTab==='awards'?'active':''}" onclick="switchCertTab('awards')">Awards (${data.awards.length})</button>
+  </div>`
+
+  if (certSubTab === 'certifications') {
+    const items = data.certifications
+    const newKey = 'certifications-cert-new'
+    const addingNew = editState[newKey]
+
+    html += `<div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+      <button class="btn btn-primary" onclick="toggleNew('${newKey}', defaultCert())">+ Add Certification</button>
+    </div>`
+
+    if (addingNew) {
+      html += `<div class="add-card">
+        <div class="card-header"><div class="card-title">New Certification</div></div>
+        ${certForm(newKey, editState[newKey])}
+      </div>`
+    }
+
+    if (items.length === 0 && !addingNew) {
+      html += `<div class="empty"><div style="font-size:32px">📜</div><p>No certifications yet.</p></div>`
+    }
+
+    items.forEach((c, i) => {
+      const key = `certifications-cert-${i}`
+      const editing = editState[key]
+      html += `<div class="card">
+        <div class="card-header">
+          <div style="flex:1">
+            <div class="card-title">${esc(c.title)}</div>
+            <div class="card-sub">${esc(c.issuer)} · ${esc(c.year)}</div>
+            ${c.description ? `<div class="card-sub" style="color:var(--accent)">${esc(c.description)}</div>` : ''}
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <div class="reorder">
+              <button onclick="moveCertItem('certifications', ${i}, -1)" ${i===0?'disabled':''}>▲</button>
+              <button onclick="moveCertItem('certifications', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(c).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteCertItem('certifications', ${i})">Delete</button>
+            </div>
+          </div>
+        </div>
+        ${editing ? certForm(key, editing) : ''}
+      </div>`
+    })
+  }
+
+  if (certSubTab === 'awards') {
+    const items = data.awards
+    const newKey = 'certifications-award-new'
+    const addingNew = editState[newKey]
+
+    html += `<div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+      <button class="btn btn-primary" onclick="toggleNew('${newKey}', {title:'',description:'',year:''})">+ Add Award</button>
+    </div>`
+
+    if (addingNew) {
+      html += `<div class="add-card">
+        <div class="card-header"><div class="card-title">New Award</div></div>
+        ${awardForm(newKey, editState[newKey])}
+      </div>`
+    }
+
+    if (items.length === 0 && !addingNew) {
+      html += `<div class="empty"><div style="font-size:32px">🏆</div><p>No awards yet.</p></div>`
+    }
+
+    items.forEach((a, i) => {
+      const key = `certifications-award-${i}`
+      const editing = editState[key]
+      html += `<div class="card">
+        <div class="card-header">
+          <div style="flex:1">
+            <div class="card-title">${esc(a.title)}</div>
+            <div class="card-sub">${esc(a.year)}</div>
+            <div class="card-sub">${esc(a.description)}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <div class="reorder">
+              <button onclick="moveCertItem('awards', ${i}, -1)" ${i===0?'disabled':''}>▲</button>
+              <button onclick="moveCertItem('awards', ${i}, 1)" ${i===items.length-1?'disabled':''}>▼</button>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-ghost btn-sm" onclick="toggleEdit('${key}', ${JSON.stringify(a).replace(/"/g,'&quot;')})">${editing ? 'Cancel' : 'Edit'}</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteCertItem('awards', ${i})">Delete</button>
+            </div>
+          </div>
+        </div>
+        ${editing ? awardForm(key, editing) : ''}
+      </div>`
+    })
+  }
+
+  return html
+}
+
+function certForm(key, data) {
+  return `<div class="form-panel">
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <label>Course / Certification Title</label>
+        <input id="${key}-title" value="${esc(data.title||'')}" placeholder="e.g. Neural Networks and Deep Learning" />
+      </div>
+      <div class="form-group">
+        <label>Issuer</label>
+        <input id="${key}-issuer" value="${esc(data.issuer||'')}" placeholder="e.g. DeepLearning.AI by Coursera" />
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input id="${key}-year" value="${esc(data.year||'')}" placeholder="2024" />
+      </div>
+      <div class="form-group form-full">
+        <label>Verify URL <span class="form-hint">(Coursera certificate link)</span></label>
+        <input id="${key}-verifyUrl" value="${esc(data.verifyUrl||'')}" placeholder="https://www.coursera.org/account/accomplishments/verify/..." />
+      </div>
+      <div class="form-group">
+        <label>PDF Path <span class="form-hint">(file in /public)</span></label>
+        <input id="${key}-pdfPath" value="${esc(data.pdfPath||'')}" placeholder="/Certificate Name.pdf" />
+      </div>
+      <div class="form-group">
+        <label>Extra Note <span class="form-hint">(optional)</span></label>
+        <input id="${key}-description" value="${esc(data.description||'')}" placeholder="e.g. Overall Band Score: 6.5" />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveCert('${key}')">Save</button>
+      <button class="btn btn-ghost" onclick="cancelEdit('${key}')">Cancel</button>
+    </div>
+  </div>`
+}
+
+function awardForm(key, data) {
+  return `<div class="form-panel">
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <label>Award Title</label>
+        <input id="${key}-title" value="${esc(data.title||'')}" placeholder="e.g. Dean's Award" />
+      </div>
+      <div class="form-group form-full">
+        <label>Description</label>
+        <textarea id="${key}-description" placeholder="Describe the award">${esc(data.description||'')}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input id="${key}-year" value="${esc(data.year||'')}" placeholder="2022" />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveAward('${key}')">Save</button>
+      <button class="btn btn-ghost" onclick="cancelEdit('${key}')">Cancel</button>
+    </div>
+  </div>`
+}
+
+function defaultCert() {
+  return { title: '', issuer: '', year: new Date().getFullYear().toString(), verifyUrl: '', pdfPath: '', description: '' }
+}
+
+function switchCertTab(sub) {
+  certSubTab = sub
+  editState = {}
+  renderContent()
+}
+
+async function saveCert(key) {
+  const isNew = key.endsWith('-new')
+  const title       = v(`${key}-title`)
+  const issuer      = v(`${key}-issuer`)
+  const year        = v(`${key}-year`)
+  const verifyUrl   = v(`${key}-verifyUrl`)
+  const pdfPath     = v(`${key}-pdfPath`)
+  const description = v(`${key}-description`)
+  if (!title) { toast('Title is required', 'error'); return }
+  const item = { title, issuer, year, verifyUrl, pdfPath, description }
+  const data = JSON.parse(JSON.stringify(DATA.certifications || { certifications: [], awards: [] }))
+  if (isNew) { data.certifications.unshift(item) } else { data.certifications[parseInt(key.split('-')[2])] = item }
+  await persist('certifications', data)
+}
+
+async function saveAward(key) {
+  const isNew = key.endsWith('-new')
+  const title       = v(`${key}-title`)
+  const description = v(`${key}-description`)
+  const year        = v(`${key}-year`)
+  if (!title) { toast('Title is required', 'error'); return }
+  const item = { title, description, year }
+  const data = JSON.parse(JSON.stringify(DATA.certifications || { certifications: [], awards: [] }))
+  if (isNew) { data.awards.unshift(item) } else { data.awards[parseInt(key.split('-')[2])] = item }
+  await persist('certifications', data)
+}
+
+async function deleteCertItem(sub, idx) {
+  if (!confirm('Delete this entry?')) return
+  const data = JSON.parse(JSON.stringify(DATA.certifications || { certifications: [], awards: [] }))
+  data[sub].splice(idx, 1)
+  await persist('certifications', data)
+}
+
+async function moveCertItem(sub, idx, dir) {
+  const data = JSON.parse(JSON.stringify(DATA.certifications || { certifications: [], awards: [] }))
+  const arr = data[sub]
+  const newIdx = idx + dir
+  if (newIdx < 0 || newIdx >= arr.length) return
+  ;[arr[idx], arr[newIdx]] = [arr[newIdx], arr[idx]]
+  await persist('certifications', data)
+}
+
+// ════════════════════════════════════════════════════════════
+//  SHARED CRUD helpers
+// ════════════════════════════════════════════════════════════
+function toggleEdit(key, data) {
+  // Parse data if it's a string (from HTML attribute)
+  const parsed = typeof data === 'string' ? JSON.parse(data) : data
+  if (editState[key]) {
+    delete editState[key]
+  } else {
+    // Close all others in same section
+    Object.keys(editState).forEach(k => {
+      if (k.startsWith(key.split('-')[0])) delete editState[k]
+    })
+    editState[key] = parsed
+  }
+  renderContent()
+}
+
+function toggleNew(key, defaults) {
+  if (editState[key]) {
+    delete editState[key]
+  } else {
+    editState[key] = defaults
+  }
+  renderContent()
+}
+
+function cancelEdit(key) {
+  delete editState[key]
+  renderContent()
+}
+
+async function deleteItem(section, idx) {
+  if (!confirm('Delete this entry? This cannot be undone.')) return
+  const items = [...(DATA[section] || [])]
+  items.splice(idx, 1)
+  await persist(section, items)
+}
+
+async function moveItem(section, idx, dir) {
+  const items = [...(DATA[section] || [])]
+  const newIdx = idx + dir
+  if (newIdx < 0 || newIdx >= items.length) return
+  ;[items[idx], items[newIdx]] = [items[newIdx], items[idx]]
+  await persist(section, items)
+}
+
+async function persist(section, newData) {
+  try {
+    await apiSave(section, newData)
+    DATA[section] = newData
+    editState = {}
+    renderContent()
+    toast('Saved successfully!')
+  } catch (e) {
+    toast('Save failed: ' + e.message, 'error')
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+//  Utilities
+// ════════════════════════════════════════════════════════════
+function v(id) {
+  const el = document.getElementById(id)
+  return el ? el.value.trim() : ''
+}
+
+function esc(str) {
+  if (!str) return ''
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+// ════════════════════════════════════════════════════════════
+//  Init
+// ════════════════════════════════════════════════════════════
+async function init() {
+  try {
+    const results = await Promise.all(SECTIONS.map(s => apiGet(s).then(d => ({ s, d }))))
+    results.forEach(({ s, d }) => { DATA[s] = d })
+    document.getElementById('loading').remove()
+    renderTabs()
+    renderContent()
+  } catch (e) {
+    document.getElementById('loading').innerHTML = `
+      <div style="font-size:48px">⚠️</div>
+      <div style="font-size:16px;color:var(--text)">Cannot connect to admin server</div>
+      <div style="color:var(--muted);margin-top:8px">Make sure you ran <code style="background:var(--surface);padding:2px 8px;border-radius:5px">npm run admin</code></div>
+    `
+  }
+}
+
+init()
+</script>
+</body>
+</html>
