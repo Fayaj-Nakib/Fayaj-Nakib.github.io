@@ -9,21 +9,21 @@
       "pdfPath": "/IBM DevOps and Software Engineering.pdf",
       "description": "15-course program covering DevOps, Cloud Native, Containers, CI/CD, TDD/BDD, Application Security, and Monitoring.",
       "courses": [
-        { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Cloud Computing", "pdfPath": "/Introduction to Cloud Computing.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Software Engineering", "pdfPath": "/Introduction to Software Engineering.pdf", "verifyUrl": "" },
-        { "title": "Getting Started with Git and GitHub", "pdfPath": "/Getting Started with Git and GitHub.pdf", "verifyUrl": "" },
-        { "title": "Hands-on Introduction to Linux Commands and Shell Scripting", "pdfPath": "/Hands-on Introduction to Linux Commands and Shell Scripting.pdf", "verifyUrl": "" },
-        { "title": "Python for Data Science, AI & Development", "pdfPath": "/Python for Data Science, AI & Development.pdf", "verifyUrl": "" },
-        { "title": "Developing AI Applications with Python and Flask", "pdfPath": "/Developing AI Applications with Python and Flask.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Containers w/ Docker, Kubernetes & OpenShift", "pdfPath": "/Introduction to Containers w Docker, Kubernetes & OpenShift.pdf", "verifyUrl": "" },
-        { "title": "Application Development using Microservices and Serverless", "pdfPath": "/Application Development using Microservices and Serverless.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Test and Behavior Driven Development", "pdfPath": "/Introduction to Test and Behavior Driven Development.pdf", "verifyUrl": "" },
-        { "title": "Continuous Integration and Continuous Delivery (CI/CD)", "pdfPath": "/Continuous Integration and Continuous Delivery.pdf", "verifyUrl": "" },
-        { "title": "Application Security for Developers and DevOps Professionals", "pdfPath": "/Application Security for Developers and DevOps Professionals.pdf", "verifyUrl": "" },
-        { "title": "Monitoring and Observability for Development and DevOps", "pdfPath": "/Monitoring and Observability for Development and DevOps.pdf", "verifyUrl": "" },
-        { "title": "DevOps Capstone Project", "pdfPath": "/DevOps Capstone Project.pdf", "verifyUrl": "" }
+        { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "https://coursera.org/verify/RRE22ULY9XPZ" },
+        { "title": "Introduction to Cloud Computing", "pdfPath": "/Introduction to Cloud Computing.pdf", "verifyUrl": "https://coursera.org/verify/Q5IV2UXLJJLT" },
+        { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "https://coursera.org/verify/3LX9OLPSBNYT" },
+        { "title": "Introduction to Software Engineering", "pdfPath": "/Introduction to Software Engineering.pdf", "verifyUrl": "https://coursera.org/verify/408L696CNVTV" },
+        { "title": "Getting Started with Git and GitHub", "pdfPath": "/Getting Started with Git and GitHub.pdf", "verifyUrl": "https://coursera.org/verify/75BRNW1U70KG" },
+        { "title": "Hands-on Introduction to Linux Commands and Shell Scripting", "pdfPath": "/Hands-on Introduction to Linux Commands and Shell Scripting.pdf", "verifyUrl": "https://coursera.org/verify/1FG1MM93Y2D1" },
+        { "title": "Python for Data Science, AI & Development", "pdfPath": "/Python for Data Science, AI & Development.pdf", "verifyUrl": "https://coursera.org/verify/YXLCBGGC7DP4" },
+        { "title": "Developing AI Applications with Python and Flask", "pdfPath": "/Developing AI Applications with Python and Flask.pdf", "verifyUrl": "https://coursera.org/verify/ZH6EHLZKFVA7" },
+        { "title": "Introduction to Containers w/ Docker, Kubernetes & OpenShift", "pdfPath": "/Introduction to Containers w Docker, Kubernetes & OpenShift.pdf", "verifyUrl": "https://coursera.org/verify/65338TCNIYF2" },
+        { "title": "Application Development using Microservices and Serverless", "pdfPath": "/Application Development using Microservices and Serverless.pdf", "verifyUrl": "https://coursera.org/verify/UW2ITMBRHGR1" },
+        { "title": "Introduction to Test and Behavior Driven Development", "pdfPath": "/Introduction to Test and Behavior Driven Development.pdf", "verifyUrl": "https://coursera.org/verify/JJ7OZRRRC71B" },
+        { "title": "Continuous Integration and Continuous Delivery (CI/CD)", "pdfPath": "/Continuous Integration and Continuous Delivery.pdf", "verifyUrl": "https://coursera.org/verify/31H4TMOX4P7F" },
+        { "title": "Application Security for Developers and DevOps Professionals", "pdfPath": "/Application Security for Developers and DevOps Professionals.pdf", "verifyUrl": "https://coursera.org/verify/1DZ3IUP1ECKU" },
+        { "title": "Monitoring and Observability for Development and DevOps", "pdfPath": "/Monitoring and Observability for Development and DevOps.pdf", "verifyUrl": "https://coursera.org/verify/Y2C3HB9ZBJ6T" },
+        { "title": "DevOps Capstone Project", "pdfPath": "/DevOps Capstone Project.pdf", "verifyUrl": "https://coursera.org/verify/TYVWTARRDC9A" }
       ]
     },
     {
@@ -35,15 +35,15 @@
       "pdfPath": "/IBM Applied DevOps Engineering.pdf",
       "description": "9-course hands-on program: Docker, Kubernetes, OpenShift, CI/CD with GitHub Actions & Tekton, TDD, Microservices, and Security.",
       "courses": [
-        { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Containers w/ Docker, Kubernetes & OpenShift", "pdfPath": "/Introduction to Containers w Docker, Kubernetes & OpenShift.pdf", "verifyUrl": "" },
-        { "title": "Application Development using Microservices and Serverless", "pdfPath": "/Application Development using Microservices and Serverless.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Test and Behavior Driven Development", "pdfPath": "/Introduction to Test and Behavior Driven Development.pdf", "verifyUrl": "" },
-        { "title": "Continuous Integration and Continuous Delivery (CI/CD)", "pdfPath": "/Continuous Integration and Continuous Delivery.pdf", "verifyUrl": "" },
-        { "title": "Application Security for Developers and DevOps Professionals", "pdfPath": "/Application Security for Developers and DevOps Professionals.pdf", "verifyUrl": "" },
-        { "title": "Monitoring and Observability for Development and DevOps", "pdfPath": "/Monitoring and Observability for Development and DevOps.pdf", "verifyUrl": "" },
-        { "title": "DevOps Capstone Project", "pdfPath": "/DevOps Capstone Project.pdf", "verifyUrl": "" }
+        { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "https://coursera.org/verify/RRE22ULY9XPZ" },
+        { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "https://coursera.org/verify/3LX9OLPSBNYT" },
+        { "title": "Introduction to Containers w/ Docker, Kubernetes & OpenShift", "pdfPath": "/Introduction to Containers w Docker, Kubernetes & OpenShift.pdf", "verifyUrl": "https://coursera.org/verify/65338TCNIYF2" },
+        { "title": "Application Development using Microservices and Serverless", "pdfPath": "/Application Development using Microservices and Serverless.pdf", "verifyUrl": "https://coursera.org/verify/UW2ITMBRHGR1" },
+        { "title": "Introduction to Test and Behavior Driven Development", "pdfPath": "/Introduction to Test and Behavior Driven Development.pdf", "verifyUrl": "https://coursera.org/verify/JJ7OZRRRC71B" },
+        { "title": "Continuous Integration and Continuous Delivery (CI/CD)", "pdfPath": "/Continuous Integration and Continuous Delivery.pdf", "verifyUrl": "https://coursera.org/verify/31H4TMOX4P7F" },
+        { "title": "Application Security for Developers and DevOps Professionals", "pdfPath": "/Application Security for Developers and DevOps Professionals.pdf", "verifyUrl": "https://coursera.org/verify/1DZ3IUP1ECKU" },
+        { "title": "Monitoring and Observability for Development and DevOps", "pdfPath": "/Monitoring and Observability for Development and DevOps.pdf", "verifyUrl": "https://coursera.org/verify/Y2C3HB9ZBJ6T" },
+        { "title": "DevOps Capstone Project", "pdfPath": "/DevOps Capstone Project.pdf", "verifyUrl": "https://coursera.org/verify/TYVWTARRDC9A" }
       ]
     },
     {
@@ -55,9 +55,9 @@
       "pdfPath": "/IBM DevOps, Cloud, and Agile Foundations.pdf",
       "description": "3-course foundational specialization covering DevOps culture, Cloud Computing essentials, and Agile/Scrum methodology.",
       "courses": [
-        { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Cloud Computing", "pdfPath": "/Introduction to Cloud Computing.pdf", "verifyUrl": "" },
-        { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "" }
+        { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "https://coursera.org/verify/RRE22ULY9XPZ" },
+        { "title": "Introduction to Cloud Computing", "pdfPath": "/Introduction to Cloud Computing.pdf", "verifyUrl": "https://coursera.org/verify/Q5IV2UXLJJLT" },
+        { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "https://coursera.org/verify/3LX9OLPSBNYT" }
       ]
     },
     {
