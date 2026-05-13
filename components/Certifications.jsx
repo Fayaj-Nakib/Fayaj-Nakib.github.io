@@ -143,11 +143,35 @@ export default function Certifications() {
                                                 <div className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">
                                                     Courses Included
                                                 </div>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                                     {cert.courses.map((course, ci) => (
-                                                        <div key={ci} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
-                                                            <span className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
-                                                            {course}
+                                                        <div key={ci} className="flex items-start gap-2">
+                                                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
+                                                            <div className="flex-1 min-w-0">
+                                                                <div className="text-xs text-gray-600 dark:text-gray-300 leading-snug">{course.title}</div>
+                                                                {(course.pdfPath || course.verifyUrl) && (
+                                                                    <div className="flex gap-2.5 mt-0.5">
+                                                                        {course.verifyUrl && (
+                                                                            <Link href={course.verifyUrl} target="_blank" rel="noopener noreferrer"
+                                                                                className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 hover:text-brand-primary dark:hover:text-brand-accent flex items-center gap-0.5 transition-colors">
+                                                                                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                                                </svg>
+                                                                                Verify
+                                                                            </Link>
+                                                                        )}
+                                                                        {course.pdfPath && (
+                                                                            <Link href={course.pdfPath} target="_blank" rel="noopener noreferrer"
+                                                                                className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 hover:text-brand-primary dark:hover:text-brand-accent flex items-center gap-0.5 transition-colors">
+                                                                                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                                                                </svg>
+                                                                                PDF
+                                                                            </Link>
+                                                                        )}
+                                                                    </div>
+                                                                )}
+                                                            </div>
                                                         </div>
                                                     ))}
                                                 </div>
