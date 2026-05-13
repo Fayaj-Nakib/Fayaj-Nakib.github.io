@@ -1,7 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+
+// ── Web3Forms config ─────────────────────────────────────────────────────────
+// Get your free access key at https://web3forms.com (enter email → key arrives instantly)
+const WEB3FORMS_KEY = '04fdcf87-8529-4c59-bbeb-ea35624d8abb'
+// ─────────────────────────────────────────────────────────────────────────────
 
 const EMAIL = 'fayaj.nakib.dev@gmail.com'
 
@@ -66,13 +71,43 @@ const inputClass =
     'w-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500'
 
 export default function Contact() {
+    const formRef             = useRef(null)
     const [copied, setCopied] = useState(false)
+    const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText(EMAIL).then(() => {
             setCopied(true)
             setTimeout(() => setCopied(false), 2000)
         })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setStatus('sending')
+        const data = new FormData(e.target)
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    name:    data.get('from_name'),
+                    email:   data.get('from_email'),
+                    subject: data.get('subject') || 'Contact from Portfolio',
+                    message: data.get('message'),
+                }),
+            })
+            const result = await res.json()
+            if (result.success) {
+                setStatus('success')
+                formRef.current.reset()
+            } else {
+                setStatus('error')
+            }
+        } catch {
+            setStatus('error')
+        }
     }
 
     return (
@@ -153,58 +188,90 @@ export default function Contact() {
                     </motion.div>
 
                     {/* Message form (3/5) */}
-                    <motion.form
+                    <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.15, duration: 0.5 }}
                         className="md:col-span-3 p-7 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm"
-                        onSubmit={(e) => {
-                            e.preventDefault()
-                            const data = new FormData(e.target)
-                            window.location.href = `mailto:nakibfayaj99@gmail.com?subject=${encodeURIComponent(data.get('subject') || 'Contact from Portfolio')}&body=${encodeURIComponent(data.get('message') || '')}`
-                        }}
                     >
                         <h3 className="font-bold text-base text-gray-900 dark:text-white mb-5">Send a Message</h3>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <label htmlFor="c-name" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Name</label>
-                                <input id="c-name" type="text" name="name" required placeholder="Your name" className={inputClass} />
+                        {status === 'success' ? (
+                            <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
+                                <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center">
+                                    <svg className="w-7 h-7 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <p className="font-bold text-gray-900 dark:text-white">Message sent!</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Thanks for reaching out. I&apos;ll get back to you soon.</p>
+                                <button
+                                    onClick={() => setStatus('idle')}
+                                    className="mt-2 text-xs font-semibold text-brand-primary dark:text-brand-accent hover:underline"
+                                >
+                                    Send another message
+                                </button>
                             </div>
-                            <div>
-                                <label htmlFor="c-email" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Email</label>
-                                <input id="c-email" type="email" name="email" required placeholder="your@email.com" className={inputClass} />
-                            </div>
-                        </div>
+                        ) : (
+                            <form ref={formRef} onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label htmlFor="c-name" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Name</label>
+                                        <input id="c-name" type="text" name="from_name" required placeholder="Your name" className={inputClass} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="c-email" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Email</label>
+                                        <input id="c-email" type="email" name="from_email" required placeholder="your@email.com" className={inputClass} />
+                                    </div>
+                                </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="c-subject" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Subject</label>
-                            <input id="c-subject" type="text" name="subject" placeholder="What's this about?" className={inputClass} />
-                        </div>
+                                <div className="mb-4">
+                                    <label htmlFor="c-subject" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Subject</label>
+                                    <input id="c-subject" type="text" name="subject" placeholder="What's this about?" className={inputClass} />
+                                </div>
 
-                        <div className="mb-5">
-                            <label htmlFor="c-message" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Message</label>
-                            <textarea
-                                id="c-message"
-                                name="message"
-                                required
-                                rows={5}
-                                placeholder="Tell me about your project or opportunity..."
-                                className={`${inputClass} resize-none`}
-                            />
-                        </div>
+                                <div className="mb-5">
+                                    <label htmlFor="c-message" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Message</label>
+                                    <textarea
+                                        id="c-message"
+                                        name="message"
+                                        required
+                                        rows={5}
+                                        placeholder="Tell me about your project or opportunity..."
+                                        className={`${inputClass} resize-none`}
+                                    />
+                                </div>
 
-                        <button
-                            type="submit"
-                            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary dark:bg-brand-accent text-white text-sm font-semibold rounded-xl shadow-md shadow-brand-primary/20 dark:shadow-brand-accent/15 hover:bg-brand-accent dark:hover:bg-blue-400 hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2"
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                            </svg>
-                            Send Message
-                        </button>
-                    </motion.form>
+                                {status === 'error' && (
+                                    <p className="text-xs text-red-500 mb-3">Something went wrong. Please try again or email me directly.</p>
+                                )}
+
+                                <button
+                                    type="submit"
+                                    disabled={status === 'sending'}
+                                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary dark:bg-brand-accent text-white text-sm font-semibold rounded-xl shadow-md shadow-brand-primary/20 dark:shadow-brand-accent/15 hover:bg-brand-accent dark:hover:bg-blue-400 hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                                >
+                                    {status === 'sending' ? (
+                                        <>
+                                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                            </svg>
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                            </svg>
+                                            Send Message
+                                        </>
+                                    )}
+                                </button>
+                            </form>
+                        )}
+                    </motion.div>
                 </div>
             </motion.div>
         </section>
