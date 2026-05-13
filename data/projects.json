@@ -1,8 +1,15 @@
 [
   {
+    "title": "FleetBook — Multi-Tenant Vehicle & Fleet Management SaaS",
+    "desc": "Production-grade multi-tenant SaaS using a modular monolith architecture with bounded contexts (Vehicles, Trips, Payments, Finance, Location, Notifications) communicating through domain events. Financial data modelled in integer minor units; real-time location via Laravel Reverb WebSockets; geofencing via PostGIS spatial queries.",
+    "tags": ["Laravel", "Inertia.js", "React", "TypeScript", "PostgreSQL", "PostGIS", "Redis", "Docker"],
+    "github": "",
+    "year": "2026"
+  },
+  {
     "title": "DevBoard — Developer Project & Task Tracker",
-    "desc": "A SaaS Kanban-style project and task management tool built for developer teams. Features real-time board updates, role-based access control, Docker-based deployment, and automated CI/CD pipelines.",
-    "tags": ["Laravel", "React.js", "Next.js", "MySQL", "PostgreSQL", "Docker", "GitHub Actions"],
+    "desc": "Multi-tenant project management platform with Kanban boards, workspaces, role-based access control, JWT authentication, and queue-based notifications. Full CI/CD pipeline to managed services — frontend on Vercel, backend on Render, database on Neon.",
+    "tags": ["Laravel", "Next.js", "TypeScript", "PostgreSQL", "Docker", "GitHub Actions"],
     "github": "",
     "year": "2026"
   },
@@ -21,13 +28,6 @@
     "year": "2024"
   },
   {
-    "title": "Car Dealer Web App",
-    "desc": "Developed an online car inventory and sales management platform with comprehensive features for managing vehicle listings, sales transactions, and customer interactions.",
-    "tags": ["Django", "Python", "HTML", "CSS", "JavaScript"],
-    "github": "https://github.com/sanjanaoythi/car_dealer",
-    "year": "2023"
-  },
-  {
     "title": "Human Disease Prediction",
     "desc": "Built an SVM-based system predicting diseases with 85% accuracy from symptom input. Utilized machine learning algorithms to provide accurate medical predictions.",
     "tags": ["Machine Learning", "Python", "SVM", "HTML"],
@@ -35,24 +35,17 @@
     "year": "2023"
   },
   {
+    "title": "Car Dealer Web App",
+    "desc": "Developed an online car inventory and sales management platform with comprehensive features for managing vehicle listings, sales transactions, and customer interactions.",
+    "tags": ["Django", "Python", "HTML", "CSS", "JavaScript"],
+    "github": "https://github.com/sanjanaoythi/car_dealer",
+    "year": "2023"
+  },
+  {
     "title": "Self Portfolio",
-    "desc": "A modern, responsive portfolio website showcasing my skills, projects, and experience. Built with Next.js and featuring smooth animations, dark mode, and a clean, professional design.",
+    "desc": "A modern, responsive portfolio website showcasing skills, projects, and experience. Built with Next.js and featuring smooth animations, dark mode, and a clean, professional design.",
     "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
     "github": "https://github.com/Fayaj-Nakib/Fayaj-Nakib.github.io",
     "year": "2025"
-  },
-  {
-    "title": "Automobile Shop Database",
-    "desc": "Designed a comprehensive database system for inventory and transaction management, supporting real-time updates and efficient data operations.",
-    "tags": ["SQL", "Database Design"],
-    "github": "",
-    "year": "2022"
-  },
-  {
-    "title": "Library Management System",
-    "desc": "Developed a system for library operations, streamlining book lending and member registration processes with an intuitive interface.",
-    "tags": ["Java", "CSS"],
-    "github": "",
-    "year": "2022"
   }
 ]

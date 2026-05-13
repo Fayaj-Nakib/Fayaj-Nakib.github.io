@@ -1,111 +1,156 @@
 {
   "certifications": [
     {
-      "title": "Introduction to DevOps",
+      "title": "IBM DevOps and Software Engineering",
+      "badge": "Professional Certificate",
       "issuer": "IBM by Coursera",
-      "year": "2026",
-      "verifyUrl": "",
+      "year": "May 2026",
+      "verifyUrl": "https://coursera.org/verify/professional-cert/ZAXRU8DOBW5P",
       "pdfPath": "",
-      "description": ""
+      "description": "15-course program covering DevOps, Cloud Native, Containers, CI/CD, TDD/BDD, Application Security, and Monitoring.",
+      "courses": [
+        "Introduction to DevOps",
+        "Introduction to Cloud Computing",
+        "Introduction to Agile Development and Scrum",
+        "Introduction to Software Engineering",
+        "Getting Started with Git and GitHub",
+        "Hands-on Introduction to Linux Commands and Shell Scripting",
+        "Python for Data Science, AI & Development",
+        "Developing AI Applications with Python and Flask",
+        "Introduction to Containers w/ Docker, Kubernetes & OpenShift",
+        "Application Development using Microservices and Serverless",
+        "Introduction to Test and Behavior Driven Development",
+        "Continuous Integration and Continuous Delivery (CI/CD)",
+        "Application Security for Developers and DevOps Professionals",
+        "Monitoring and Observability for Development and DevOps",
+        "DevOps Capstone Project"
+      ]
     },
     {
-      "title": "Hands-on Introduction to Linux Commands and Shell Scripting",
+      "title": "IBM Applied DevOps Engineering",
+      "badge": "Professional Certificate",
       "issuer": "IBM by Coursera",
-      "year": "2026",
-      "verifyUrl": "",
+      "year": "May 2026",
+      "verifyUrl": "https://coursera.org/verify/professional-cert/31T3HVUQMLX5",
       "pdfPath": "",
-      "description": ""
+      "description": "9-course hands-on program: Docker, Kubernetes, OpenShift, CI/CD with GitHub Actions & Tekton, TDD, Microservices, and Security.",
+      "courses": [
+        "Introduction to DevOps",
+        "Introduction to Agile Development and Scrum",
+        "Introduction to Containers w/ Docker, Kubernetes & OpenShift",
+        "Application Development using Microservices and Serverless",
+        "Introduction to Test and Behavior Driven Development",
+        "Continuous Integration and Continuous Delivery (CI/CD)",
+        "Application Security for Developers and DevOps Professionals",
+        "Monitoring and Observability for Development and DevOps",
+        "DevOps Capstone Project"
+      ]
     },
     {
-      "title": "Introduction to Software Engineering",
+      "title": "IBM DevOps, Cloud and Agile Foundations",
+      "badge": "Specialization",
       "issuer": "IBM by Coursera",
-      "year": "2025",
-      "verifyUrl": "",
+      "year": "Apr 2026",
+      "verifyUrl": "https://coursera.org/verify/specialization/RL0FAFPNRIVA",
       "pdfPath": "",
-      "description": ""
-    },
-    {
-      "title": "Getting Started with Git and GitHub",
-      "issuer": "IBM by Coursera",
-      "year": "2025",
-      "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/75BRNW1U70KG",
-      "pdfPath": "/Getting Started with Git and GitHub.pdf",
-      "description": ""
+      "description": "3-course foundational specialization covering DevOps culture, Cloud Computing essentials, and Agile/Scrum methodology.",
+      "courses": [
+        "Introduction to DevOps",
+        "Introduction to Cloud Computing",
+        "Introduction to Agile Development and Scrum"
+      ]
     },
     {
       "title": "Computer Vision: YOLO Custom Object Detection with Colab GPU",
+      "badge": "",
       "issuer": "Packt by Coursera",
       "year": "2025",
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/BAX7ZV95RF5S",
       "pdfPath": "/Computer Vision YOLO Custom Object Detection with Colab GPU.pdf",
-      "description": ""
+      "description": "",
+      "courses": []
     },
     {
       "title": "IELTS Academic",
+      "badge": "",
       "issuer": "British Council / IDP Education",
       "year": "2025",
       "verifyUrl": "",
       "pdfPath": "/IOC-TRF.pdf",
-      "description": "Overall Band Score: 6.5"
+      "description": "Overall Band Score: 6.5",
+      "courses": []
     },
     {
       "title": "Neural Networks and Deep Learning",
+      "badge": "",
       "issuer": "DeepLearning.AI by Coursera",
       "year": "2024",
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/8ZLFIW54ZDT2",
       "pdfPath": "/Neural Networks and Deep Learning.pdf",
-      "description": ""
+      "description": "",
+      "courses": []
     },
     {
       "title": "Supervised Machine Learning: Regression and Classification",
+      "badge": "",
       "issuer": "DeepLearning.AI by Coursera",
       "year": "2024",
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/F7GZ64XVX653",
       "pdfPath": "/Supervised Machine Learning RC.pdf",
-      "description": ""
+      "description": "",
+      "courses": []
     },
     {
       "title": "Foundations of Project Management",
+      "badge": "",
       "issuer": "Google by Coursera",
       "year": "2023",
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/A9LZQXEJK95Y",
       "pdfPath": "/Foundations of Project Management.pdf",
-      "description": ""
+      "description": "",
+      "courses": []
     },
     {
       "title": "Technical Support Fundamentals",
+      "badge": "",
       "issuer": "Google by Coursera",
       "year": "2023",
       "verifyUrl": "https://www.coursera.org/account/accomplishments/verify/BRGXTAZBUP5B",
       "pdfPath": "/Technical Support Fundamentals.pdf",
-      "description": ""
+      "description": "",
+      "courses": []
     }
   ],
   "awards": [
     {
-      "title": "Vice Chancellor's and Dean's Awards",
-      "description": "Recognizing academic excellence and discipline",
-      "year": "Fall 2022, Fall 2020"
+      "title": "Vice Chancellor's & Dean's Awards",
+      "description": "Awarded for academic excellence — Vice Chancellor's Award (Fall 2020) and Dean's Award (Fall 2022)",
+      "year": "2020, 2022"
     },
     {
-      "title": "Intra-UAP Programming Contest",
-      "description": "Secured fourth runner-up position, solving algorithmic challenges in C++ and Python",
+      "title": "ICPC Asia Preliminary — 4× Participant",
+      "description": "Four consecutive ICPC Asia Dhaka Regional Preliminary rounds (2020–2023), competing in algorithmic problem-solving",
+      "year": "2020–2023"
+    },
+    {
+      "title": "Intra-UAP Programming Contest — 4th Place",
+      "description": "Secured 4th place solving algorithmic challenges in C++ and Python",
       "year": "2022"
+    },
+    {
+      "title": "ACM ICPC World Finals & BdOSN Volunteer",
+      "description": "Volunteered at ACM ICPC World Finals Dhaka (2022) and Ada Lovelace Celebration organised by BdOSN (2022)",
+      "year": "2022"
+    },
+    {
+      "title": "UAP Film & Photography Club — Event Coordinator",
+      "description": "Served as Event Coordinator & Executive, organising club activities and events over two years",
+      "year": "2022–2024"
     },
     {
       "title": "Photography Awards",
       "description": "Won 1st Prize in Mobile Category (Bangladesh Youth Club) and Champion in UAP Diary Segment",
       "year": "2022"
-    },
-    {
-      "title": "ICPC Volunteer",
-      "description": "Volunteered at the International Collegiate Programming Contest (ICPC) — supported event logistics and contestant coordination",
-      "year": "2023"
-    },
-    {
-      "title": "UAP Film Club — Leadership",
-      "description": "Served in a leadership role at the UAP Film Club, organizing events and managing club activities",
-      "year": "2022–2023"
     }
   ]
 }

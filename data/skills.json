@@ -1,12 +1,13 @@
 [
   {
-    "title": "Programming Languages",
+    "title": "Backend Development",
     "skills": [
+      { "name": "PHP (Laravel)", "icon": "fa-brands fa-php" },
       { "name": "Python", "icon": "fa-brands fa-python" },
-      { "name": "JavaScript", "icon": "fa-brands fa-js" },
-      { "name": "PHP", "icon": "fa-brands fa-php" },
-      { "name": "C/C++", "icon": "devicon-cplusplus-plain" },
-      { "name": "Java", "icon": "fa-brands fa-java" }
+      { "name": "REST API Design", "icon": "fa-solid fa-server" },
+      { "name": "OOP & SOLID Principles", "icon": "fa-solid fa-cubes" },
+      { "name": "JWT / Sanctum Auth", "icon": "fa-solid fa-shield-halved" },
+      { "name": "Laravel Queues", "icon": "fa-solid fa-layer-group" }
     ]
   },
   {
@@ -14,18 +15,10 @@
     "skills": [
       { "name": "React.js", "icon": "fa-brands fa-react" },
       { "name": "Next.js", "icon": "fa-solid fa-code" },
+      { "name": "TypeScript", "icon": "fa-brands fa-js" },
+      { "name": "JavaScript", "icon": "fa-brands fa-js" },
       { "name": "TailwindCSS", "icon": "fa-solid fa-paintbrush" },
-      { "name": "HTML/CSS", "icon": "fa-brands fa-html5" }
-    ]
-  },
-  {
-    "title": "Backend Development",
-    "skills": [
-      { "name": "Laravel", "icon": "fa-brands fa-laravel" },
-      { "name": "Laravel Queues", "icon": "fa-solid fa-layer-group" },
-      { "name": "JWT / Sanctum Auth", "icon": "fa-solid fa-shield-halved" },
-      { "name": "Django", "icon": "fa-brands fa-python" },
-      { "name": "REST APIs", "icon": "fa-solid fa-server" }
+      { "name": "HTML5 / CSS3", "icon": "fa-brands fa-html5" }
     ]
   },
   {
@@ -33,39 +26,40 @@
     "skills": [
       { "name": "PostgreSQL", "icon": "devicon-postgresql-plain" },
       { "name": "MySQL", "icon": "devicon-mysql-plain" },
-      { "name": "SQLite", "icon": "devicon-sqlite-plain" },
+      { "name": "Redis", "icon": "devicon-redis-plain" },
       { "name": "Firebase", "icon": "fa-solid fa-fire" }
     ]
   },
   {
-    "title": "Data Science & Machine Learning",
+    "title": "DevOps & Cloud",
+    "skills": [
+      { "name": "Docker", "icon": "fa-brands fa-docker" },
+      { "name": "Kubernetes", "icon": "devicon-kubernetes-plain" },
+      { "name": "OpenShift", "icon": "fa-solid fa-cloud" },
+      { "name": "GitHub Actions CI/CD", "icon": "fa-brands fa-github" },
+      { "name": "Linux", "icon": "fa-brands fa-linux" },
+      { "name": "Serverless", "icon": "fa-solid fa-bolt" }
+    ]
+  },
+  {
+    "title": "Engineering Practices",
+    "skills": [
+      { "name": "Agile / Scrum", "icon": "fa-solid fa-arrows-spin" },
+      { "name": "TDD / BDD", "icon": "fa-solid fa-vial-circle-check" },
+      { "name": "Microservices", "icon": "fa-solid fa-diagram-project" },
+      { "name": "Application Security", "icon": "fa-solid fa-lock" },
+      { "name": "Monitoring & Observability", "icon": "fa-solid fa-chart-line" },
+      { "name": "Git", "icon": "fa-brands fa-git-alt" }
+    ]
+  },
+  {
+    "title": "Data Science & ML",
     "skills": [
       { "name": "TensorFlow", "icon": "devicon-tensorflow-original" },
       { "name": "Scikit-learn", "icon": "devicon-scikitlearn-plain" },
       { "name": "Pandas", "icon": "devicon-pandas-original" },
       { "name": "NumPy", "icon": "devicon-numpy-original" },
-      { "name": "Matplotlib", "icon": "fa-solid fa-chart-line" },
-      { "name": "Support Vector Machine (SVM)", "icon": "fa-solid fa-brain" }
-    ]
-  },
-  {
-    "title": "Tools & Platforms",
-    "skills": [
-      { "name": "Git", "icon": "fa-brands fa-git-alt" },
-      { "name": "Docker", "icon": "fa-brands fa-docker" },
-      { "name": "GitHub Actions", "icon": "fa-brands fa-github" },
-      { "name": "Linux", "icon": "fa-brands fa-linux" },
-      { "name": "Postman", "icon": "fa-solid fa-paper-plane" },
-      { "name": "VS Code", "icon": "fa-solid fa-code" },
-      { "name": "Vercel", "icon": "fa-solid fa-rocket" },
-      { "name": "Taiga", "icon": "fa-solid fa-list-check" }
-    ]
-  },
-  {
-    "title": "Security & Practices",
-    "skills": [
-      { "name": "Application Security", "icon": "fa-solid fa-lock" },
-      { "name": "Agile / Scrum", "icon": "fa-solid fa-arrows-spin" }
+      { "name": "Computer Vision (YOLO)", "icon": "fa-solid fa-eye" }
     ]
   },
   {

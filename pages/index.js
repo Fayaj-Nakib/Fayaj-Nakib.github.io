@@ -109,8 +109,8 @@ export default function Home() {
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-4">Contact</h3>
               <div className="flex flex-col gap-2.5">
-                <a href="mailto:nakibfayaj99@gmail.com" className="text-sm text-gray-500 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-accent transition-colors w-fit">
-                  nakibfayaj99@gmail.com
+                <a href="mailto:fayaj.nakib.dev@gmail.com" className="text-sm text-gray-500 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-accent transition-colors w-fit">
+                  fayaj.nakib.dev@gmail.com
                 </a>
                 <span className="text-sm text-gray-500 dark:text-gray-400">Dhaka, Bangladesh</span>
                 <a

@@ -95,7 +95,7 @@ export default function Hero() {
 
     const stats = calcStats()
 
-    const stack = ['Next.js', 'Laravel', 'PostgreSQL', 'React']
+    const stack = ['Laravel', 'React', 'Next.js', 'TypeScript']
 
     const socials = [
         {
@@ -115,7 +115,7 @@ export default function Hero() {
             fill: true,
         },
         {
-            href: 'mailto:nakibfayaj99@gmail.com',
+            href: 'mailto:fayaj.nakib.dev@gmail.com',
             label: 'Email',
             icon: (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -162,11 +162,11 @@ export default function Hero() {
                         {...fadeUp(0.2)}
                         className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-xl"
                     >
-                        Software Engineer specializing in scalable web applications, full-stack
-                        development, and production-ready backend systems. I build with&nbsp;
-                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">Next.js</code>,&nbsp;
-                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">Laravel</code>, and&nbsp;
-                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">PostgreSQL</code>.
+                        Full-stack engineer with 2 years of production experience building enterprise-grade web apps.
+                        Specialises in IoT-integrated fleet systems, REST API architecture, and payment integrations — with DevOps depth across&nbsp;
+                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">Docker</code>,&nbsp;
+                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">Kubernetes</code>, and&nbsp;
+                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">CI/CD</code>.
                     </motion.p>
 
                     {/* CTA buttons */}

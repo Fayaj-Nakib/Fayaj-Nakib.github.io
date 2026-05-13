@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-const EMAIL = 'nakibfayaj99@gmail.com'
+const EMAIL = 'fayaj.nakib.dev@gmail.com'
 
 const contactDetails = [
     {

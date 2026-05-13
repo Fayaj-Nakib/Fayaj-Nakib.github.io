@@ -5,11 +5,11 @@
     "location": "Mohakhali DOHS, Dhaka-1212",
     "period": "Feb 2025 - Present",
     "bullets": [
-      "Integrated bKash payment gateway and HERE Maps API into the core platform, expanding service capabilities",
-      "Optimized PostgreSQL queries and Laravel backend logic, achieving ~35% reduction in API response time",
-      "Reduced CI/CD deployment time from 30 minutes to under 5 minutes using GitHub Actions and SSH pipelines",
-      "Built and deployed scalable full-stack features with Next.js frontend and Laravel backend on Linux VPS",
-      "Collaborated with cross-functional teams to deliver production-ready features on schedule"
+      "Designed a modular REST API (30+ endpoints) with multi-guard auth: Laravel Sanctum for admin/franchisee, PIN-based driver auth, API-key auth for IoT devices, and Microsoft Azure AD SSO — with fine-grained RBAC using Spatie Permissions and franchisee-scoped query isolation",
+      "Optimized battery telemetry queries using SQL window functions to fetch latest BMS metrics per device in a single pass across a 40+ table schema, eliminating N+1 patterns and reducing payload size for large fleet datasets",
+      "Integrated bKash payment webhooks with idempotent reconciliation logic and structured webhook log models; built HERE Technologies geofencing with real-time point-in-polygon violation detection dispatched via Laravel queue jobs",
+      "Implemented Observer-driven async processing and queue workers for 1,000s of daily cabinet telemetry and battery-swap events — including automatic command dispatching to physical charging cabinets",
+      "Built interactive React dashboards with Leaflet map visualization, Chart.js/Recharts analytics, context-based permission-gated rendering, and real-time notification delivery across admin, franchisee, and driver roles"
     ]
   },
   {
@@ -18,10 +18,9 @@
     "location": "Mohammadpur, Dhaka-1212",
     "period": "Jul 2024 - Dec 2024",
     "bullets": [
-      "Refactored 3 legacy Laravel modules, improving maintainability and reducing technical debt",
-      "Eliminated N+1 query patterns across critical endpoints, significantly reducing database load",
-      "Resolved production bugs and contributed to performance tuning under tight deadlines",
-      "Developed new features with Laravel and Next.js, improving team feature delivery speed"
+      "Developed client-facing web applications with Laravel (PHP) backend and React / Next.js frontend — from requirements gathering through to deployment in an Agile environment",
+      "Refactored three legacy modules using cleaner object-oriented patterns, eliminated N+1 query issues, and introduced targeted indexing — measurably improving API response times",
+      "Resolved production bugs under time pressure and maintained clear technical documentation"
     ]
   }
 ]
