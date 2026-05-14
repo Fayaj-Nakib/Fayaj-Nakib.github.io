@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tell Tailwind v4 to use the .dark class for dark: variants */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-primary: #1E3A8A;
   --color-brand-accent: #3B82F6;
