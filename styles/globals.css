@@ -145,3 +145,28 @@ code {
   transform-origin: left center;
   animation: progress-fill 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
+
+/* ── Blob (hero background orbs) ── */
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(40px, -60px) scale(1.1); }
+  66%       { transform: translate(-30px, 30px) scale(0.9); }
+}
+.animate-blob        { animation: blob 9s ease-in-out infinite; }
+.anim-delay-2        { animation-delay: 2s; }
+.anim-delay-4        { animation-delay: 4s; }
+.anim-delay-6        { animation-delay: 6s; }
+
+/* ── Float (profile photo) ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+/* ── Slow ping (active timeline dot) ── */
+@keyframes ping-slow {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.animate-ping-slow { animation: ping-slow 2s ease-out infinite; }

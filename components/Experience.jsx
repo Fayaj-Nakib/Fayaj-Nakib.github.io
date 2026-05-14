@@ -38,7 +38,12 @@ export default function Experience() {
                         >
                             {/* Timeline dot */}
                             <div className="hidden md:flex absolute left-0 top-5 w-10 h-10 items-center justify-center">
-                                <div className="w-3 h-3 rounded-full bg-brand-accent ring-4 ring-white dark:ring-gray-950 shadow-sm" />
+                                <div className="relative flex items-center justify-center">
+                                    {idx === 0 && (
+                                        <span className="absolute inline-flex w-3 h-3 rounded-full bg-brand-accent animate-ping-slow" />
+                                    )}
+                                    <div className="relative w-3 h-3 rounded-full bg-brand-accent ring-4 ring-white dark:ring-gray-950 shadow-sm z-10" />
+                                </div>
                             </div>
 
                             <div className="p-6 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250">

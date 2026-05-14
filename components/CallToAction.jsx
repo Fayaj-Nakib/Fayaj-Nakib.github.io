@@ -10,11 +10,16 @@ export default function CallToAction() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-primary to-blue-600 dark:from-blue-700 dark:to-brand-primary px-8 py-14 md:px-14 text-center shadow-2xl shadow-brand-primary/20"
+                className="relative overflow-hidden rounded-3xl px-8 py-14 md:px-14 text-center shadow-2xl shadow-brand-primary/25"
             >
-                {/* Decorative background dots */}
+                {/* Aurora background layers */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-blue-600 to-indigo-700 dark:from-blue-900 dark:via-brand-primary dark:to-indigo-800" />
+                <div className="absolute -top-20 left-1/4 w-[500px] h-[300px] bg-white/10 rounded-full blur-[70px] animate-blob pointer-events-none" />
+                <div className="absolute -bottom-16 right-1/4 w-[400px] h-[250px] bg-blue-300/10 rounded-full blur-[60px] animate-blob anim-delay-2 pointer-events-none" />
+                <div className="absolute top-1/2 left-0 w-[300px] h-[200px] bg-indigo-400/10 rounded-full blur-[50px] animate-blob anim-delay-4 pointer-events-none" />
+                {/* Dot overlay */}
                 <div
-                    className="absolute inset-0 opacity-10 pointer-events-none"
+                    className="absolute inset-0 opacity-[0.07] pointer-events-none"
                     style={{
                         backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
                         backgroundSize: '24px 24px',

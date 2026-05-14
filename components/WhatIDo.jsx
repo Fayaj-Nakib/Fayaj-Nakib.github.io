@@ -73,21 +73,26 @@ export default function WhatIDo() {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.08, duration: 0.5 }}
-                            className="group p-6 bg-white dark:bg-gray-800/60 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250 border-l-[3px] border-l-brand-accent"
+                            className="group relative p-6 bg-white dark:bg-gray-800/60 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-l-[3px] border-l-brand-accent overflow-hidden"
                         >
+                            {/* Decorative background number */}
+                            <div className="absolute -bottom-3 right-3 text-[88px] font-black leading-none select-none pointer-events-none text-gray-100 dark:text-gray-700/50 group-hover:text-blue-100 dark:group-hover:text-blue-900/40 transition-colors duration-300">
+                                {String(idx + 1).padStart(2, '0')}
+                            </div>
+
                             {/* Icon */}
-                            <div className="w-10 h-10 mb-4 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 text-brand-primary dark:text-brand-accent border border-blue-100 dark:border-blue-900/40">
+                            <div className="relative w-10 h-10 mb-4 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 text-brand-primary dark:text-brand-accent border border-blue-100 dark:border-blue-900/40 group-hover:bg-brand-primary dark:group-hover:bg-brand-accent group-hover:text-white dark:group-hover:text-white group-hover:border-transparent transition-all duration-300">
                                 {service.icon}
                             </div>
 
-                            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-brand-primary dark:group-hover:text-brand-accent transition-colors">
+                            <h3 className="relative font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-brand-primary dark:group-hover:text-brand-accent transition-colors">
                                 {service.title}
                             </h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
+                            <p className="relative text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
                                 {service.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="relative flex flex-wrap gap-1.5">
                                 {service.tags.map((tag, i) => (
                                     <span
                                         key={i}

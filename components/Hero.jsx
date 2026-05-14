@@ -125,9 +125,13 @@ export default function Hero() {
     ]
 
     return (
-        <header className="relative max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28" role="banner">
+        <header className="relative max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden" role="banner">
             {/* Dot pattern background */}
             <div className="hero-pattern absolute inset-0 -z-10 pointer-events-none" />
+            {/* Animated gradient orbs */}
+            <div className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-brand-primary/10 dark:bg-brand-primary/6 rounded-full blur-[90px] pointer-events-none -z-10 animate-blob" />
+            <div className="absolute top-10 -right-32 w-[420px] h-[420px] bg-brand-accent/10 dark:bg-brand-accent/6 rounded-full blur-[80px] pointer-events-none -z-10 animate-blob anim-delay-2" />
+            <div className="absolute -bottom-32 left-1/3 w-[380px] h-[380px] bg-blue-400/8 dark:bg-blue-400/5 rounded-full blur-[70px] pointer-events-none -z-10 animate-blob anim-delay-4" />
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
 
@@ -238,25 +242,28 @@ export default function Hero() {
                         initial={{ scale: 0.94, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className="relative"
+                        className="relative animate-float"
                     >
-                        <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-2xl overflow-hidden ring-1 ring-gray-200 dark:ring-gray-700 shadow-2xl">
-                            {!imageError ? (
-                                <Image
-                                    src="/profile.jpg"
-                                    alt="Fayaj Nakib"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                    sizes="(max-width: 768px) 176px, 208px"
-                                    unoptimized
-                                    onError={() => setImageError(true)}
-                                />
-                            ) : (
-                                <div className="w-full h-full flex items-center justify-center text-white font-bold text-4xl bg-gradient-to-br from-brand-primary to-brand-accent">
-                                    FN
-                                </div>
-                            )}
+                        {/* Gradient ring */}
+                        <div className="p-[2.5px] bg-gradient-to-br from-brand-primary via-brand-accent to-blue-400 rounded-[20px] shadow-2xl shadow-brand-primary/20">
+                            <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-[18px] overflow-hidden bg-white dark:bg-gray-900">
+                                {!imageError ? (
+                                    <Image
+                                        src="/profile.jpg"
+                                        alt="Fayaj Nakib"
+                                        fill
+                                        className="object-cover"
+                                        priority
+                                        sizes="(max-width: 768px) 176px, 208px"
+                                        unoptimized
+                                        onError={() => setImageError(true)}
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-white font-bold text-4xl bg-gradient-to-br from-brand-primary to-brand-accent">
+                                        FN
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         {/* Available badge */}
@@ -266,7 +273,10 @@ export default function Hero() {
                             transition={{ delay: 0.45, type: 'spring', stiffness: 260, damping: 20 }}
                             className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-900 rounded-full shadow-lg border border-gray-100 dark:border-gray-700 whitespace-nowrap"
                         >
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="relative flex h-2 w-2">
+                                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                            </span>
                             <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">Available for hire</span>
                         </motion.div>
                     </motion.div>
