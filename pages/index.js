@@ -5,7 +5,7 @@ import BackToTop from '../components/BackToTop'
 import CursorGlow from '../components/CursorGlow'
 
 // Lazy load below-fold components
-const WhatIDo          = dynamic(() => import('../components/WhatIDo'),          { ssr: true })
+const About            = dynamic(() => import('../components/About'),            { ssr: true })
 const Experience       = dynamic(() => import('../components/Experience'),       { ssr: true })
 const Projects         = dynamic(() => import('../components/Projects'),         { ssr: true })
 const SkillsNew        = dynamic(() => import('../components/SkillsNew'),        { ssr: true })
@@ -24,9 +24,9 @@ export default function Home() {
         {/* Hero */}
         <Hero />
 
-        {/* Alt bg: What I Do */}
+        {/* Alt bg: About */}
         <div className="bg-[#F1F5F9] dark:bg-[#0B1120]/60">
-          <WhatIDo />
+          <About />
         </div>
 
         {/* Experience */}

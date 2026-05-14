@@ -1,292 +1,156 @@
-# 📌 Fayaj Nakib — Portfolio Website
+# Fayaj Nakib — Portfolio
 
-## 📍 Overview
+Personal portfolio website for **Md. Fayaj Nakib**, Full-Stack Software Engineer based in Dhaka, Bangladesh. Built with Next.js and deployed as a static site on GitHub Pages.
 
-The Personal Portfolio Website is a modern, responsive web application designed to professionally present the profile of Fayaj Nakib, a full-stack software engineer specializing in Next.js, Laravel, PostgreSQL, REST APIs, CI/CD, and scalable application deployment.
+**Live:** [fayaj-nakib.github.io](https://fayaj-nakib.github.io)
 
-It highlights professional experience, technical projects, research work, skills, and provides direct contact options for recruiters and remote job clients.
+---
 
-## 🎯 Purpose
+## Tech Stack
 
-The project serves to:
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (Pages Router, static export) |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion v12 |
+| Contact form | Web3Forms (no backend required) |
+| Deployment | GitHub Pages |
+| Icons | Font Awesome 6 · Devicon |
 
-- Build personal branding & digital identity
-- Showcase technical experience and projects
-- Provide a central point to download the resume
-- Improve remote job visibility
-- Demonstrate front-end engineering capability
-- Add credibility for graduate program admissions
-- Enable professional networking outreach
+---
 
-## ✅ Key Features
+## Features
 
-### 🧑‍💻 Hero Section
+- **Dark / Light mode** — persisted to `localStorage`, FOUC-free via inline script in `_document.js`
+- **Cursor glow** — subtle radial gradient follows the mouse (desktop only)
+- **Animated hero** — floating profile photo with gradient ring, drifting blob orbs in the background
+- **Typing effect** — role cycling in the hero
+- **Scroll progress bar** — thin accent line at the bottom of the nav
+- **Active section highlighting** — nav links update as you scroll using `IntersectionObserver`
+- **Animated count-up stats** — numbers animate when scrolled into view
+- **Expandable IBM certifications** — professional cert cards with inline course lists (PDF + Verify per course)
+- **Unique project cards** — each card has a distinct gradient accent
+- **Back to top button** — fades in after 400 px scroll
+- **Web3Forms contact** — sends email directly from the browser, no Outlook redirect
+- **Fully static** — `next export`, no server required
 
-- Clean introduction with role
-- Resume download button
-- Tagline & location
-- Professional containers with highlights
+---
 
-### 🚀 Experience Timeline
+## Sections
 
-- Professional experience at Cassetex and Eutropia-IT
-- Bullet-point responsibilities
-- Achievements delivered
+| # | Section | Description |
+|---|---|---|
+| — | Hero | Name, role typing, stats, social links, profile photo |
+| 01 | About | Personal narrative, engineering philosophy, quick facts |
+| 02 | Projects | Featured work — FleetBook, DevBoard, IELTS App, I-SORT, and more |
+| 03 | Experience | Cassetex · Eutropia IT with detailed bullet points |
+| 04 | Skills | Backend, Frontend, DevOps, Databases, ML, Languages, Soft Skills |
+| 05 | Education | BSc in CSE — University of Asia Pacific |
+| 06 | Certifications | IBM Professional Certs (expandable) + standalone courses |
+| 07 | Awards | ICPC, Dean's Award, Photography |
+| 08 | Contact | Direct email, LinkedIn, GitHub, phone + Web3Forms message form |
 
-### 🧪 Project Showcase
+---
 
-- Grid-based display
-- Technology tags
-- GitHub repository buttons
-- Projects include:
-  - IELTS Prep App (React + Firebase)
-  - I-SORT IoT Sortation Robot
-  - Car Dealer Web App (Django)
-  - Human Disease Prediction (Python + ML)
-
-### 📬 Contact Section
-
-- Contact details
-- Integrated contact form UI
-- Email + LinkedIn access
-
-### 🏗️ Reusability & Modularity
-
-- Components split into individual files
-- Easily extendable sections
-
-## 🛠️ Tech Stack
-
-| Category | Tools |
-|----------|-------|
-| Frontend | Next.js (Pages Router), React, JSX |
-| Styling | Tailwind CSS |
-| Animations | Framer Motion |
-| Deployment | Vercel |
-| Version Control | Git + GitHub |
-
-## 🎨 Design System
-
-### Color Palette (Blue/Indigo)
-
-- **Primary**: #1E3A8A
-- **Accent**: #3B82F6
-- **Background**: #F9FAFB
-- **Text**: #111827
-
-Chosen for:
-- Trust
-- Tech professionalism
-- Good accessibility contrast
-
-### Typography
-
-- Sans-serif, bold hero text, clear readability
-
-### Layout
-
-- Clean white cards
-- Soft shadows
-- Rounded corners
-- Minimalistic spacing discipline
-
-## 📁 Folder Structure
+## Project Structure
 
 ```
-fayaj-portfolio/
-├─ components/
-│  ├─ Nav.jsx
-│  ├─ Hero.jsx
-│  ├─ Projects.jsx
-│  ├─ ProjectCard.jsx
-│  ├─ Experience.jsx
-│  └─ Contact.jsx
-├─ pages/
-│  ├─ _app.js
-│  └─ index.js
-├─ public/
-│  └─ Md_Fayaj_Nakib.pdf    // resume
-├─ styles/
-│  └─ globals.css
-├─ tailwind.config.js
-├─ postcss.config.js
-├─ package.json
-└─ README.md
+fayaj-nakib.github.io/
+├── components/
+│   ├── About.jsx            # Personal narrative + quick facts
+│   ├── BackToTop.jsx        # Scroll-to-top button
+│   ├── CallToAction.jsx     # Aurora-background CTA banner
+│   ├── Certifications.jsx   # IBM expandable certs + standalone grid
+│   ├── Contact.jsx          # Contact details + Web3Forms form
+│   ├── CursorGlow.jsx       # Mouse-following radial gradient
+│   ├── Education.jsx        # Education timeline
+│   ├── Experience.jsx       # Work history timeline
+│   ├── Hero.jsx             # Landing section
+│   ├── Nav.jsx              # Sticky nav with scroll progress
+│   ├── ProjectCard.jsx      # Individual project card
+│   ├── Projects.jsx         # Project grid
+│   ├── SkillsNew.jsx        # Skills category grid
+│   ├── ThemeToggle.jsx      # Dark/light pill toggle
+│   └── TypingEffect.jsx     # Cycling role text
+├── data/
+│   ├── certifications.json  # Certs, courses (with PDF + verify URLs), awards
+│   ├── education.json       # Education entries
+│   ├── experience.json      # Work experience with bullet points
+│   ├── projects.json        # Project list
+│   └── skills.json          # Skill categories
+├── pages/
+│   ├── _app.js              # Global styles + JSON-LD structured data
+│   ├── _document.js         # Dark mode FOUC script + meta tags
+│   └── index.js             # Page layout
+├── public/
+│   ├── Md_Fayaj_Nakib.pdf   # Resume
+│   ├── profile.jpg          # Profile photo
+│   └── *.pdf                # Certificate PDFs (IBM courses + standalone)
+├── styles/
+│   └── globals.css          # Tailwind v4 config, custom animations, dark variant
+├── next.config.mjs          # Static export config for GitHub Pages
+└── tailwind.config.mjs      # Content paths + darkMode (legacy — overridden by CSS)
 ```
 
-## ⚙️ Core Configuration
+---
 
-### Tailwind Extension
+## Content Updates
 
-- Brand colors defined
-- Extended theme tokens
-- Added global padding system
+All content lives in JSON files under `data/`. Edit them directly to update the portfolio:
 
-### Global Styles
+- **New project** → `data/projects.json`
+- **New job** → `data/experience.json`
+- **New certificate** → `data/certifications.json`
+- **New skill** → `data/skills.json`
 
-- Root variables
-- Cross-browser font support
-- White background space
+---
 
-### Reusable Components
-
-- ProjectCard uses props
-- Experience array maps data
-
-## 📐 Component Architecture
-
-Each UI piece is atomic:
-
-- **Nav.jsx** → navigation logic
-- **Hero.jsx** → branding & resume CTA
-- **Projects.jsx** → project mapping
-- **Experience.jsx** → repeating experience blocks
-- **Contact.jsx** → contact UI + form
-
-This architecture:
-- Enables scalability
-- Reduces future code duplication
-- Improves maintainability
-
-## 📡 Deployment
-
-Deployed on Vercel which provides:
-- Auto CI/CD
-- Preview builds
-- HTTPS support
-- Custom domain linking
-
-## 🔒 Security Considerations
-
-- No sensitive API keys exposed
-- Resume served from public directory
-- Contact form not connected to spam-prone email endpoints yet
-
-## ⚡ Performance Notes
-
-- Lighthouse score ≈ 95–98
-- Optimized static rendering
-- Lightweight CSS compilation
-- Zero blocking scripts
-
-## 📱 Responsiveness
-
-Designed with mobile-first breakpoints:
-- XS → stacked vertical layout
-- MD → grid-based sections
-- LG → 3-column project grid
-
-Works on:
-- Phone
-- Tablet
-- Desktop
-- 4K displays
-
-## 🔄 Scalability
-
-Future enhancements supported:
-- Blog routing
-- MDX articles
-- Dynamic GitHub pinned repos
-- Dark mode toggle
-- Webhooks
-
-## 🧩 Integration Points
-
-Potential integrations:
-- Resend API (emails)
-- GitHub GraphQL API
-- Vercel Analytics
-- Google Tag Manager
-
-## 🧪 Testing
-
-Currently manual testing validated:
-- Broken links
-- Responsive layout
-- Resume download
-- Navigation scroll anchors
-- External links target behavior
-
-## 🚧 Limitations
-
-- Contact form not yet connected to real email service
-- No backend database for messaging
-- No dark mode support yet
-
-## 📌 Future Roadmap
-
-Planned enhancements:
-
-- ✔ MDX blog engine
-- ✔ Dark mode switch
-- ✔ Accessibility audit (WCAG 2.1 AA)
-- ✔ Enhanced project details page
-- ✔ Animations on scroll (AOS)
-
-## 🤖 Why This Project Matters
-
-Recruiters prefer:
-
-- ✅ custom personal branding
-- ✅ real deployment competence
-- ✅ CI/CD awareness
-- ✅ clean UI communication
-- ✅ component-based architecture
-
-It demonstrates:
-
-- Frontend engineering ability
-- Design sense
-- Resume linking
-- GitHub activity
-- Hosting knowledge
-
-## 🏁 Outcome
-
-This project establishes:
-
-- A professional online presence
-- Technical confidence
-- Remote job readiness
-- Grad school attractiveness
-- SEO visibility
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Installation
+## Getting Started
 
 ```bash
 # Install dependencies
 npm install
 
-# Run development server
+# Development server
 npm run dev
 
-# Build for production
+# Production build + export
 npm run build
-
-# Start production server
-npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-## 📄 License
+### Contact form setup
 
-Not open-sourced yet — personal portfolio.
+The contact form uses [Web3Forms](https://web3forms.com) (free, 250 submissions/month).
 
-## 👨‍💻 Developer
+1. Go to [web3forms.com](https://web3forms.com), enter your email → get access key instantly
+2. Open `components/Contact.jsx` and replace `'YOUR_ACCESS_KEY'` on line 13
 
-**Md. Fayaj Nakib**  
-Full-Stack Software Engineer  
-Dhaka, Bangladesh
+---
 
-## ✅ Summary
+## Design Tokens
 
-This portfolio is an elegant, modular, responsive web application that acts as a digital identity hub, easily extendable with blogs, metrics, and automation — aligned with modern hiring expectations.
+| Token | Value | Usage |
+|---|---|---|
+| `brand-primary` | `#1E3A8A` | Buttons, active states |
+| `brand-accent` | `#3B82F6` | Highlights, links, badges |
+| Background (light) | `#F8FAFC` | Page bg |
+| Background (dark) | `#0F172A` | Page bg dark |
+
+---
+
+## Deployment
+
+Deployed to GitHub Pages via `next export` (static HTML/CSS/JS, no server). Push to `main` branch to trigger deployment.
+
+---
+
+## License
+
+Personal portfolio — not open-sourced.
+
+## Author
+
+**Md. Fayaj Nakib** · Full-Stack Software Engineer · Dhaka, Bangladesh  
+[fayaj-nakib.github.io](https://fayaj-nakib.github.io) · [linkedin.com/in/fayajnakib](https://www.linkedin.com/in/fayajnakib/) · [github.com/Fayaj-Nakib](https://github.com/Fayaj-Nakib)
