@@ -97,7 +97,8 @@ export default function Nav() {
 
                     <a
                         href="/Md_Fayaj_Nakib.pdf"
-                        download="Md_Fayaj_Nakib.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-4 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-1"
                     >
                         Resume
@@ -153,7 +154,8 @@ export default function Nav() {
                         <div className="h-px bg-gray-100 dark:bg-gray-800 my-2" />
                         <a
                             href="/Md_Fayaj_Nakib.pdf"
-                            download="Md_Fayaj_Nakib.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-center text-gray-700 dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all"
                             onClick={() => setIsOpen(false)}
                         >
