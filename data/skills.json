@@ -53,12 +53,13 @@
     ]
   },
   {
-    "title": "Data Science & ML",
+    "title": "AI & Machine Learning",
     "skills": [
+      { "name": "Generative AI", "icon": "fa-solid fa-wand-magic-sparkles" },
+      { "name": "Prompt Engineering", "icon": "fa-solid fa-terminal" },
       { "name": "TensorFlow", "icon": "devicon-tensorflow-original" },
       { "name": "Scikit-learn", "icon": "devicon-scikitlearn-plain" },
       { "name": "Pandas", "icon": "devicon-pandas-original" },
-      { "name": "NumPy", "icon": "devicon-numpy-original" },
       { "name": "Computer Vision (YOLO)", "icon": "fa-solid fa-eye" }
     ]
   },

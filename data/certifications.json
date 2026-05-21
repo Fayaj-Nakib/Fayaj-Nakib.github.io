@@ -61,6 +61,49 @@
       ]
     },
     {
+      "title": "IBM AI Developer",
+      "badge": "Professional Certificate",
+      "issuer": "IBM by Coursera",
+      "year": "May 2026",
+      "verifyUrl": "https://coursera.org/verify/professional-cert/IR6TVQGM8X8M",
+      "pdfPath": "/IBM AI Developer.pdf",
+      "description": "10-course program covering AI fundamentals, Generative AI, Prompt Engineering, Python for AI, Flask, and building GenAI-powered applications.",
+      "courses": [
+        { "title": "Introduction to Software Engineering", "pdfPath": "/Introduction to Software Engineering.pdf", "verifyUrl": "https://coursera.org/verify/408L696CNVTV" },
+        { "title": "Introduction to Artificial Intelligence (AI)", "pdfPath": "/Introduction to Artificial Intelligence (AI).pdf", "verifyUrl": "https://coursera.org/verify/1XCJ6NKR4SGO" },
+        { "title": "Generative AI: Introduction and Applications", "pdfPath": "/Generative AI Introduction and Applications.pdf", "verifyUrl": "https://coursera.org/verify/DEM43KA352WJ" },
+        { "title": "Generative AI: Prompt Engineering Basics", "pdfPath": "/Generative AI Prompt Engineering Basics.pdf", "verifyUrl": "https://coursera.org/verify/YPGGVCVBXKZH" },
+        { "title": "Introduction to HTML, CSS, & JavaScript", "pdfPath": "/Introduction to HTML, CSS, & JavaScript.pdf", "verifyUrl": "https://coursera.org/verify/B8TIFHJRTBGJ" },
+        { "title": "Python for Data Science, AI & Development", "pdfPath": "/Python for Data Science, AI & Development.pdf", "verifyUrl": "https://coursera.org/verify/YXLCBGGC7DP4" },
+        { "title": "Developing AI Applications with Python and Flask", "pdfPath": "/Developing AI Applications with Python and Flask.pdf", "verifyUrl": "https://coursera.org/verify/ZH6EHLZKFVA7" },
+        { "title": "Building Generative AI-Powered Applications with Python", "pdfPath": "/Building Generative AI-Powered Applications with Python.pdf", "verifyUrl": "https://coursera.org/verify/I4ZHLYGU2EB9" },
+        { "title": "Generative AI: Elevate your Software Development Career", "pdfPath": "/Generative AI Elevate your Software Development Career.pdf", "verifyUrl": "https://coursera.org/verify/6POOJ31QESJR" },
+        { "title": "Software Developer Career Guide and Interview Preparation", "pdfPath": "/Software Developer Career Guide and Interview Preparation.pdf", "verifyUrl": "https://coursera.org/verify/FINGY3QCSUOF" }
+      ]
+    },
+    {
+      "title": "IBM Back-End Development",
+      "badge": "Professional Certificate",
+      "issuer": "IBM by Coursera",
+      "year": "May 2026",
+      "verifyUrl": "https://coursera.org/verify/professional-cert/02J8FRLR6LB0",
+      "pdfPath": "/IBM Back-End Development.pdf",
+      "description": "11-course program covering Python, Django, Flask, Containers, Microservices, CI/CD, Security, and Monitoring for back-end development.",
+      "courses": [
+        { "title": "Introduction to Software Engineering", "pdfPath": "/Introduction to Software Engineering.pdf", "verifyUrl": "https://coursera.org/verify/408L696CNVTV" },
+        { "title": "Getting Started with Git and GitHub", "pdfPath": "/Getting Started with Git and GitHub.pdf", "verifyUrl": "https://coursera.org/verify/75BRNW1U70KG" },
+        { "title": "Hands-on Introduction to Linux Commands and Shell Scripting", "pdfPath": "/Hands-on Introduction to Linux Commands and Shell Scripting.pdf", "verifyUrl": "https://coursera.org/verify/1FG1MM93Y2D1" },
+        { "title": "Python for Data Science, AI & Development", "pdfPath": "/Python for Data Science, AI & Development.pdf", "verifyUrl": "https://coursera.org/verify/YXLCBGGC7DP4" },
+        { "title": "Developing AI Applications with Python and Flask", "pdfPath": "/Developing AI Applications with Python and Flask.pdf", "verifyUrl": "https://coursera.org/verify/ZH6EHLZKFVA7" },
+        { "title": "Django Application Development with SQL and Databases", "pdfPath": "/Django Application Development with SQL and Databases.pdf", "verifyUrl": "https://coursera.org/verify/8JC69KIYDBPL" },
+        { "title": "Introduction to Containers w/ Docker, Kubernetes & OpenShift", "pdfPath": "/Introduction to Containers w Docker, Kubernetes & OpenShift.pdf", "verifyUrl": "https://coursera.org/verify/65338TCNIYF2" },
+        { "title": "Application Development using Microservices and Serverless", "pdfPath": "/Application Development using Microservices and Serverless.pdf", "verifyUrl": "https://coursera.org/verify/UW2ITMBRHGR1" },
+        { "title": "Application Security for Developers and DevOps Professionals", "pdfPath": "/Application Security for Developers and DevOps Professionals.pdf", "verifyUrl": "https://coursera.org/verify/1DZ3IUP1ECKU" },
+        { "title": "Monitoring and Observability for Development and DevOps", "pdfPath": "/Monitoring and Observability for Development and DevOps.pdf", "verifyUrl": "https://coursera.org/verify/Y2C3HB9ZBJ6T" },
+        { "title": "Back-end Application Development Capstone Project", "pdfPath": "/Back-end Application Development Capstone Project.pdf", "verifyUrl": "https://coursera.org/verify/HRFISXWYVCI2" }
+      ]
+    },
+    {
       "title": "Computer Vision: YOLO Custom Object Detection with Colab GPU",
       "badge": "",
       "issuer": "Packt by Coursera",
