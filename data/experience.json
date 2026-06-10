@@ -5,11 +5,12 @@
     "location": "Mohakhali DOHS, Dhaka-1212",
     "period": "Feb 2025 - Present",
     "bullets": [
-      "Designed a modular REST API (30+ endpoints) with multi-guard auth: Laravel Sanctum for admin/franchisee, PIN-based driver auth, API-key auth for IoT devices, and Microsoft Azure AD SSO — with fine-grained RBAC using Spatie Permissions and franchisee-scoped query isolation",
-      "Optimized battery telemetry queries using SQL window functions to fetch latest BMS metrics per device in a single pass across a 40+ table schema, eliminating N+1 patterns and reducing payload size for large fleet datasets",
-      "Integrated bKash payment webhooks with idempotent reconciliation logic and structured webhook log models; built HERE Technologies geofencing with real-time point-in-polygon violation detection dispatched via Laravel queue jobs",
-      "Implemented Observer-driven async processing and queue workers for 1,000s of daily cabinet telemetry and battery-swap events — including automatic command dispatching to physical charging cabinets",
-      "Built interactive React dashboards with Leaflet map visualization, Chart.js/Recharts analytics, context-based permission-gated rendering, and real-time notification delivery across admin, franchisee, and driver roles"
+      "Architected a 199-endpoint REST API (Laravel 12 / PHP 8.2 / PostgreSQL) with four authentication layers — Laravel Sanctum (admin/franchisee), PIN-based driver auth, Microsoft Azure AD SSO, and 6-scope API-key auth for IoT cabinet hardware — via a custom 10-middleware chain with rate limiting, audit logging, and security headers.",
+      "Designed a 39-table schema (69 versioned migrations); optimised battery-telemetry queries with SQL window functions (ROW_NUMBER OVER PARTITION BY) to fetch latest BMS metrics across a 9-table battery-history schema in a single pass, eliminating N+1 patterns.",
+      "Built a production geofence engine backed by Tile38 (Redis geospatial DB) with a GeoJSON fallback — GPS jitter filtering, active-hours scheduling, cooldown suppression, dwell-time tracking — violations broadcast in real time via Laravel Reverb WebSockets.",
+      "Integrated bKash payment webhooks (AWS SNS) with idempotent reconciliation — transaction/message-ID deduplication, malformed-JSON repair, SNS signature verification, automatic wallet crediting.",
+      "Delivered two React frontends: a 21-page admin dashboard (Next.js 15 / React 19) with a Leaflet geofence editor and Recharts/Chart.js analytics, plus a 6-page offline-first field PWA — both role-scoped via Spatie RBAC.",
+      "Built a Python automation pipeline (pandas/openpyxl) generating daily machine- and driver-wise Excel reports delivered via Microsoft Graph API as a production cron job."
     ]
   },
   {

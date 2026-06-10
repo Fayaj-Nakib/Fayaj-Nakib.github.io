@@ -3,7 +3,7 @@ import ProjectCard from './ProjectCard'
 import projectsData from '@/data/projects.json'
 
 export default function Projects() {
-    const projects = projectsData
+    const projects = projectsData.filter(p => p.published !== false)
     return (
         <section id="projects" className="max-w-6xl mx-auto px-6 py-16 md:py-24" aria-labelledby="projects-heading">
             <motion.div

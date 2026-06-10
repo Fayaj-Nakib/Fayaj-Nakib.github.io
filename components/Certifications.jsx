@@ -95,9 +95,6 @@ export default function Certifications() {
                                             <span className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50 px-2 py-0.5 rounded-full border border-gray-100 dark:border-gray-700">
                                                 {cert.year}
                                             </span>
-                                            <span className="text-[11px] font-semibold text-brand-primary dark:text-brand-accent">
-                                                {cert.courses.length} courses
-                                            </span>
                                         </div>
 
                                         <div className="font-bold text-sm text-gray-900 dark:text-white leading-snug mb-0.5">

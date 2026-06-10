@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
     "description": "Software Engineer specializing in scalable web applications, full-stack development, and production-ready backend systems.",
     "url": "https://fayaj-nakib.github.io",
     "image": "https://fayaj-nakib.github.io/profile.jpg",
-    "email": "nakibfayaj99@gmail.com",
+    "email": "fayaj.nakib.dev@gmail.com",
     "telephone": "+8801920899997",
     "address": {
       "@type": "PostalAddress",

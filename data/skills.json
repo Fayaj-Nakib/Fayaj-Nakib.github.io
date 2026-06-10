@@ -25,6 +25,8 @@
     "title": "Databases",
     "skills": [
       { "name": "PostgreSQL", "icon": "devicon-postgresql-plain" },
+      { "name": "PostGIS", "icon": "fa-solid fa-earth-asia" },
+      { "name": "Tile38", "icon": "fa-solid fa-location-dot" },
       { "name": "MySQL", "icon": "devicon-mysql-plain" },
       { "name": "Redis", "icon": "devicon-redis-plain" },
       { "name": "Firebase", "icon": "fa-solid fa-fire" }
@@ -34,11 +36,8 @@
     "title": "DevOps & Cloud",
     "skills": [
       { "name": "Docker", "icon": "fa-brands fa-docker" },
-      { "name": "Kubernetes", "icon": "devicon-kubernetes-plain" },
-      { "name": "OpenShift", "icon": "fa-solid fa-cloud" },
       { "name": "GitHub Actions CI/CD", "icon": "fa-brands fa-github" },
-      { "name": "Linux", "icon": "fa-brands fa-linux" },
-      { "name": "Serverless", "icon": "fa-solid fa-bolt" }
+      { "name": "Linux", "icon": "fa-brands fa-linux" }
     ]
   },
   {
@@ -46,21 +45,9 @@
     "skills": [
       { "name": "Agile / Scrum", "icon": "fa-solid fa-arrows-spin" },
       { "name": "TDD / BDD", "icon": "fa-solid fa-vial-circle-check" },
-      { "name": "Microservices", "icon": "fa-solid fa-diagram-project" },
       { "name": "Application Security", "icon": "fa-solid fa-lock" },
       { "name": "Monitoring & Observability", "icon": "fa-solid fa-chart-line" },
       { "name": "Git", "icon": "fa-brands fa-git-alt" }
-    ]
-  },
-  {
-    "title": "AI & Machine Learning",
-    "skills": [
-      { "name": "Generative AI", "icon": "fa-solid fa-wand-magic-sparkles" },
-      { "name": "Prompt Engineering", "icon": "fa-solid fa-terminal" },
-      { "name": "TensorFlow", "icon": "devicon-tensorflow-original" },
-      { "name": "Scikit-learn", "icon": "devicon-scikitlearn-plain" },
-      { "name": "Pandas", "icon": "devicon-pandas-original" },
-      { "name": "Computer Vision (YOLO)", "icon": "fa-solid fa-eye" }
     ]
   },
   {
