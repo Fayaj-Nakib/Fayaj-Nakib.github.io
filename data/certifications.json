@@ -7,7 +7,7 @@
       "year": "May 2026",
       "verifyUrl": "https://coursera.org/verify/professional-cert/ZAXRU8DOBW5P",
       "pdfPath": "/IBM DevOps and Software Engineering.pdf",
-      "description": "15-course program covering DevOps, Cloud Native, Containers, CI/CD, TDD/BDD, Application Security, and Monitoring.",
+      "description": "Covers DevOps, Cloud Native, Containers, CI/CD, TDD/BDD, Application Security, and Monitoring.",
       "courses": [
         { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "https://coursera.org/verify/RRE22ULY9XPZ" },
         { "title": "Introduction to Cloud Computing", "pdfPath": "/Introduction to Cloud Computing.pdf", "verifyUrl": "https://coursera.org/verify/Q5IV2UXLJJLT" },
@@ -33,7 +33,7 @@
       "year": "May 2026",
       "verifyUrl": "https://coursera.org/verify/professional-cert/31T3HVUQMLX5",
       "pdfPath": "/IBM Applied DevOps Engineering.pdf",
-      "description": "9-course hands-on program: Docker, Kubernetes, OpenShift, CI/CD with GitHub Actions & Tekton, TDD, Microservices, and Security.",
+      "description": "Hands-on program: Docker, Kubernetes, OpenShift, CI/CD with GitHub Actions & Tekton, TDD, Microservices, and Security.",
       "courses": [
         { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "https://coursera.org/verify/RRE22ULY9XPZ" },
         { "title": "Introduction to Agile Development and Scrum", "pdfPath": "/Introduction to Agile Development and Scrum.pdf", "verifyUrl": "https://coursera.org/verify/3LX9OLPSBNYT" },
@@ -53,7 +53,7 @@
       "year": "Apr 2026",
       "verifyUrl": "https://coursera.org/verify/specialization/RL0FAFPNRIVA",
       "pdfPath": "/IBM DevOps, Cloud, and Agile Foundations.pdf",
-      "description": "3-course foundational specialization covering DevOps culture, Cloud Computing essentials, and Agile/Scrum methodology.",
+      "description": "Foundational specialization covering DevOps culture, Cloud Computing essentials, and Agile/Scrum methodology.",
       "courses": [
         { "title": "Introduction to DevOps", "pdfPath": "/Introduction to DevOps.pdf", "verifyUrl": "https://coursera.org/verify/RRE22ULY9XPZ" },
         { "title": "Introduction to Cloud Computing", "pdfPath": "/Introduction to Cloud Computing.pdf", "verifyUrl": "https://coursera.org/verify/Q5IV2UXLJJLT" },
@@ -67,7 +67,7 @@
       "year": "May 2026",
       "verifyUrl": "https://coursera.org/verify/professional-cert/IR6TVQGM8X8M",
       "pdfPath": "/IBM AI Developer.pdf",
-      "description": "10-course program covering AI fundamentals, Generative AI, Prompt Engineering, Python for AI, Flask, and building GenAI-powered applications.",
+      "description": "Covers AI fundamentals, Generative AI, Prompt Engineering, Python for AI, Flask, and building GenAI-powered applications.",
       "courses": [
         { "title": "Introduction to Software Engineering", "pdfPath": "/Introduction to Software Engineering.pdf", "verifyUrl": "https://coursera.org/verify/408L696CNVTV" },
         { "title": "Introduction to Artificial Intelligence (AI)", "pdfPath": "/Introduction to Artificial Intelligence (AI).pdf", "verifyUrl": "https://coursera.org/verify/1XCJ6NKR4SGO" },
@@ -88,7 +88,7 @@
       "year": "May 2026",
       "verifyUrl": "https://coursera.org/verify/professional-cert/02J8FRLR6LB0",
       "pdfPath": "/IBM Back-End Development.pdf",
-      "description": "11-course program covering Python, Django, Flask, Containers, Microservices, CI/CD, Security, and Monitoring for back-end development.",
+      "description": "Covers Python, Django, Flask, Containers, Microservices, CI/CD, Security, and Monitoring for back-end development.",
       "courses": [
         { "title": "Introduction to Software Engineering", "pdfPath": "/Introduction to Software Engineering.pdf", "verifyUrl": "https://coursera.org/verify/408L696CNVTV" },
         { "title": "Getting Started with Git and GitHub", "pdfPath": "/Getting Started with Git and GitHub.pdf", "verifyUrl": "https://coursera.org/verify/75BRNW1U70KG" },

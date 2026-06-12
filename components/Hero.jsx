@@ -41,7 +41,7 @@ function calcStats() {
 
     return [
         { value: yearsLabel,                 label: 'Years Exp.'  },
-        { value: `${projectsData.length}`,   label: 'Projects'    },
+        { value: `${projectsData.filter(p => p.published !== false).length}`,   label: 'Projects'    },
         { value: `${companies}`,             label: 'Companies'   },
     ]
 }
@@ -166,11 +166,7 @@ export default function Hero() {
                         {...fadeUp(0.2)}
                         className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-xl"
                     >
-                        Full-stack engineer with 2 years of production experience building enterprise-grade web apps.
-                        Specialises in IoT-integrated fleet systems, REST API architecture, and payment integrations — with DevOps depth across&nbsp;
-                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">Docker</code>,&nbsp;
-                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">Kubernetes</code>, and&nbsp;
-                        <code className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-950/50 rounded text-sm text-brand-primary dark:text-blue-400 border border-blue-100 dark:border-blue-900/60">CI/CD</code>.
+                        Backend-leaning full-stack engineer with 2 years of production experience building enterprise web systems. Specialises in IoT-integrated fleet and telemetry platforms, REST API architecture, and payment integrations — with depth in PostgreSQL optimisation, geospatial systems, and Docker-based CI/CD.
                     </motion.p>
 
                     {/* CTA buttons */}

@@ -1,12 +1,5 @@
 [
   {
-    "title": "FleetBook — Multi-Tenant Vehicle & Fleet Management SaaS",
-    "desc": "Production-grade multi-tenant SaaS using a modular monolith architecture with bounded contexts (Vehicles, Trips, Payments, Finance, Location, Notifications) communicating through domain events. Financial data modelled in integer minor units; real-time location via Laravel Reverb WebSockets; geofencing via PostGIS spatial queries.",
-    "tags": ["Laravel", "Inertia.js", "React", "TypeScript", "PostgreSQL", "PostGIS", "Redis", "Docker"],
-    "github": "",
-    "year": "2026"
-  },
-  {
     "title": "DevBoard — Developer Project & Task Tracker",
     "desc": "Multi-tenant project management platform with Kanban boards, workspaces, role-based access control, JWT authentication, and queue-based notifications. Full CI/CD pipeline to managed services — frontend on Vercel, backend on Render, database on Neon.",
     "tags": ["Laravel", "Next.js", "TypeScript", "PostgreSQL", "Docker", "GitHub Actions"],
@@ -47,5 +40,13 @@
     "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
     "github": "https://github.com/Fayaj-Nakib/Fayaj-Nakib.github.io",
     "year": "2025"
+  },
+  {
+    "title": "GeoFence Event Service — Vehicle Zone-Tracking Backend",
+    "desc": "Backend service tracking vehicles against geofences, emitting idempotent enter/exit events via PostGIS spatial queries with GiST indexing — batch position ingestion, stateful transition detection, and a documented, deployed REST API.",
+    "tags": ["Laravel", "PostgreSQL", "PostGIS", "Redis", "Docker"],
+    "github": "",
+    "year": "2026",
+    "published": false
   }
 ]
