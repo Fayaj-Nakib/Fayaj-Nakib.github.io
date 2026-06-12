@@ -5,12 +5,13 @@
     "location": "Mohakhali DOHS, Dhaka-1212",
     "period": "Feb 2025 - Present",
     "bullets": [
-      "Architected a 199-endpoint REST API (Laravel 12 / PHP 8.2 / PostgreSQL) with four authentication layers — Laravel Sanctum (admin/franchisee), PIN-based driver auth, Microsoft Azure AD SSO, and 6-scope API-key auth for IoT cabinet hardware — via a custom 10-middleware chain with rate limiting, audit logging, and security headers.",
-      "Designed a 39-table schema (69 versioned migrations); optimised battery-telemetry queries with SQL window functions (ROW_NUMBER OVER PARTITION BY) to fetch latest BMS metrics across a 9-table battery-history schema in a single pass, eliminating N+1 patterns.",
-      "Built a production geofence engine backed by Tile38 (Redis geospatial DB) with a GeoJSON fallback — GPS jitter filtering, active-hours scheduling, cooldown suppression, dwell-time tracking — violations broadcast in real time via Laravel Reverb WebSockets.",
-      "Integrated bKash payment webhooks (AWS SNS) with idempotent reconciliation — transaction/message-ID deduplication, malformed-JSON repair, SNS signature verification, automatic wallet crediting.",
-      "Delivered two React frontends: a 21-page admin dashboard (Next.js 15 / React 19) with a Leaflet geofence editor and Recharts/Chart.js analytics, plus a 6-page offline-first field PWA — both role-scoped via Spatie RBAC.",
-      "Built a Python automation pipeline (pandas/openpyxl) generating daily machine- and driver-wise Excel reports delivered via Microsoft Graph API as a production cron job."
+      "Own the platform's core REST API (Laravel 12 / PHP 8.2 / PostgreSQL), delivering 150+ endpoints across fleet operations, IoT telemetry, payments, geofencing, and hardware control through a scalable service-oriented architecture.",
+      "Built a real-time geofencing system for EVs that automatically shuts down a vehicle when it leaves its permitted zone and re-enables it on return using GPS tracking and Tile38, with an automatic fallback that keeps enforcement working during network outages.",
+      "Engineered an ACID-safe order and payment platform with atomic multi-record transactions, rollback guarantees, and priority-based payment resolution across wallet and swap-credit balances, eliminating partial-write and double-charge scenarios.",
+      "Designed and secured three authentication flows on a unified API surface (Azure AD SSO, driver PIN authentication, and scoped IoT API keys), complemented by custom RBAC middleware and comprehensive audit logging.",
+      "Delivered the operator-facing platform end-to-end, including a Next.js 15 admin dashboard with a custom geofence editor, telemetry analytics, permission-aware UI rendering, and an installable field-officer PWA.",
+      "Automated operational reporting through a Python-based data pipeline (pandas, openpyxl, Microsoft Graph API) and integrated bKash payments with idempotent, race-condition-safe reconciliation workflows.",
+      "Managed deployment and server operations across three VPS environments (two production, one staging), including Nginx configuration, environment setup, SSL certificates, Git-based releases, PostgreSQL provisioning, backups, queue workers, cron jobs, and production incident handling."
     ]
   },
   {
@@ -19,9 +20,8 @@
     "location": "Mohammadpur, Dhaka-1212",
     "period": "Jul 2024 - Dec 2024",
     "bullets": [
-      "Developed client-facing web applications with Laravel (PHP) backend and React / Next.js frontend — from requirements gathering through to deployment in an Agile environment",
-      "Refactored three legacy modules using cleaner object-oriented patterns, eliminated N+1 query issues, and introduced targeted indexing — measurably improving API response times",
-      "Resolved production bugs under time pressure and maintained clear technical documentation"
+      "Built client-facing Laravel + React / Next.js applications end-to-end in a cross-functional Agile team, from requirements gathering through deployment.",
+      "Refactored three legacy modules with cleaner object-oriented patterns, eliminated N+1 query issues, and introduced targeted indexing to improve API response times; resolved production bugs under time pressure and maintained clear technical documentation."
     ]
   }
 ]

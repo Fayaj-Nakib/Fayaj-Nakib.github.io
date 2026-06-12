@@ -1,7 +1,7 @@
 [
   {
     "title": "DevBoard — Developer Project & Task Tracker",
-    "desc": "Multi-tenant project management platform with Kanban boards, workspaces, role-based access control, JWT authentication, and queue-based notifications. Full CI/CD pipeline to managed services — frontend on Vercel, backend on Render, database on Neon.",
+    "desc": "Workspace-scoped multi-tenant SaaS with role-based access control (owner/admin/member/guest) and per-project membership gating, enforced through a shared authorization layer across all controllers. Features an event-driven automation rule engine — configurable per-project triggers (task created, status changed, assignee added, due-date reached) firing async actions via queued jobs with a persisted execution log. Production-grade outbound webhook system: HMAC-SHA256 signed payloads, exponential-backoff retries (3 attempts, 30/120/300s), and a per-delivery audit record. GitHub integration with task-to-issue linking and inbound webhook sync that updates task state on PR merge. Pusher-based real-time updates with polling fallback; multi-stage Docker build and GitHub Actions CI running PHPUnit against a real Postgres service. Demo: demo@devboard.app / demo1234",
     "tags": ["Laravel", "Next.js", "TypeScript", "PostgreSQL", "Docker", "GitHub Actions"],
     "github": "",
     "year": "2026"

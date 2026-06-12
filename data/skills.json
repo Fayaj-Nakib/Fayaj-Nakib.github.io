@@ -7,7 +7,7 @@
       { "name": "REST API Design", "icon": "fa-solid fa-server" },
       { "name": "OOP & SOLID Principles", "icon": "fa-solid fa-cubes" },
       { "name": "JWT / Sanctum Auth", "icon": "fa-solid fa-shield-halved" },
-      { "name": "Laravel Queues", "icon": "fa-solid fa-layer-group" }
+      { "name": "Laravel Queues & Observers", "icon": "fa-solid fa-layer-group" }
     ]
   },
   {
@@ -37,7 +37,9 @@
     "skills": [
       { "name": "Docker", "icon": "fa-brands fa-docker" },
       { "name": "GitHub Actions CI/CD", "icon": "fa-brands fa-github" },
-      { "name": "Linux", "icon": "fa-brands fa-linux" }
+      { "name": "Nginx", "icon": "fa-solid fa-globe" },
+      { "name": "Linux / VPS Administration", "icon": "fa-brands fa-linux" },
+      { "name": "SSL & Deployment", "icon": "fa-solid fa-lock" }
     ]
   },
   {
@@ -45,7 +47,7 @@
     "skills": [
       { "name": "Agile / Scrum", "icon": "fa-solid fa-arrows-spin" },
       { "name": "TDD / BDD", "icon": "fa-solid fa-vial-circle-check" },
-      { "name": "Application Security", "icon": "fa-solid fa-lock" },
+      { "name": "Application Security", "icon": "fa-solid fa-shield-halved" },
       { "name": "Monitoring & Observability", "icon": "fa-solid fa-chart-line" },
       { "name": "Git", "icon": "fa-brands fa-git-alt" }
     ]

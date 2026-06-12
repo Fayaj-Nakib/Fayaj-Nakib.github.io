@@ -166,7 +166,7 @@ export default function Hero() {
                         {...fadeUp(0.2)}
                         className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-xl"
                     >
-                        Backend-leaning full-stack engineer with 2 years of production experience building enterprise web systems. Specialises in IoT-integrated fleet and telemetry platforms, REST API architecture, and payment integrations — with depth in PostgreSQL optimisation, geospatial systems, and Docker-based CI/CD.
+                        Backend engineer with 2 years of production experience owning the core API of a live EV battery-swap platform serving multiple operator classes. Strength in REST API architecture, geospatial and IoT-telemetry systems, payment integration, and PostgreSQL performance — with full-stack delivery in React / Next.js. Backed by a competitive-programming foundation (4× ICPC Asia Preliminary) and a bias toward reliable, transaction-safe systems.
                     </motion.p>
 
                     {/* CTA buttons */}
