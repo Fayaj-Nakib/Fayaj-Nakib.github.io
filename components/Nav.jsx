@@ -48,8 +48,8 @@ export default function Nav() {
     const linkClass = (id) =>
         `px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-1 ${
             activeSection === id
-                ? 'text-brand-primary dark:text-brand-accent bg-blue-50 dark:bg-blue-950/30'
-                : 'text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-blue-50 dark:hover:bg-blue-950/30'
+                ? 'text-brand-primary dark:text-brand-accent bg-emerald-50 dark:bg-emerald-950/30'
+                : 'text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-emerald-50 dark:hover:bg-emerald-950/30'
         }`
 
     return (
@@ -106,7 +106,7 @@ export default function Nav() {
                     </a>
                     <a
                         href="#contact"
-                        className="ml-1 px-4 py-1.5 rounded-lg bg-brand-primary dark:bg-brand-accent text-white text-sm font-semibold hover:bg-brand-accent dark:hover:bg-blue-400 hover:-translate-y-px shadow-sm hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-1"
+                        className="ml-1 px-4 py-1.5 rounded-lg bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 text-sm font-semibold hover:bg-emerald-800 dark:hover:bg-emerald-300 hover:-translate-y-px shadow-sm hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-1"
                     >
                         Contact
                     </a>
@@ -153,8 +153,8 @@ export default function Nav() {
                                     transition={{ delay: i * 0.04, duration: 0.2 }}
                                     className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                                         activeSection === link.id
-                                            ? 'text-brand-primary dark:text-brand-accent bg-blue-50 dark:bg-blue-950/30'
-                                            : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-blue-50 dark:hover:bg-blue-950/30'
+                                            ? 'text-brand-primary dark:text-brand-accent bg-emerald-50 dark:bg-emerald-950/30'
+                                            : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-emerald-50 dark:hover:bg-emerald-950/30'
                                     }`}
                                     onClick={() => setIsOpen(false)}
                                 >
@@ -173,7 +173,7 @@ export default function Nav() {
                             </a>
                             <a
                                 href="#contact"
-                                className="px-4 py-2.5 rounded-lg bg-brand-primary dark:bg-brand-accent text-white text-sm font-semibold text-center hover:opacity-90 transition-opacity"
+                                className="px-4 py-2.5 rounded-lg bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 text-sm font-semibold text-center hover:opacity-90 transition-opacity"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Contact

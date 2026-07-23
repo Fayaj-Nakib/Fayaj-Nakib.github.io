@@ -54,7 +54,7 @@ export default function Experience() {
                                         <div className="text-brand-primary dark:text-brand-accent font-semibold text-sm mt-0.5">{it.org}</div>
                                     </div>
                                     <div className="text-right flex-shrink-0">
-                                        <span className="inline-block text-xs font-semibold px-3 py-1 bg-blue-50 dark:bg-blue-950/40 text-brand-primary dark:text-blue-400 rounded-full border border-blue-100 dark:border-blue-900/50">
+                                        <span className="inline-block text-xs font-semibold px-2.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
                                             {it.period}
                                         </span>
                                         {it.location && (
@@ -73,7 +73,7 @@ export default function Experience() {
                                 <ul className="space-y-2">
                                     {it.bullets.map((b, i) => (
                                         <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                                            <span className="text-brand-accent mt-1.5 flex-shrink-0 text-xs">▸</span>
+                                            <span className="text-gray-400 dark:text-gray-500 mt-1.5 flex-shrink-0 text-xs">▸</span>
                                             <span>{b}</span>
                                         </li>
                                     ))}

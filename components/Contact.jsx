@@ -147,7 +147,7 @@ export default function Contact() {
                                 key={i}
                                 className="flex items-center gap-3 p-3.5 bg-white dark:bg-gray-800/70 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
                             >
-                                <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/50 text-brand-primary dark:text-brand-accent border border-blue-100 dark:border-blue-900/40">
+                                <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
                                     {item.icon}
                                 </div>
                                 <div className="min-w-0 flex-1">
@@ -250,7 +250,7 @@ export default function Contact() {
                                 <button
                                     type="submit"
                                     disabled={status === 'sending'}
-                                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary dark:bg-brand-accent text-white text-sm font-semibold rounded-xl shadow-md shadow-brand-primary/20 dark:shadow-brand-accent/15 hover:bg-brand-accent dark:hover:bg-blue-400 hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 text-sm font-semibold rounded-xl shadow-md shadow-brand-primary/20 dark:shadow-brand-accent/15 hover:bg-emerald-800 dark:hover:bg-emerald-300 hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                                 >
                                     {status === 'sending' ? (
                                         <>

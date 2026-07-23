@@ -20,7 +20,7 @@ export default function SkillsNew() {
             className="mb-5"
         >
             <div className="p-5 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-250">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-brand-accent mb-3.5 pb-2.5 border-b border-gray-100 dark:border-gray-700">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3.5 pb-2.5 border-b border-gray-100 dark:border-gray-700">
                     {category.title}
                 </h3>
                 <div className="grid grid-cols-2 gap-2">
@@ -28,9 +28,9 @@ export default function SkillsNew() {
                         <motion.div
                             key={i}
                             whileHover={{ scale: 1.03 }}
-                            className="flex items-center gap-2 px-3 py-2.5 bg-gray-50 dark:bg-gray-700/50 rounded-xl border border-gray-100 dark:border-gray-600 hover:border-brand-primary/30 dark:hover:border-brand-accent/30 hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-all cursor-default"
+                            className="flex items-center gap-2 px-2.5 py-2 bg-gray-50 dark:bg-gray-700/50 rounded-xl border border-gray-100 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all cursor-default"
                         >
-                            <i className={`${skill.icon} text-brand-primary dark:text-brand-accent text-sm flex-shrink-0`} aria-hidden="true" />
+                            <i className={`${skill.icon} text-gray-500 dark:text-gray-400 text-sm flex-shrink-0`} aria-hidden="true" />
                             <span className="text-xs font-medium text-gray-700 dark:text-gray-200 flex-1 leading-tight">
                                 {skill.name}
                             </span>

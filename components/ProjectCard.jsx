@@ -1,27 +1,18 @@
-const GRADIENTS = [
-    'from-blue-600 to-blue-400',
-    'from-indigo-600 to-violet-500',
-    'from-blue-700 to-cyan-500',
-    'from-slate-700 to-blue-500',
-    'from-violet-600 to-blue-500',
-    'from-emerald-600 to-teal-400',
-    'from-blue-500 to-indigo-600',
-]
+import { useState } from 'react'
 
-export default function ProjectCard({ title, desc, tags, github, live, year, index = 0 }) {
-    const grad = GRADIENTS[index % GRADIENTS.length]
+export default function ProjectCard({ title, desc, tags, github, live, year }) {
+    const [expanded, setExpanded] = useState(false)
+    // Approximate — at this card's width/font-size ~220 chars is roughly where a 4-line clamp bites
+    const isLong = desc.length > 220
 
     return (
         <div className="group relative h-full flex flex-col bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
 
-            {/* Gradient top bar — always visible, unique per card */}
-            <div className={`h-1.5 w-full bg-gradient-to-r ${grad} flex-shrink-0`} />
-
             <div className="p-6 flex flex-col flex-1">
                 {/* Header row */}
                 <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className={`w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br ${grad} shadow-md flex-shrink-0`}>
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex-shrink-0">
+                        <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                     </div>
@@ -38,16 +29,28 @@ export default function ProjectCard({ title, desc, tags, github, live, year, ind
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4 flex-grow">
-                    {desc}
-                </p>
+                <div className="flex-grow mb-4">
+                    <p className={`text-sm text-gray-500 dark:text-gray-400 leading-relaxed ${expanded ? '' : 'line-clamp-4'}`}>
+                        {desc}
+                    </p>
+                    {isLong && (
+                        <button
+                            type="button"
+                            onClick={() => setExpanded((v) => !v)}
+                            className="mt-1.5 text-xs font-semibold text-brand-primary dark:text-brand-accent hover:underline"
+                            aria-expanded={expanded}
+                        >
+                            {expanded ? 'Read less' : 'Read more'}
+                        </button>
+                    )}
+                </div>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
                     {tags.map((tag, idx) => (
                         <span
                             key={idx}
-                            className="text-[11px] px-2.5 py-1 bg-blue-50 dark:bg-blue-950/40 text-brand-primary dark:text-blue-400 rounded-lg font-medium border border-blue-100 dark:border-blue-900/50"
+                            className="text-[11px] px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg font-medium border border-gray-200 dark:border-gray-700"
                         >
                             {tag}
                         </span>

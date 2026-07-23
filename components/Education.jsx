@@ -47,7 +47,7 @@ export default function Education() {
                                         )}
                                     </div>
                                     {edu.details && (
-                                        <div className="mt-2.5 inline-block text-xs font-semibold px-2.5 py-1 bg-blue-50 dark:bg-blue-950/40 text-brand-primary dark:text-blue-400 rounded-lg border border-blue-100 dark:border-blue-900/50">
+                                        <div className="mt-2.5 inline-block text-xs font-semibold px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-700">
                                             {edu.details}
                                         </div>
                                     )}

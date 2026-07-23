@@ -10,13 +10,10 @@ export default function CallToAction() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative overflow-hidden rounded-3xl px-8 py-14 md:px-14 text-center shadow-2xl shadow-brand-primary/25"
+                className="relative overflow-hidden rounded-3xl px-8 py-14 md:px-14 text-center shadow-lg shadow-brand-primary/10"
             >
-                {/* Aurora background layers */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-blue-600 to-indigo-700 dark:from-blue-900 dark:via-brand-primary dark:to-indigo-800" />
-                <div className="absolute -top-20 left-1/4 w-[500px] h-[300px] bg-white/10 rounded-full blur-[70px] animate-blob pointer-events-none" />
-                <div className="absolute -bottom-16 right-1/4 w-[400px] h-[250px] bg-blue-300/10 rounded-full blur-[60px] animate-blob anim-delay-2 pointer-events-none" />
-                <div className="absolute top-1/2 left-0 w-[300px] h-[200px] bg-indigo-400/10 rounded-full blur-[50px] animate-blob anim-delay-4 pointer-events-none" />
+                {/* Background */}
+                <div className="absolute inset-0 bg-brand-primary dark:bg-emerald-950" />
                 {/* Dot overlay */}
                 <div
                     className="absolute inset-0 opacity-[0.07] pointer-events-none"
@@ -27,20 +24,20 @@ export default function CallToAction() {
                 />
 
                 <div className="relative z-10">
-                    <span className="inline-block text-blue-200 text-xs font-bold tracking-[0.18em] uppercase mb-4">
+                    <span className="inline-block text-emerald-200 text-xs font-bold tracking-[0.18em] uppercase mb-4">
                         Open to Opportunities
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
                         Ready to build something great?
                     </h2>
-                    <p className="text-blue-100 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+                    <p className="text-emerald-50 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
                         I specialize in scalable web applications and production-ready systems.
                         Let&apos;s collaborate and bring your vision to life.
                     </p>
                     <div className="flex gap-3 justify-center flex-wrap">
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 px-7 py-3 bg-white text-brand-primary font-bold text-sm rounded-xl shadow-lg hover:bg-blue-50 hover:-translate-y-0.5 transition-all"
+                            className="inline-flex items-center gap-2 px-7 py-3 bg-white text-brand-primary font-bold text-sm rounded-xl shadow-lg hover:bg-gray-100 hover:-translate-y-0.5 transition-all"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

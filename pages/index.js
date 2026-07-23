@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import BackToTop from '../components/BackToTop'
-import CursorGlow from '../components/CursorGlow'
 
 // Lazy load below-fold components
 const About            = dynamic(() => import('../components/About'),            { ssr: true })
@@ -17,7 +16,6 @@ const CallToAction     = dynamic(() => import('../components/CallToAction'),    
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0F172A] transition-colors duration-300">
-      <CursorGlow />
       <Nav />
 
       <main role="main">

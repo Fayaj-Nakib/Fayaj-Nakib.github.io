@@ -121,7 +121,7 @@ export default function About() {
                                 {values.map((v) => (
                                     <span
                                         key={v}
-                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/40 text-brand-primary dark:text-blue-400 rounded-full text-xs font-semibold border border-blue-100 dark:border-blue-900/50"
+                                        className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-xs font-semibold border border-gray-200 dark:border-gray-700"
                                     >
                                         {v}
                                     </span>
@@ -141,7 +141,7 @@ export default function About() {
                                 transition={{ delay: 0.1 + i * 0.08, duration: 0.5 }}
                                 className="flex items-start gap-3.5 p-4 bg-white dark:bg-gray-800/70 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
                             >
-                                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/50 text-brand-primary dark:text-brand-accent border border-blue-100 dark:border-blue-900/40">
+                                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
                                     {fact.icon}
                                 </div>
                                 <div className="min-w-0">

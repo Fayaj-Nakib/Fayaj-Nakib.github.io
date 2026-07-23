@@ -4,13 +4,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand-primary: #1E3A8A;
-  --color-brand-accent: #3B82F6;
+  --color-brand-primary: #064E3B;
+  --color-brand-accent: #34D399;
+  --color-brand-champagne: #F8E7C9;
   --color-brand-bg: #F9FAFB;
   --color-brand-text: #111827;
-
-  --color-indigo-800: #1E3A8A;
-  --color-indigo-600: #3B82F6;
 }
 
 @layer base {
@@ -18,8 +16,8 @@
     --bg: #F8FAFC;
     --surface: #FFFFFF;
     --text: #0F172A;
-    --primary: #1E3A8A;
-    --accent: #3B82F6;
+    --primary: #064E3B;
+    --accent: #34D399;
   }
 }
 
@@ -36,7 +34,7 @@ body,
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Geist, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -81,8 +79,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ── Selection ── */
-::selection { background-color: #3B82F6; color: white; }
-.dark ::selection { background-color: #1D4ED8; color: white; }
+::selection { background-color: #064E3B; color: white; }
+.dark ::selection { background-color: #065F46; color: white; }
 
 /* ── Code ── */
 code {
@@ -92,11 +90,11 @@ code {
 
 /* ── Hero dot pattern ── */
 .hero-pattern {
-  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.07) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(6, 78, 59, 0.07) 1.5px, transparent 1.5px);
   background-size: 28px 28px;
 }
 .dark .hero-pattern {
-  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(52, 211, 153, 0.08) 1.5px, transparent 1.5px);
 }
 
 /* ── Section label ── */
@@ -106,8 +104,11 @@ code {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-brand-accent);
+  color: #6B7280;
   margin-bottom: 0.875rem;
+}
+.dark .section-label {
+  color: #9CA3AF;
 }
 
 /* ── Alternating section backgrounds ── */

@@ -11,11 +11,11 @@ export default function Document() {
           }}
         />
 
-        {/* ── Google Fonts: Inter ── */}
+        {/* ── Google Fonts: Geist ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
 
@@ -27,7 +27,7 @@ export default function Document() {
         <meta name="robots"        content="index, follow" />
         <meta name="language"      content="English" />
         <meta name="revisit-after" content="7 days" />
-        <meta name="theme-color"   content="#1E3A8A" />
+        <meta name="theme-color"   content="#064E3B" />
 
         {/* ── Open Graph ── */}
         <meta property="og:type"        content="website" />

@@ -32,7 +32,7 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
                         >
-                            <ProjectCard {...p} index={i} />
+                            <ProjectCard {...p} />
                         </motion.div>
                     ))}
                 </div>
@@ -54,7 +54,7 @@ export default function Projects() {
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.5 }}
                                 >
-                                    <ProjectCard {...p} index={featured.length + i} />
+                                    <ProjectCard {...p} />
                                 </motion.div>
                             ))}
                         </div>

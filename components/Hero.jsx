@@ -83,7 +83,7 @@ function StatItem({ value, label }) {
     const display = useCountUp(value, inView)
     return (
         <div ref={ref}>
-            <div className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{display}</div>
+            <div className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight tabular-nums">{display}</div>
             <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-medium">{label}</div>
         </div>
     )
@@ -128,10 +128,6 @@ export default function Hero() {
         <header className="relative max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden" role="banner">
             {/* Dot pattern background */}
             <div className="hero-pattern absolute inset-0 -z-10 pointer-events-none" />
-            {/* Animated gradient orbs */}
-            <div className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-brand-primary/10 dark:bg-brand-primary/6 rounded-full blur-[90px] pointer-events-none -z-10 animate-blob" />
-            <div className="absolute top-10 -right-32 w-[420px] h-[420px] bg-brand-accent/10 dark:bg-brand-accent/6 rounded-full blur-[80px] pointer-events-none -z-10 animate-blob anim-delay-2" />
-            <div className="absolute -bottom-32 left-1/3 w-[380px] h-[380px] bg-blue-400/8 dark:bg-blue-400/5 rounded-full blur-[70px] pointer-events-none -z-10 animate-blob anim-delay-4" />
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
 
@@ -148,7 +144,7 @@ export default function Hero() {
                         {...fadeUp(0.1)}
                         className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight"
                     >
-                        <span className="bg-gradient-to-r from-brand-primary via-brand-accent to-blue-400 bg-clip-text text-transparent dark:from-blue-300 dark:via-brand-accent dark:to-blue-500">
+                        <span className="text-gray-900 dark:text-white">
                             Fayaj Nakib
                         </span>
                     </motion.h1>
@@ -173,7 +169,7 @@ export default function Hero() {
                     <motion.div {...fadeUp(0.25)} className="flex gap-3 flex-wrap items-center">
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-primary dark:bg-brand-accent text-white font-semibold text-sm shadow-lg shadow-brand-primary/25 dark:shadow-brand-accent/20 hover:bg-brand-accent dark:hover:bg-blue-400 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2 transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 font-semibold text-sm shadow-lg shadow-brand-primary/25 dark:shadow-brand-accent/20 hover:bg-emerald-800 dark:hover:bg-emerald-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2 transition-all"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -240,9 +236,9 @@ export default function Hero() {
                         transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                         className="relative animate-float"
                     >
-                        {/* Gradient ring */}
-                        <div className="p-[2.5px] bg-gradient-to-br from-brand-primary via-brand-accent to-blue-400 rounded-[20px] shadow-2xl shadow-brand-primary/20">
-                            <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-[18px] overflow-hidden bg-white dark:bg-gray-900">
+                        {/* Photo frame */}
+                        <div className="p-1.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-[20px] shadow-sm">
+                            <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-[16px] overflow-hidden bg-white dark:bg-gray-900">
                                 {!imageError ? (
                                     <Image
                                         src="/profile.jpg"
@@ -255,7 +251,7 @@ export default function Hero() {
                                         onError={() => setImageError(true)}
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-white font-bold text-4xl bg-gradient-to-br from-brand-primary to-brand-accent">
+                                    <div className="w-full h-full flex items-center justify-center text-white font-bold text-4xl bg-brand-primary">
                                         FN
                                     </div>
                                 )}
@@ -283,12 +279,12 @@ export default function Hero() {
                         className="w-full mt-3 p-5 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3.5"
                     >
                         <div className="flex items-center gap-2.5 text-sm">
-                            <span className="text-brand-accent font-bold">▸</span>
+                            <span className="text-gray-400 dark:text-gray-500 font-bold">▸</span>
                             <span className="text-gray-500 dark:text-gray-400">Currently at</span>
                             <span className="text-gray-900 dark:text-gray-100 font-semibold">Cassetex</span>
                         </div>
                         <div className="flex items-center gap-2.5 text-sm text-gray-500 dark:text-gray-400">
-                            <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -297,11 +293,11 @@ export default function Hero() {
 
                         <div className="pt-3 border-t border-gray-100 dark:border-gray-700">
                             <div className="text-xs text-gray-400 dark:text-gray-500 mb-2.5 font-semibold uppercase tracking-wider">Primary Stack</div>
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="flex flex-wrap gap-1">
                                 {stack.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="text-xs px-2.5 py-1 bg-blue-50 dark:bg-blue-950/40 text-brand-primary dark:text-blue-400 rounded-lg font-medium border border-blue-100 dark:border-blue-900/50"
+                                        className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg font-medium border border-gray-200 dark:border-gray-700"
                                     >
                                         {tech}
                                     </span>
