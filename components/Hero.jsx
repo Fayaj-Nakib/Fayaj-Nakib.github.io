@@ -154,7 +154,7 @@ export default function Hero() {
                         {...fadeUp(0.15)}
                         className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 h-8 flex items-center"
                     >
-                        <TypingEffect words={roles} speed={100} />
+                        <TypingEffect words={roles} speed={200} />
                     </motion.div>
 
                     {/* Description */}
