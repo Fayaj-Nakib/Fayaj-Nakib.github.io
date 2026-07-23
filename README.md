@@ -13,7 +13,7 @@ Personal portfolio website for **Md. Fayaj Nakib**, Full-Stack Software Engineer
 | Framework | Next.js 16 (Pages Router, static export) |
 | Styling | Tailwind CSS v4 |
 | Animations | Framer Motion v12 |
-| Contact form | Web3Forms (no backend required) |
+| Contact form | EmailJS (no backend required) |
 | Deployment | GitHub Pages |
 | Icons | Font Awesome 6 · Devicon |
 
@@ -31,7 +31,7 @@ Personal portfolio website for **Md. Fayaj Nakib**, Full-Stack Software Engineer
 - **Expandable IBM certifications** — professional cert cards with inline course lists (PDF + Verify per course)
 - **Unique project cards** — each card has a distinct gradient accent
 - **Back to top button** — fades in after 400 px scroll
-- **Web3Forms contact** — sends email directly from the browser, no Outlook redirect
+- **EmailJS contact** — sends email directly from the browser (owner notification + visitor auto-reply), no Outlook redirect
 - **Fully static** — `next export`, no server required
 
 ---
@@ -48,7 +48,7 @@ Personal portfolio website for **Md. Fayaj Nakib**, Full-Stack Software Engineer
 | 05 | Education | BSc in CSE — University of Asia Pacific |
 | 06 | Certifications | IBM Professional Certs (expandable) + standalone courses |
 | 07 | Awards | ICPC, Dean's Award, Photography |
-| 08 | Contact | Direct email, LinkedIn, GitHub, phone + Web3Forms message form |
+| 08 | Contact | Direct email, LinkedIn, GitHub, phone + EmailJS message form |
 
 ---
 
@@ -61,7 +61,7 @@ fayaj-nakib.github.io/
 │   ├── BackToTop.jsx        # Scroll-to-top button
 │   ├── CallToAction.jsx     # Aurora-background CTA banner
 │   ├── Certifications.jsx   # IBM expandable certs + standalone grid
-│   ├── Contact.jsx          # Contact details + Web3Forms form
+│   ├── Contact.jsx          # Contact details + EmailJS form
 │   ├── CursorGlow.jsx       # Mouse-following radial gradient
 │   ├── Education.jsx        # Education timeline
 │   ├── Experience.jsx       # Work history timeline
@@ -122,10 +122,21 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Contact form setup
 
-The contact form uses [Web3Forms](https://web3forms.com) (free, 250 submissions/month).
+The contact form uses [EmailJS](https://www.emailjs.com) and sends two emails per submission: a notification to the site owner and an auto-reply to the visitor.
 
-1. Go to [web3forms.com](https://web3forms.com), enter your email → get access key instantly
-2. Open `components/Contact.jsx` and replace `'YOUR_ACCESS_KEY'` on line 13
+1. Create an account at [emailjs.com](https://www.emailjs.com) and add an Email Service (e.g. Gmail) — note its **Service ID**.
+2. Create two Email Templates:
+   - **Notification template** — sent to you. Use template variables `{{name}}`, `{{email}}`, `{{subject}}`, `{{message}}`. Set the "To email" field in the template to your own address.
+   - **Auto-reply template** — sent to the visitor. Set "To email" to `{{to_email}}`. Subject: `Thanks for reaching out`. Body:
+     ```
+     Hi {{name}}, thanks for your message — I've received it and will get back to you within 1-2 business days.
+
+     Best,
+     Fayaj Nakib.
+     ```
+     (The app passes `name` as `"there"` when the visitor leaves the name field blank, so the greeting never renders with a dangling comma.)
+3. Copy `.env.local.example` to `.env.local` and fill in your Public Key (Account > General), Service ID, and the two Template IDs.
+4. In the EmailJS dashboard, go to **Account > Security** and restrict allowed origins/domains and set a rate limit — the public key ships in the client bundle, so this is what actually stops abuse from other sites.
 
 ---
 
@@ -143,6 +154,8 @@ The contact form uses [Web3Forms](https://web3forms.com) (free, 250 submissions/
 ## Deployment
 
 Deployed to GitHub Pages via `next export` (static HTML/CSS/JS, no server). Push to `main` branch to trigger deployment.
+
+The GitHub Actions build step needs the EmailJS values as repo secrets (Settings > Secrets and variables > Actions), matching the names in `.env.local.example`: `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`, `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_NOTIFY_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_REPLY_TEMPLATE_ID` — without these the deployed contact form will fail to send.
 
 ---
 

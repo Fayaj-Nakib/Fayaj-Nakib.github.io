@@ -2,10 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 
-// ── Web3Forms config ─────────────────────────────────────────────────────────
-// Get your free access key at https://web3forms.com (enter email → key arrives instantly)
-const WEB3FORMS_KEY = '04fdcf87-8529-4c59-bbeb-ea35624d8abb'
+// ── EmailJS config (see .env.local / README "Contact form setup") ──────────
+const EMAILJS_PUBLIC_KEY         = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+const EMAILJS_SERVICE_ID         = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+const EMAILJS_NOTIFY_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_NOTIFY_TEMPLATE_ID
+const EMAILJS_REPLY_TEMPLATE_ID  = process.env.NEXT_PUBLIC_EMAILJS_REPLY_TEMPLATE_ID
 // ─────────────────────────────────────────────────────────────────────────────
 
 const EMAIL = 'fayaj.nakib.dev@gmail.com'
@@ -86,28 +89,36 @@ export default function Contact() {
         e.preventDefault()
         setStatus('sending')
         const data = new FormData(e.target)
+        const name    = data.get('from_name').trim()
+        const email   = data.get('from_email')
+        const subject = data.get('subject') || 'Contact from Portfolio'
+        const message = data.get('message')
+
         try {
-            const res = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-                body: JSON.stringify({
-                    access_key: WEB3FORMS_KEY,
-                    name:    data.get('from_name'),
-                    email:   data.get('from_email'),
-                    subject: data.get('subject') || 'Contact from Portfolio',
-                    message: data.get('message'),
-                }),
-            })
-            const result = await res.json()
-            if (result.success) {
-                setStatus('success')
-                formRef.current.reset()
-            } else {
-                setStatus('error')
-            }
+            // Notification to me — this one must succeed for the submission to count.
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_NOTIFY_TEMPLATE_ID,
+                { name, email, subject, message },
+                { publicKey: EMAILJS_PUBLIC_KEY }
+            )
         } catch {
             setStatus('error')
+            return
         }
+
+        setStatus('success')
+        formRef.current.reset()
+
+        // Auto-reply to the visitor is best-effort — don't fail the submission over it.
+        emailjs
+            .send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_REPLY_TEMPLATE_ID,
+                { to_email: email, name: name || 'there' },
+                { publicKey: EMAILJS_PUBLIC_KEY }
+            )
+            .catch(() => {})
     }
 
     return (
