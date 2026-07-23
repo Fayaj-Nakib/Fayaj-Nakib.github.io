@@ -94,15 +94,22 @@ export default function Contact() {
         const subject = data.get('subject') || 'Contact from Portfolio'
         const message = data.get('message')
 
+        console.log('[EmailJS] sending notification', {
+            serviceId: EMAILJS_SERVICE_ID,
+            templateId: EMAILJS_NOTIFY_TEMPLATE_ID,
+            hasPublicKey: Boolean(EMAILJS_PUBLIC_KEY),
+        })
         try {
             // Notification to me — this one must succeed for the submission to count.
-            await emailjs.send(
+            const notifyResult = await emailjs.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_NOTIFY_TEMPLATE_ID,
                 { name, email, subject, message },
                 { publicKey: EMAILJS_PUBLIC_KEY }
             )
-        } catch {
+            console.log('[EmailJS] notification sent', notifyResult)
+        } catch (err) {
+            console.log('[EmailJS] notification failed — auto-reply will NOT run', err)
             setStatus('error')
             return
         }
