@@ -111,14 +111,23 @@ export default function Contact() {
         formRef.current.reset()
 
         // Auto-reply to the visitor is best-effort — don't fail the submission over it.
-        emailjs
-            .send(
+        console.log('[EmailJS] sending auto-reply', {
+            serviceId: EMAILJS_SERVICE_ID,
+            templateId: EMAILJS_REPLY_TEMPLATE_ID,
+            hasPublicKey: Boolean(EMAILJS_PUBLIC_KEY),
+            params: { to_email: email, name: name || 'there' },
+        })
+        try {
+            const result = await emailjs.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_REPLY_TEMPLATE_ID,
                 { to_email: email, name: name || 'there' },
                 { publicKey: EMAILJS_PUBLIC_KEY }
             )
-            .catch(() => {})
+            console.log('[EmailJS] auto-reply sent', result)
+        } catch (err) {
+            console.log('[EmailJS] auto-reply failed', err)
+        }
     }
 
     return (
