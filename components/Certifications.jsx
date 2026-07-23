@@ -48,7 +48,7 @@ export default function Certifications() {
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <div className="mb-12">
                         <span className="section-label">06 &nbsp;·&nbsp; Certifications</span>
@@ -68,7 +68,7 @@ export default function Certifications() {
                                 initial={{ y: 20, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: idx * 0.08, duration: 0.5 }}
+                                transition={{ delay: idx * 0.08, duration: 0.4 }}
                                 className="bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden"
                             >
                                 {/* Card header */}
@@ -190,7 +190,7 @@ export default function Certifications() {
                                         initial={{ y: 20, opacity: 0 }}
                                         whileInView={{ y: 0, opacity: 1 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: idx * 0.06, duration: 0.5 }}
+                                        transition={{ delay: idx * 0.06, duration: 0.4 }}
                                         className="group p-4 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250 flex items-start gap-3"
                                     >
                                         <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
@@ -227,7 +227,7 @@ export default function Certifications() {
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <div className="mb-10">
                         <span className="section-label">07 &nbsp;·&nbsp; Awards</span>
@@ -246,7 +246,7 @@ export default function Certifications() {
                                 initial={{ y: 20, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: idx * 0.07, duration: 0.5 }}
+                                transition={{ delay: idx * 0.07, duration: 0.4 }}
                                 className="p-5 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 border-l-[3px] border-l-brand-champagne shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250"
                             >
                                 <div className="text-lg mb-1">🏆</div>

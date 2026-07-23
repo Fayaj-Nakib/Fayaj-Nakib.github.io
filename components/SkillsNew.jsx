@@ -16,7 +16,7 @@ export default function SkillsNew() {
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay, duration: 0.5 }}
+            transition={{ delay, duration: 0.4 }}
             className="mb-5"
         >
             <div className="p-5 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-250">
@@ -62,7 +62,7 @@ export default function SkillsNew() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
             >
                 {/* Section header */}
                 <div className="mb-12">

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function ProjectCard({ title, desc, tags, github, live, year }) {
     const [expanded, setExpanded] = useState(false)
@@ -6,8 +7,11 @@ export default function ProjectCard({ title, desc, tags, github, live, year }) {
     const isLong = desc.length > 220
 
     return (
-        <div className="group relative h-full flex flex-col bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
-
+        <motion.div
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="group relative h-full flex flex-col bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+        >
             <div className="p-6 flex flex-col flex-1">
                 {/* Header row */}
                 <div className="flex items-start justify-between gap-3 mb-4">
@@ -91,6 +95,6 @@ export default function ProjectCard({ title, desc, tags, github, live, year }) {
                     </div>
                 )}
             </div>
-        </div>
+        </motion.div>
     )
 }

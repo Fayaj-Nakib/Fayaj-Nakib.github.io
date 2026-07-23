@@ -60,7 +60,7 @@ export default function About() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
             >
                 <div className="mb-12">
                     <span className="section-label">01 &nbsp;·&nbsp; About</span>
@@ -79,7 +79,7 @@ export default function About() {
                             initial={{ x: -16, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.1, duration: 0.5 }}
+                            transition={{ delay: 0.1, duration: 0.4 }}
                             className="pl-5 border-l-4 border-brand-accent"
                         >
                             <p className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white leading-relaxed">
@@ -91,7 +91,7 @@ export default function About() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.18, duration: 0.5 }}
+                            transition={{ delay: 0.18, duration: 0.4 }}
                             className="text-gray-600 dark:text-gray-400 leading-relaxed text-base"
                         >
                             Working on Cassetex&apos;s IoT fleet platform taught me what &ldquo;production-ready&rdquo; really means. When GPS telemetry, real-time vehicle tracking, bKash payment webhooks, and multi-tenant access control all need to work together without failure, there&apos;s no room for shortcuts. That environment shaped how I think about architecture, error handling, and observability from day one.
@@ -101,7 +101,7 @@ export default function About() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.24, duration: 0.5 }}
+                            transition={{ delay: 0.24, duration: 0.4 }}
                             className="text-gray-600 dark:text-gray-400 leading-relaxed text-base"
                         >
                             I started in competitive programming — four ICPC Asia Preliminary rounds trained me to break hard problems apart under pressure. That mindset carries into every system I design. Outside engineering, I coordinate film and photography events and shoot documentary work, which keeps me thinking about composition and clear storytelling — surprisingly useful when designing APIs.
@@ -112,7 +112,7 @@ export default function About() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.3, duration: 0.5 }}
+                            transition={{ delay: 0.3, duration: 0.4 }}
                         >
                             <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">
                                 What I care about
@@ -138,7 +138,7 @@ export default function About() {
                                 initial={{ x: 20, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: 0.1 + i * 0.08, duration: 0.5 }}
+                                transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                                 className="flex items-start gap-3.5 p-4 bg-white dark:bg-gray-800/70 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
                             >
                                 <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700">

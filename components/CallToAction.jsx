@@ -9,7 +9,7 @@ export default function CallToAction() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 className="relative overflow-hidden rounded-3xl px-8 py-14 md:px-14 text-center shadow-lg shadow-brand-primary/10"
             >
                 {/* Background */}

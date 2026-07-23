@@ -12,7 +12,7 @@ export default function Projects() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
             >
                 <div className="mb-12">
                     <span className="section-label">02 &nbsp;·&nbsp; Projects</span>
@@ -30,7 +30,7 @@ export default function Projects() {
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.5 }}
+                            transition={{ delay: i * 0.1, duration: 0.4 }}
                         >
                             <ProjectCard {...p} />
                         </motion.div>
@@ -52,7 +52,7 @@ export default function Projects() {
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                                    transition={{ delay: i * 0.1, duration: 0.4 }}
                                 >
                                     <ProjectCard {...p} />
                                 </motion.div>

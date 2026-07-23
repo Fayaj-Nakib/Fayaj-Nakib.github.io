@@ -53,15 +53,6 @@
     ]
   },
   {
-    "title": "Language",
-    "skills": [
-      { "name": "English (Fluent)", "icon": "fa-solid fa-language" },
-      { "name": "Bengali (Native)", "icon": "fa-solid fa-language" },
-      { "name": "Japanese (Elementary)", "icon": "fa-solid fa-language" },
-      { "name": "German (Elementary)", "icon": "fa-solid fa-language" }
-    ]
-  },
-  {
     "title": "Soft Skills",
     "skills": [
       { "name": "Problem-Solving", "icon": "fa-solid fa-lightbulb" },

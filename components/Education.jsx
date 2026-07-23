@@ -10,7 +10,7 @@ export default function Education() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
             >
                 {/* Section header */}
                 <div className="mb-12">
@@ -30,7 +30,7 @@ export default function Education() {
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1, duration: 0.5 }}
+                            transition={{ delay: idx * 0.1, duration: 0.4 }}
                             className="p-6 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 border-l-[3px] border-l-brand-accent shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250"
                         >
                             <div className="flex items-start justify-between flex-wrap gap-3">

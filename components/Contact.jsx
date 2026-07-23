@@ -116,7 +116,7 @@ export default function Contact() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
             >
                 {/* Section header */}
                 <div className="mb-12">
@@ -136,7 +136,7 @@ export default function Contact() {
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1, duration: 0.5 }}
+                        transition={{ delay: 0.1, duration: 0.4 }}
                         className="md:col-span-2 space-y-3"
                     >
                         <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-5">
@@ -192,7 +192,7 @@ export default function Contact() {
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.15, duration: 0.5 }}
+                        transition={{ delay: 0.15, duration: 0.4 }}
                         className="md:col-span-3 p-7 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm"
                     >
                         <h3 className="font-bold text-base text-gray-900 dark:text-white mb-5">Send a Message</h3>
