@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export default function TypingEffect({ words, speed = 1500 }) {
+export default function TypingEffect({ words, speed = 100 }) {
     const [currentWordIndex, setCurrentWordIndex] = useState(0)
     const [currentText, setCurrentText] = useState('')
     const [isDeleting, setIsDeleting] = useState(false)
@@ -27,11 +27,9 @@ export default function TypingEffect({ words, speed = 1500 }) {
                 setCurrentText(currentText.substring(0, currentText.length - 1))
             }, 50)
         } else if (isDeleting && currentText.length === 0) {
-            // Pause before starting the next role
-            timeout = setTimeout(() => {
-                setIsDeleting(false)
-                setCurrentWordIndex((prev) => (prev + 1) % words.length)
-            }, 2000)
+            // Move to next word
+            setIsDeleting(false)
+            setCurrentWordIndex((prev) => (prev + 1) % words.length)
         }
 
         return () => clearTimeout(timeout)

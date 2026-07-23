@@ -60,7 +60,7 @@ function useCountUp(target, isInView) {
         if (num === 0) { setDisplay(target); return }
 
         let start = null
-        const duration = 900
+        const duration = 5000
         const step = (timestamp) => {
             if (!start) start = timestamp
             const elapsed  = timestamp - start
@@ -154,7 +154,7 @@ export default function Hero() {
                         {...fadeUp(0.15)}
                         className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 h-8 flex items-center"
                     >
-                        <TypingEffect words={roles} speed={1500} />
+                        <TypingEffect words={roles} speed={100} />
                     </motion.div>
 
                     {/* Description */}
