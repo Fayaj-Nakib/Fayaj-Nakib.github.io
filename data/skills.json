@@ -2,63 +2,159 @@
   {
     "title": "Backend Development",
     "skills": [
-      { "name": "PHP (Laravel)", "icon": "fa-brands fa-php" },
-      { "name": "Python", "icon": "fa-brands fa-python" },
-      { "name": "REST API Design", "icon": "fa-solid fa-server" },
-      { "name": "OOP & SOLID Principles", "icon": "fa-solid fa-cubes" },
-      { "name": "JWT / Sanctum Auth", "icon": "fa-solid fa-shield-halved" },
-      { "name": "Laravel Queues & Observers", "icon": "fa-solid fa-layer-group" }
-    ]
-  },
-  {
-    "title": "Frontend Development",
-    "skills": [
-      { "name": "React.js", "icon": "fa-brands fa-react" },
-      { "name": "Next.js", "icon": "fa-solid fa-code" },
-      { "name": "TypeScript", "icon": "fa-brands fa-js" },
-      { "name": "JavaScript", "icon": "fa-brands fa-js" },
-      { "name": "TailwindCSS", "icon": "fa-solid fa-paintbrush" },
-      { "name": "HTML5 / CSS3", "icon": "fa-brands fa-html5" }
+      {
+        "name": "PHP (Laravel)",
+        "icon": "fa-brands fa-php"
+      },
+      {
+        "name": "Python",
+        "icon": "fa-brands fa-python"
+      },
+      {
+        "name": "REST API Design",
+        "icon": "fa-solid fa-server"
+      },
+      {
+        "name": "OOP & SOLID Principles",
+        "icon": "fa-solid fa-cubes"
+      },
+      {
+        "name": "JWT / Sanctum Auth",
+        "icon": "fa-solid fa-shield-halved"
+      },
+      {
+        "name": "Laravel Queues & Observers",
+        "icon": "fa-solid fa-layer-group"
+      }
     ]
   },
   {
     "title": "Databases",
     "skills": [
-      { "name": "PostgreSQL", "icon": "devicon-postgresql-plain" },
-      { "name": "PostGIS", "icon": "fa-solid fa-earth-asia" },
-      { "name": "Tile38", "icon": "fa-solid fa-location-dot" },
-      { "name": "MySQL", "icon": "devicon-mysql-plain" },
-      { "name": "Redis", "icon": "devicon-redis-plain" },
-      { "name": "Firebase", "icon": "fa-solid fa-fire" }
+      {
+        "name": "PostgreSQL",
+        "icon": "devicon-postgresql-plain"
+      },
+      {
+        "name": "PostGIS",
+        "icon": "fa-solid fa-earth-asia"
+      },
+      {
+        "name": "Tile38",
+        "icon": "fa-solid fa-location-dot"
+      },
+      {
+        "name": "MySQL",
+        "icon": "devicon-mysql-plain"
+      },
+      {
+        "name": "Redis",
+        "icon": "devicon-redis-plain"
+      },
+      {
+        "name": "Firebase",
+        "icon": "fa-solid fa-fire"
+      }
     ]
   },
   {
     "title": "DevOps & Cloud",
     "skills": [
-      { "name": "Docker", "icon": "fa-brands fa-docker" },
-      { "name": "GitHub Actions CI/CD", "icon": "fa-brands fa-github" },
-      { "name": "Nginx", "icon": "fa-solid fa-globe" },
-      { "name": "Linux / VPS Administration", "icon": "fa-brands fa-linux" },
-      { "name": "SSL & Deployment", "icon": "fa-solid fa-lock" }
+      {
+        "name": "Docker",
+        "icon": "fa-brands fa-docker"
+      },
+      {
+        "name": "GitHub Actions CI/CD",
+        "icon": "fa-brands fa-github"
+      },
+      {
+        "name": "Nginx",
+        "icon": "fa-solid fa-globe"
+      },
+      {
+        "name": "Linux / VPS Administration",
+        "icon": "fa-brands fa-linux"
+      },
+      {
+        "name": "SSL & Deployment",
+        "icon": "fa-solid fa-lock"
+      }
+    ]
+  },
+  {
+    "title": "Frontend Development",
+    "skills": [
+      {
+        "name": "React.js",
+        "icon": "fa-brands fa-react"
+      },
+      {
+        "name": "Next.js",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "fa-brands fa-js"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "fa-brands fa-js"
+      },
+      {
+        "name": "TailwindCSS",
+        "icon": "fa-solid fa-paintbrush"
+      },
+      {
+        "name": "HTML5 / CSS3",
+        "icon": "fa-brands fa-html5"
+      }
     ]
   },
   {
     "title": "Engineering Practices",
     "skills": [
-      { "name": "Agile / Scrum", "icon": "fa-solid fa-arrows-spin" },
-      { "name": "TDD / BDD", "icon": "fa-solid fa-vial-circle-check" },
-      { "name": "Application Security", "icon": "fa-solid fa-shield-halved" },
-      { "name": "Monitoring & Observability", "icon": "fa-solid fa-chart-line" },
-      { "name": "Git", "icon": "fa-brands fa-git-alt" }
+      {
+        "name": "Agile / Scrum (training)",
+        "icon": "fa-solid fa-arrows-spin"
+      },
+      {
+        "name": "TDD / BDD (training)",
+        "icon": "fa-solid fa-vial-circle-check"
+      },
+      {
+        "name": "Application Security",
+        "icon": "fa-solid fa-shield-halved"
+      },
+      {
+        "name": "Monitoring & Observability (training)",
+        "icon": "fa-solid fa-chart-line"
+      },
+      {
+        "name": "Git",
+        "icon": "fa-brands fa-git-alt"
+      }
     ]
   },
   {
     "title": "Soft Skills",
     "skills": [
-      { "name": "Problem-Solving", "icon": "fa-solid fa-lightbulb" },
-      { "name": "Teamwork", "icon": "fa-solid fa-people-group" },
-      { "name": "Communication", "icon": "fa-solid fa-comments" },
-      { "name": "Critical Thinking", "icon": "fa-solid fa-brain" }
+      {
+        "name": "Problem-Solving",
+        "icon": "fa-solid fa-lightbulb"
+      },
+      {
+        "name": "Teamwork",
+        "icon": "fa-solid fa-people-group"
+      },
+      {
+        "name": "Communication",
+        "icon": "fa-solid fa-comments"
+      },
+      {
+        "name": "Critical Thinking",
+        "icon": "fa-solid fa-brain"
+      }
     ]
   }
 ]

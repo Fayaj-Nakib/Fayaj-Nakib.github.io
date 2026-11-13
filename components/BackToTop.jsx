@@ -12,7 +12,10 @@ export default function BackToTop() {
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+    const scrollToTop = () => window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    })
 
     return (
         <AnimatePresence>

@@ -1,17 +1,16 @@
 [
   {
     "title": "Associate Software Engineer",
-    "org": "Cassetex",
+    "org": "Cassetex Ltd.",
     "location": "Mohakhali DOHS, Dhaka-1212",
     "period": "Feb 2025 - Present",
     "bullets": [
-      "Own the platform's core REST API (Laravel 12 / PHP 8.2 / PostgreSQL), delivering 150+ endpoints across fleet operations, IoT telemetry, payments, geofencing, and hardware control through a scalable service-oriented architecture.",
-      "Built a real-time geofencing system for EVs that automatically shuts down a vehicle when it leaves its permitted zone and re-enables it on return using GPS tracking and Tile38, with an automatic fallback that keeps enforcement working during network outages.",
-      "Engineered an ACID-safe order and payment platform with atomic multi-record transactions, rollback guarantees, and priority-based payment resolution across wallet and swap-credit balances, eliminating partial-write and double-charge scenarios.",
-      "Designed and secured three authentication flows on a unified API surface (Azure AD SSO, driver PIN authentication, and scoped IoT API keys), complemented by custom RBAC middleware and comprehensive audit logging.",
-      "Delivered the operator-facing platform end-to-end, including a Next.js 15 admin dashboard with a custom geofence editor, telemetry analytics, permission-aware UI rendering, and an installable field-officer PWA.",
-      "Automated operational reporting through a Python-based data pipeline (pandas, openpyxl, Microsoft Graph API) and integrated bKash payments with idempotent, race-condition-safe reconciliation workflows.",
-      "Managed deployment and server operations across three VPS environments (two production, one staging), including Nginx configuration, environment setup, SSL certificates, Git-based releases, PostgreSQL provisioning, backups, queue workers, cron jobs, and production incident handling."
+      "Develop and maintain the Laravel 12 and PostgreSQL backend for a production EV battery-swapping platform supporting 15 IoT cabinets and 90+ batteries, with over 11,000 completed swaps and 27,000 remote hardware commands.",
+      "Develop automated bKash payment processing with transaction matching, idempotent webhooks, and exception-handling workflows.",
+      "Implement Tile38 GPS geofencing with cooldown and multiple-reading validation to reduce false hardware triggers; build queued automation and background jobs for balance, geofence, and payment conditions.",
+      "Implement authentication and role-based authorization with 10 roles and 86 permissions, including scoped API keys for IoT communication.",
+      "Optimize PostgreSQL queries and index migrations, and develop 40+ feature tests to check backend behavior.",
+      "Maintain three Linux VPS environments with Nginx, SSL, queue workers, and backups, supporting deployments and operational maintenance."
     ]
   },
   {
@@ -20,8 +19,8 @@
     "location": "Mohammadpur, Dhaka-1212",
     "period": "Jul 2024 - Dec 2024",
     "bullets": [
-      "Built client-facing Laravel + React / Next.js applications end-to-end in a cross-functional Agile team, from requirements gathering through deployment.",
-      "Refactored three legacy modules with cleaner object-oriented patterns, eliminated N+1 query issues, and introduced targeted indexing to improve API response times; resolved production bugs under time pressure and maintained clear technical documentation."
+      "Developed Laravel and React / Next.js applications as part of a team.",
+      "Refactored three legacy modules, addressed N+1 queries, and added SQL indexes to improve database performance."
     ]
   }
 ]

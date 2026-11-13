@@ -1,3 +1,4 @@
+import experienceData from '@/data/experience.json'
 import dynamic from 'next/dynamic'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
@@ -13,14 +14,15 @@ const Certifications   = dynamic(() => import('../components/Certifications'),  
 const Contact          = dynamic(() => import('../components/Contact'),          { ssr: true })
 const CallToAction     = dynamic(() => import('../components/CallToAction'),     { ssr: true })
 
-export default function Home() {
+export default function Home({ yearsExperience, buildYear }) {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0F172A] transition-colors duration-300">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Nav />
 
-      <main role="main">
+      <main id="main-content">
         {/* Hero */}
-        <Hero />
+        <Hero yearsExperience={yearsExperience} />
 
         {/* Alt bg: About */}
         <div className="bg-[#F1F5F9] dark:bg-[#0B1120]/60">
@@ -114,7 +116,7 @@ export default function Home() {
                 </a>
                 <span className="text-sm text-gray-500 dark:text-gray-400">Dhaka, Bangladesh</span>
                 <a
-                  href="/Md_Fayaj_Nakib.pdf"
+                  href="/Fayaj_Nakib_CV_2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-1 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-primary dark:text-brand-accent hover:underline w-fit"
@@ -131,7 +133,7 @@ export default function Home() {
           {/* Bottom bar */}
           <div className="border-t border-gray-100 dark:border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-gray-400 dark:text-gray-500">
-              &copy; {new Date().getFullYear()} Fayaj Nakib. All rights reserved.
+              &copy; {buildYear} Fayaj Nakib. All rights reserved.
             </p>
             <p className="text-xs text-gray-400 dark:text-gray-500">
               Built with Next.js &amp; Tailwind CSS
@@ -141,4 +143,22 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+// Compute once at build time; serialized props keep hydration deterministic.
+export function getStaticProps() {
+  const now = new Date()
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const monthNumber = (value) => {
+    const [month, year] = value.trim().split(' ')
+    return Number(year) * 12 + months.indexOf(month)
+  }
+  const current = now.getUTCFullYear() * 12 + now.getUTCMonth()
+  const workedMonths = new Set()
+  for (const job of experienceData) {
+    const [start, end] = job.period.split(' - ')
+    const last = end === 'Present' ? current : monthNumber(end) + 1
+    for (let month = monthNumber(start); month < last; month++) workedMonths.add(month)
+  }
+  return { props: { yearsExperience: Math.floor(workedMonths.size / 12), buildYear: now.getUTCFullYear() } }
 }

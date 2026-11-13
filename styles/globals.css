@@ -174,3 +174,22 @@ code {
   100% { transform: scale(2.4); opacity: 0; }
 }
 .animate-ping-slow { animation: ping-slow 2s ease-out infinite; }
+
+/* Keyboard access and motion preferences apply to every section. */
+/* Keep muted labels readable on the existing light and dark surfaces. */
+html:not(.dark) .text-gray-400,
+html:not(.dark) .text-gray-500 { color: #596273; }
+.dark .dark\:text-gray-500 { color: #9ca3af; }
+html:not(.dark) .section-label { color: #596273; }
+:focus-visible { outline: 2px solid #059669; outline-offset: 4px; }
+.dark :focus-visible { outline-color: #34D399; }
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; padding: .75rem 1rem; background: white; color: #064E3B; }
+.skip-link:focus { top: 1rem; }
+section[id], main[id] { scroll-margin-top: 6rem; }
+button, summary { min-height: 44px; }
+button[role="switch"] { min-height: 26px; }
+button[role="switch"]::after { content: ''; position: absolute; inset: -9px 0; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
+}

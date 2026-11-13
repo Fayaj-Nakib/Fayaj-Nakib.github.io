@@ -1,39 +1,34 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useSyncExternalStore } from 'react'
+
+function getSnapshot() { return document.documentElement.classList.contains('dark') }
+function getServerSnapshot() { return false }
+function subscribe(callback) {
+    const observer = new MutationObserver(callback)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    const sync = () => {
+        let saved
+        try { saved = localStorage.getItem('theme') } catch {}
+        document.documentElement.classList.toggle('dark', saved === 'dark' || (!saved && media.matches))
+        callback()
+    }
+    window.addEventListener('storage', sync)
+    media.addEventListener('change', sync)
+    return () => {
+        observer.disconnect()
+        window.removeEventListener('storage', sync)
+        media.removeEventListener('change', sync)
+    }
+}
 
 export default function ThemeToggle() {
-    const [isDark, setIsDark] = useState(false)
-    const [mounted, setMounted] = useState(false)
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme')
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark)
-        setIsDark(shouldBeDark)
-        setMounted(true)
-        if (shouldBeDark) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    }, [])
-
+    const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
     const toggleTheme = () => {
-        const newTheme = !isDark
-        setIsDark(newTheme)
-        if (newTheme) {
-            document.documentElement.classList.add('dark')
-            localStorage.setItem('theme', 'dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-            localStorage.setItem('theme', 'light')
-        }
-    }
-
-    // Render placeholder during SSR to avoid hydration mismatch
-    if (!mounted) {
-        return <div className="w-[52px] h-[26px] rounded-full bg-gray-200 dark:bg-gray-700" />
+        const next = !getSnapshot()
+        document.documentElement.classList.toggle('dark', next)
+        try { localStorage.setItem('theme', next ? 'dark' : 'light') } catch {}
     }
 
     return (

@@ -5,10 +5,14 @@ import certificationsData from '@/data/certifications.json'
 
 export default function Certifications() {
     const [expanded, setExpanded] = useState({})
+    const [showAll, setShowAll] = useState(false)
     const certifications = certificationsData.certifications
     const awards         = certificationsData.awards
 
-    const professional = certifications.filter(c => c.courses && c.courses.length > 0)
+    const priority = ['IBM DevOps and Software Engineering', 'IBM Back-End Development', 'IBM Applied DevOps Engineering', 'IBM AI Developer']
+    const professional = certifications.filter(c => c.courses?.length > 0)
+        .sort((a, b) => (priority.indexOf(a.title) < 0 ? 99 : priority.indexOf(a.title)) - (priority.indexOf(b.title) < 0 ? 99 : priority.indexOf(b.title)))
+        .filter(c => showAll || priority.includes(c.title))
     const standalone   = certifications.filter(c => !c.courses || c.courses.length === 0)
 
     const toggle = (idx) => setExpanded(prev => ({ ...prev, [idx]: !prev[idx] }))
@@ -101,7 +105,7 @@ export default function Certifications() {
                                             <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{cert.description}</div>
                                         )}
 
-                                        <div className="flex items-center gap-4 mt-2">
+                                        <div className="flex flex-wrap items-center gap-4 mt-2">
                                             <CertLinks cert={cert} />
                                             {/* Expand toggle */}
                                             <button
@@ -176,8 +180,12 @@ export default function Certifications() {
                         ))}
                     </div>
 
+                    <button type="button" onClick={() => setShowAll(value => !value)} aria-expanded={showAll}
+                        className="mb-6 text-sm font-semibold text-brand-primary dark:text-brand-accent hover:underline">
+                        {showAll ? 'Show fewer certifications' : `Show all ${certifications.length} certifications`}
+                    </button>
                     {/* ── Individual Courses ── */}
-                    {standalone.length > 0 && (
+                    {showAll && standalone.length > 0 && (
                         <>
                             <div className="flex items-center gap-3 mb-5">
                                 <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Individual Courses</div>

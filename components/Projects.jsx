@@ -20,13 +20,13 @@ export default function Projects() {
                         Featured Work<span className="text-brand-accent">.</span>
                     </h2>
                     <p className="mt-3 text-gray-500 dark:text-gray-400 text-base max-w-2xl">
-                        A selection of projects I've built — from web applications to research work and systems design.
+                        A selection of projects I&apos;ve built — from web applications to research work and systems design.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {featured.map((p, i) => (
                         <motion.div
-                            key={i}
+                            key={p.title}
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
@@ -48,7 +48,7 @@ export default function Projects() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                             {other.map((p, i) => (
                                 <motion.div
-                                    key={i}
+                                    key={p.title}
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}

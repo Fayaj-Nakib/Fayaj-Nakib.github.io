@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
 export default function Nav() {
+    const menuButton = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const [progress, setProgress] = useState(0)
@@ -36,6 +37,24 @@ export default function Nav() {
 
         return () => observers.forEach((o) => o.disconnect())
     }, [])
+
+    useEffect(() => {
+        if (!isOpen) return
+        const onKey = (event) => {
+            if (event.key === 'Escape') {
+                setIsOpen(false)
+                menuButton.current?.focus()
+            }
+        }
+        const media = window.matchMedia('(min-width: 1024px)')
+        const close = () => { if (media.matches) setIsOpen(false) }
+        document.addEventListener('keydown', onKey)
+        media.addEventListener('change', close)
+        return () => {
+            document.removeEventListener('keydown', onKey)
+            media.removeEventListener('change', close)
+        }
+    }, [isOpen])
 
     const navLinks = [
         { href: '#projects',       label: 'Projects',       id: 'projects' },
@@ -87,7 +106,7 @@ export default function Nav() {
                 </a>
 
                 {/* Desktop links */}
-                <div className="hidden md:flex items-center gap-1">
+                <div className="hidden lg:flex items-center gap-1">
                     {navLinks.map((link) => (
                         <a key={link.href} href={link.href} className={linkClass(link.id)}>
                             {link.label}
@@ -97,7 +116,7 @@ export default function Nav() {
                     <div className="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-2" />
 
                     <a
-                        href="/Md_Fayaj_Nakib.pdf"
+                        href="/Fayaj_Nakib_CV_2026.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-4 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-1"
@@ -115,7 +134,9 @@ export default function Nav() {
 
                 {/* Mobile hamburger */}
                 <button
-                    className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                    className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                    ref={menuButton}
+                    aria-controls="mobile-navigation"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
                     aria-expanded={isOpen}
@@ -139,8 +160,8 @@ export default function Nav() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                        className="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-xl overflow-hidden"
-                        role="menu"
+                        className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-xl overflow-hidden"
+                        id="mobile-navigation"
                         aria-label="Navigation menu"
                     >
                         <div className="flex flex-col p-4 gap-1">
@@ -163,7 +184,7 @@ export default function Nav() {
                             ))}
                             <div className="h-px bg-gray-100 dark:bg-gray-800 my-2" />
                             <a
-                                href="/Md_Fayaj_Nakib.pdf"
+                                href="/Fayaj_Nakib_CV_2026.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-center text-gray-700 dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all"

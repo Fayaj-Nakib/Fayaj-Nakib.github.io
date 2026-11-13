@@ -7,10 +7,6 @@ import skillsData from '@/data/skills.json'
 export default function SkillsNew() {
     const skillCategories = skillsData
 
-    // Split into two columns: even-indexed left, odd-indexed right
-    const leftColumn  = skillCategories.filter((_, i) => i % 2 === 0)
-    const rightColumn = skillCategories.filter((_, i) => i % 2 === 1)
-
     const CategoryCard = ({ category, delay }) => (
         <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -76,16 +72,9 @@ export default function SkillsNew() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-5">
-                    <div>
-                        {leftColumn.map((category, idx) => (
-                            <CategoryCard key={idx} category={category} delay={idx * 0.08} />
-                        ))}
-                    </div>
-                    <div>
-                        {rightColumn.map((category, idx) => (
-                            <CategoryCard key={idx} category={category} delay={idx * 0.08} />
-                        ))}
-                    </div>
+                    {skillCategories.map((category, idx) => (
+                        <CategoryCard key={category.title} category={category} delay={idx * 0.08} />
+                    ))}
                 </div>
             </motion.div>
         </section>

@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import { MotionConfig } from 'framer-motion'
 
 export default function App({ Component, pageProps }) {
   // Structured Data (JSON-LD) for SEO
@@ -7,9 +8,9 @@ export default function App({ Component, pageProps }) {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Fayaj Nakib",
-    "jobTitle": "Full-Stack Software Engineer",
-    "description": "Software Engineer specializing in scalable web applications, full-stack development, and production-ready backend systems.",
-    "url": "https://fayaj-nakib.github.io",
+    "jobTitle": "Software Engineer",
+    "description": "Software engineer specializing in backend systems, REST APIs, PostgreSQL, IoT integrations, payment automation, and DevOps.",
+    "url": "https://fayaj-nakib.github.io/",
     "image": "https://fayaj-nakib.github.io/profile.jpg",
     "email": "fayaj.nakib.dev@gmail.com",
     "telephone": "+8801920899997",
@@ -22,7 +23,7 @@ export default function App({ Component, pageProps }) {
     },
     "sameAs": [
       "https://github.com/Fayaj-Nakib",
-      "https://www.linkedin.com/in/fayaj-nakib/"
+      "https://www.linkedin.com/in/fayajnakib/"
     ],
     "alumniOf": {
       "@type": "EducationalOrganization",
@@ -47,22 +48,36 @@ export default function App({ Component, pageProps }) {
     ],
     "worksFor": {
       "@type": "Organization",
-      "name": "Cassetex",
-      "jobTitle": "Associate Software Engineer"
+      "name": "Cassetex"
     }
   }
 
   return (
     <>
       <Head>
-        <title>Fayaj Nakib - Full-Stack Software Engineer | Portfolio</title>
+        <title>Fayaj Nakib | Software Engineer — Backend &amp; DevOps</title>
+        <meta name="description" content="Software engineer specializing in backend systems, REST APIs, PostgreSQL, IoT integrations, payment automation, and DevOps." />
+        <link rel="canonical" href="https://fayaj-nakib.github.io/" />
+        <meta name="theme-color" content="#064E3B" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://fayaj-nakib.github.io/" />
+        <meta property="og:title" content="Fayaj Nakib | Software Engineer — Backend &amp; DevOps" />
+        <meta property="og:description" content="Software engineer specializing in backend systems, REST APIs, PostgreSQL, IoT integrations, payment automation, and DevOps." />
+        <meta property="og:image" content="https://fayaj-nakib.github.io/profile.jpg" />
+        <meta property="og:image:alt" content="Fayaj Nakib" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Fayaj Nakib | Software Engineer — Backend &amp; DevOps" />
+        <meta name="twitter:description" content="Software engineer specializing in backend systems, REST APIs, PostgreSQL, IoT integrations, payment automation, and DevOps." />
+        <meta name="twitter:image" content="https://fayaj-nakib.github.io/profile.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </Head>
-      <Component {...pageProps} />
+      <MotionConfig reducedMotion="user">
+        <Component {...pageProps} />
+      </MotionConfig>
     </>
   )
 }

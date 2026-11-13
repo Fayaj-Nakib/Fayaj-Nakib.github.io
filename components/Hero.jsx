@@ -1,8 +1,7 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
-import TypingEffect from './TypingEffect'
 import { useState, useRef, useEffect } from 'react'
 import projectsData   from '@/data/projects.json'
 import experienceData from '@/data/experience.json'
@@ -13,68 +12,29 @@ const fadeUp = (delay = 0) => ({
     transition: { delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
 })
 
-// ── Parse "Jul 2024" or "Feb 2025" → Date ──
-function parseMonthYear(str) {
-    const MONTHS = { Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11 }
-    const [mon, yr] = str.trim().split(' ')
-    if (MONTHS[mon] !== undefined && yr) return new Date(parseInt(yr), MONTHS[mon], 1)
-    if (/^\d{4}$/.test(str.trim()))    return new Date(parseInt(str), 0, 1)
-    return null
-}
-
-// ── Auto-calculate stats from data files ──
-function calcStats() {
-    // Years of experience — from earliest job start to today
-    const startDates = experienceData
-        .map(e => parseMonthYear(e.period.split(' - ')[0]))
-        .filter(Boolean)
-
-    let yearsLabel = '1+'
-    if (startDates.length > 0) {
-        const earliest = new Date(Math.min(...startDates.map(d => d.getTime())))
-        const years    = Math.floor((Date.now() - earliest.getTime()) / (1000 * 60 * 60 * 24 * 365.25))
-        yearsLabel     = `${Math.max(years, 1)}+`
-    }
-
-    // Unique companies
-    const companies = new Set(experienceData.map(e => e.org)).size
-
-    return [
-        { value: yearsLabel,                 label: 'Years Exp.'  },
-        { value: `${projectsData.filter(p => p.published !== false).length}`,   label: 'Projects'    },
-        { value: `${companies}`,             label: 'Companies'   },
-    ]
-}
-
 // ── Animated count-up for a numeric prefix ──
 function useCountUp(target, isInView) {
-    const [display, setDisplay] = useState('0')
-
+    const reducedMotion = useReducedMotion()
+    const [display, setDisplay] = useState(null)
+    const match = String(target).match(/^(\d+)(.*)$/)
+    const number = match ? Number(match[1]) : 0
+    const suffix = match?.[2] || ''
     useEffect(() => {
-        if (!isInView) return
-        // Extract numeric part and suffix (e.g. "2+" → num=2, suffix="+")
-        const match = String(target).match(/^(\d+)(.*)$/)
-        if (!match) { setDisplay(target); return }
-        const num    = parseInt(match[1], 10)
-        const suffix = match[2] || ''
-        if (num === 0) { setDisplay(target); return }
-
-        let start = null
-        const duration = 5000
+        if (!isInView || !number || reducedMotion) return
+        let start
+        let frame
+        let previous
         const step = (timestamp) => {
-            if (!start) start = timestamp
-            const elapsed  = timestamp - start
-            const progress = Math.min(elapsed / duration, 1)
-            // Ease out cubic
-            const eased    = 1 - Math.pow(1 - progress, 3)
-            const current  = Math.round(eased * num)
-            setDisplay(`${current}${suffix}`)
-            if (progress < 1) requestAnimationFrame(step)
+            start ??= timestamp
+            const progress = Math.min((timestamp - start) / 1200, 1)
+            const current = `${Math.round((1 - (1 - progress) ** 3) * number)}${suffix}`
+            if (current !== previous) { setDisplay(current); previous = current }
+            if (progress < 1) frame = requestAnimationFrame(step)
         }
-        requestAnimationFrame(step)
-    }, [isInView, target])
-
-    return display
+        frame = requestAnimationFrame(step)
+        return () => cancelAnimationFrame(frame)
+    }, [isInView, number, suffix, reducedMotion])
+    return !number || reducedMotion ? target : (display ?? target)
 }
 
 function StatItem({ value, label }) {
@@ -89,13 +49,16 @@ function StatItem({ value, label }) {
     )
 }
 
-export default function Hero() {
-    const roles = ['Full-stack Developer', 'Software Engineer', 'Problem Solver']
+export default function Hero({ yearsExperience }) {
     const [imageError, setImageError] = useState(false)
 
-    const stats = calcStats()
+    const stats = [
+        { value: `${yearsExperience}+`, label: 'Years Exp.' },
+        { value: String(projectsData.filter(p => p.published !== false).length), label: 'Projects' },
+        { value: String(new Set(experienceData.map(e => e.org)).size), label: 'Companies' },
+    ]
 
-    const stack = ['Laravel', 'React', 'Next.js', 'TypeScript']
+    const stack = ['Laravel', 'PostgreSQL', 'Docker', 'Next.js']
 
     const socials = [
         {
@@ -125,7 +88,7 @@ export default function Hero() {
     ]
 
     return (
-        <header className="relative max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden" role="banner">
+        <header className="relative max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden">
             {/* Dot pattern background */}
             <div className="hero-pattern absolute inset-0 -z-10 pointer-events-none" />
 
@@ -154,15 +117,17 @@ export default function Hero() {
                         {...fadeUp(0.15)}
                         className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 h-8 flex items-center"
                     >
-                        <TypingEffect words={roles} speed={100} />
+                        Software Engineer
                     </motion.div>
+
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Backend Development · DevOps · Cloud</p>
 
                     {/* Description */}
                     <motion.p
                         {...fadeUp(0.2)}
                         className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-xl"
                     >
-                        Backend engineer with 2 years of production experience owning the core API of a live EV battery-swap platform serving multiple operator classes. Strength in REST API architecture, geospatial and IoT-telemetry systems, payment integration, and PostgreSQL performance — with full-stack delivery in React / Next.js. Backed by a competitive-programming foundation (4× ICPC Asia Preliminary) and a bias toward reliable, transaction-safe systems.
+                        I build and maintain production backend systems, APIs, payment workflows, and IoT integrations. My experience spans Laravel, PostgreSQL, Docker, CI/CD, and Linux infrastructure, with full-stack development using React and Next.js.
                     </motion.p>
 
                     {/* CTA buttons */}
@@ -177,7 +142,7 @@ export default function Hero() {
                             Get In Touch
                         </a>
                         <a
-                            href="/Md_Fayaj_Nakib.pdf"
+                            href="/Fayaj_Nakib_CV_2026.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2"
@@ -201,8 +166,8 @@ export default function Hero() {
                     {/* Divider + Stats row */}
                     <motion.div {...fadeUp(0.3)} className="pt-5 border-t border-gray-100 dark:border-gray-800">
                         <div className="flex gap-8">
-                            {stats.map((s, i) => (
-                                <StatItem key={i} value={s.value} label={s.label} />
+                            {stats.map((s) => (
+                                <StatItem key={s.label} value={s.value} label={s.label} />
                             ))}
                         </div>
                     </motion.div>

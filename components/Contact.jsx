@@ -82,59 +82,56 @@ export default function Contact() {
         navigator.clipboard.writeText(EMAIL).then(() => {
             setCopied(true)
             setTimeout(() => setCopied(false), 2000)
+        }).catch(() => {
+            setErrorMessage('Unable to copy. Please select and copy the email address.')
+            setStatus('error')
         })
     }
 
+    const sendingRef = useRef(false)
+    const [errorMessage, setErrorMessage] = useState('')
+    const configured = Boolean(EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_NOTIFY_TEMPLATE_ID)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setStatus('sending')
-        const data = new FormData(e.target)
-        const name    = data.get('from_name').trim()
-        const email   = data.get('from_email')
-        const subject = data.get('subject') || 'Contact from Portfolio'
-        const message = data.get('message')
-
-        console.log('[EmailJS] sending notification', {
-            serviceId: EMAILJS_SERVICE_ID,
-            templateId: EMAILJS_NOTIFY_TEMPLATE_ID,
-            hasPublicKey: Boolean(EMAILJS_PUBLIC_KEY),
-        })
-        try {
-            // Notification to me — this one must succeed for the submission to count.
-            const notifyResult = await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_NOTIFY_TEMPLATE_ID,
-                { name, email, subject, message },
-                { publicKey: EMAILJS_PUBLIC_KEY }
-            )
-            console.log('[EmailJS] notification sent', notifyResult)
-        } catch (err) {
-            console.log('[EmailJS] notification failed — auto-reply will NOT run', err)
+        if (sendingRef.current) return
+        if (!configured) {
+            setErrorMessage('The message form is unavailable. Please email me directly.')
             setStatus('error')
             return
         }
-
-        setStatus('success')
-        formRef.current.reset()
-
-        // Auto-reply to the visitor is best-effort — don't fail the submission over it.
-        console.log('[EmailJS] sending auto-reply', {
-            serviceId: EMAILJS_SERVICE_ID,
-            templateId: EMAILJS_REPLY_TEMPLATE_ID,
-            hasPublicKey: Boolean(EMAILJS_PUBLIC_KEY),
-            params: { to_email: email, name: name || 'there' },
-        })
-        try {
-            const result = await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_REPLY_TEMPLATE_ID,
-                { to_email: email, name: name || 'there' },
-                { publicKey: EMAILJS_PUBLIC_KEY }
-            )
-            console.log('[EmailJS] auto-reply sent', result)
-        } catch (err) {
-            console.log('[EmailJS] auto-reply failed', err)
+        const form = e.currentTarget
+        const data = new FormData(form)
+        if (data.get('website')) return
+        const name = String(data.get('from_name') || '').trim()
+        const email = String(data.get('from_email') || '').trim()
+        const subject = String(data.get('subject') || '').trim() || 'Contact from Portfolio'
+        const message = String(data.get('message') || '').trim()
+        if (!name || !message || !form.reportValidity()) {
+            setErrorMessage('Please enter your name, a valid email address, and a message.')
+            setStatus('error')
+            return
         }
+        sendingRef.current = true
+        setStatus('sending')
+        try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NOTIFY_TEMPLATE_ID,
+                { name, email, subject, message }, { publicKey: EMAILJS_PUBLIC_KEY })
+        } catch {
+            setErrorMessage('Something went wrong. Please try again or email me directly.')
+            setStatus('error')
+            sendingRef.current = false
+            return
+        }
+        form.reset()
+        setStatus('success')
+        // Optional reply is independent of successful notification delivery.
+        if (EMAILJS_REPLY_TEMPLATE_ID) {
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_REPLY_TEMPLATE_ID,
+                    { to_email: email, name }, { publicKey: EMAILJS_PUBLIC_KEY })
+            } catch { /* A reply failure must not invite duplicate submissions. */ }
+        }
+        sendingRef.current = false
     }
 
     return (
@@ -225,7 +222,7 @@ export default function Contact() {
                         <h3 className="font-bold text-base text-gray-900 dark:text-white mb-5">Send a Message</h3>
 
                         {status === 'success' ? (
-                            <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
+                            <div role="status" className="flex flex-col items-center justify-center gap-3 py-12 text-center">
                                 <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center">
                                     <svg className="w-7 h-7 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -241,21 +238,23 @@ export default function Contact() {
                                 </button>
                             </div>
                         ) : (
-                            <form ref={formRef} onSubmit={handleSubmit}>
+                            <form ref={formRef} onSubmit={handleSubmit} aria-busy={status === 'sending'}>
+                                {!configured && <p role="status" className="text-sm mb-4">The message form is unavailable. Please use the email link to contact me.</p>}
+                                <div hidden aria-hidden="true"><label htmlFor="c-website">Website</label><input id="c-website" name="website" tabIndex={-1} autoComplete="off" /></div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                     <div>
                                         <label htmlFor="c-name" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Name</label>
-                                        <input id="c-name" type="text" name="from_name" required placeholder="Your name" className={inputClass} />
+                                        <input id="c-name" type="text" name="from_name" autoComplete="name" maxLength={100} required placeholder="Your name" className={inputClass} />
                                     </div>
                                     <div>
                                         <label htmlFor="c-email" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Email</label>
-                                        <input id="c-email" type="email" name="from_email" required placeholder="your@email.com" className={inputClass} />
+                                        <input id="c-email" type="email" name="from_email" autoComplete="email" maxLength={254} required placeholder="your@email.com" className={inputClass} />
                                     </div>
                                 </div>
 
                                 <div className="mb-4">
                                     <label htmlFor="c-subject" className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">Subject</label>
-                                    <input id="c-subject" type="text" name="subject" placeholder="What's this about?" className={inputClass} />
+                                    <input id="c-subject" type="text" name="subject" maxLength={200} placeholder="What's this about?" className={inputClass} />
                                 </div>
 
                                 <div className="mb-5">
@@ -263,6 +262,7 @@ export default function Contact() {
                                     <textarea
                                         id="c-message"
                                         name="message"
+                                        maxLength={5000}
                                         required
                                         rows={5}
                                         placeholder="Tell me about your project or opportunity..."
@@ -271,12 +271,12 @@ export default function Contact() {
                                 </div>
 
                                 {status === 'error' && (
-                                    <p className="text-xs text-red-500 mb-3">Something went wrong. Please try again or email me directly.</p>
+                                    <p role="alert" className="text-xs text-red-600 dark:text-red-400 mb-3">{errorMessage}</p>
                                 )}
 
                                 <button
                                     type="submit"
-                                    disabled={status === 'sending'}
+                                    disabled={!configured || status === 'sending'}
                                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 text-sm font-semibold rounded-xl shadow-md shadow-brand-primary/20 dark:shadow-brand-accent/15 hover:bg-emerald-800 dark:hover:bg-emerald-300 hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                                 >
                                     {status === 'sending' ? (

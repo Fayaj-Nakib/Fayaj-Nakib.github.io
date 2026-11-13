@@ -83,7 +83,7 @@ export default function About() {
                             className="pl-5 border-l-4 border-brand-accent"
                         >
                             <p className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white leading-relaxed">
-                                I build systems designed to stay reliable — not just to ship fast, but to work flawlessly when things get complicated.
+                                I focus on building reliable, maintainable systems that handle real-world complexity.
                             </p>
                         </motion.div>
 
@@ -94,7 +94,7 @@ export default function About() {
                             transition={{ delay: 0.18, duration: 0.4 }}
                             className="text-gray-600 dark:text-gray-400 leading-relaxed text-base"
                         >
-                            Working on Cassetex&apos;s IoT fleet platform taught me what &ldquo;production-ready&rdquo; really means. When GPS telemetry, real-time vehicle tracking, bKash payment webhooks, and multi-tenant access control all need to work together without failure, there&apos;s no room for shortcuts. That environment shaped how I think about architecture, error handling, and observability from day one.
+                            Working in a small engineering environment gave me substantial ownership of production systems. Maintaining APIs, IoT integrations, and payment workflows taught me to consider reliability, debugging, data consistency, and deployment together. I value collaboration, code reviews, and mentorship, and want to keep growing through diverse teams and projects.
                         </motion.p>
 
                         <motion.p
@@ -104,7 +104,7 @@ export default function About() {
                             transition={{ delay: 0.24, duration: 0.4 }}
                             className="text-gray-600 dark:text-gray-400 leading-relaxed text-base"
                         >
-                            I started in competitive programming — four ICPC Asia Preliminary rounds trained me to break hard problems apart under pressure. That mindset carries into every system I design. Outside engineering, I coordinate film and photography events and shoot documentary work, which keeps me thinking about composition and clear storytelling — surprisingly useful when designing APIs.
+                            Competitive programming strengthened my problem-solving foundation, including four ICPC Asia Preliminary rounds. I look forward to learning from experienced engineers and contributing to a team. Outside engineering, I enjoy photography and have helped coordinate film and photography club events.
                         </motion.p>
 
                         {/* Values */}

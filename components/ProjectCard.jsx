@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect, useId } from 'react'
 import { motion } from 'framer-motion'
 
 export default function ProjectCard({ title, desc, tags, github, live, year }) {
     const [expanded, setExpanded] = useState(false)
-    // Approximate — at this card's width/font-size ~220 chars is roughly where a 4-line clamp bites
-    const isLong = desc.length > 220
+    const descriptionRef = useRef(null)
+    const descriptionId = useId()
+    const [isLong, setIsLong] = useState(false)
+    useEffect(() => {
+        const element = descriptionRef.current
+        const measure = () => {
+            if (!expanded) setIsLong(element.scrollHeight > element.clientHeight + 1)
+        }
+        const observer = new ResizeObserver(measure)
+        observer.observe(element)
+        return () => observer.disconnect()
+    }, [desc, expanded])
 
     return (
         <motion.div
@@ -34,7 +44,7 @@ export default function ProjectCard({ title, desc, tags, github, live, year }) {
 
                 {/* Description */}
                 <div className="flex-grow mb-4">
-                    <p className={`text-sm text-gray-500 dark:text-gray-400 leading-relaxed ${expanded ? '' : 'line-clamp-4'}`}>
+                    <p ref={descriptionRef} id={descriptionId} className={`text-sm text-gray-500 dark:text-gray-400 leading-relaxed ${expanded ? '' : 'line-clamp-4'}`}>
                         {desc}
                     </p>
                     {isLong && (
@@ -43,6 +53,8 @@ export default function ProjectCard({ title, desc, tags, github, live, year }) {
                             onClick={() => setExpanded((v) => !v)}
                             className="mt-1.5 text-xs font-semibold text-brand-primary dark:text-brand-accent hover:underline"
                             aria-expanded={expanded}
+                            aria-controls={descriptionId}
+                            aria-label={`${expanded ? "Read less about" : "Read more about"} ${title}`}
                         >
                             {expanded ? 'Read less' : 'Read more'}
                         </button>
@@ -51,9 +63,9 @@ export default function ProjectCard({ title, desc, tags, github, live, year }) {
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                    {tags.map((tag, idx) => (
+                    {tags.map((tag) => (
                         <span
-                            key={idx}
+                            key={tag}
                             className="text-[11px] px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg font-medium border border-gray-200 dark:border-gray-700"
                         >
                             {tag}
