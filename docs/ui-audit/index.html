@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio UI audit — before and after</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;margin:0;background:#f1f5f9;color:#0f172a;padding:24px}main{max-width:1600px;margin:auto}h1{font-size:28px;line-height:1.2}label{display:inline-flex;gap:8px;align-items:center;margin:0 16px 12px 0}select,a{min-height:44px}select{font:inherit;padding:4px 8px;border:1px solid #94a3b8;border-radius:6px;background:white;color:#0f172a}.comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}figure{margin:0}figcaption{font-weight:600;margin:8px 0}img{display:block;max-width:100%;height:auto;border:1px solid #cbd5e1}a{color:#065f46}:focus-visible{outline:3px solid #059669;outline-offset:3px}@media(max-width:640px){.comparison{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<h1>Portfolio UI refinement</h1>
+<p>Local browser captures before and after implementation. <a href="REPORT.md">Read the implementation report</a>.</p>
+<label>Theme <select id="theme"><option value="light">Light</option><option value="dark">Dark</option></select></label>
+<label>Width <select id="width"><option>320</option><option selected>375</option><option>768</option><option>1024</option><option>1440</option></select></label>
+<label>View <select id="view"><option value="hero">Hero</option><option value="projects">Projects</option><option value="experience">Experience</option><option value="certifications">Certifications</option><option value="skills">Skills</option><option value="contact">Contact</option><option value="full">Full page</option></select></label>
+<p id="note" aria-live="polite"></p>
+<div class="comparison">
+<figure><figcaption>Before</figcaption><a id="before-link"><img id="before" alt="Portfolio before refinement"></a></figure>
+<figure><figcaption>After</figcaption><a id="after-link"><img id="after" alt="Portfolio after refinement"></a></figure>
+</div>
+<script>
+const theme=document.getElementById('theme'),width=document.getElementById('width'),view=document.getElementById('view');
+function update(){
+ const cropped=['375','1440'].includes(width.value);
+ for(const option of view.options)option.disabled=!cropped&&option.value!=='full';
+ if(!cropped)view.value='full';
+ document.getElementById('note').textContent=cropped?'Click a screenshot to open it at full resolution. Section crops hide fixed navigation overlays; full-page and hero captures retain navigation.':'Full-page screenshots are available at this width; section crops are provided at 375 and 1440 px.';
+ for(const phase of ['before','after']){const file=`${phase}/${theme.value}-${width.value}-${view.value}.jpg`;document.getElementById(phase).src=file;document.getElementById(phase).alt=`${phase} refinement: ${theme.value} theme, ${width.value}px, ${view.value}`;document.getElementById(`${phase}-link`).href=file;}
+}
+for(const control of [theme,width,view])control.addEventListener('change',update);update();
+</script>
+</main></body></html>

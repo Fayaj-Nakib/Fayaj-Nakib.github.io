@@ -1,0 +1,29 @@
+{
+  "productionExport": "passed",
+  "viewportChecks": [
+    {
+      "width": 320,
+      "layoutShift": 0
+    },
+    {
+      "width": 375,
+      "layoutShift": 0
+    },
+    {
+      "width": 768,
+      "layoutShift": 0
+    },
+    {
+      "width": 1024,
+      "layoutShift": 0
+    },
+    {
+      "width": 1440,
+      "layoutShift": 0
+    }
+  ],
+  "themeAndMobileMenu": "passed",
+  "internalLinks": "passed",
+  "profileAndStatistics": "passed",
+  "reactErrors": []
+}

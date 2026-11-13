@@ -88,14 +88,14 @@ export default function Hero({ yearsExperience }) {
     ]
 
     return (
-        <header className="relative max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden">
+        <header className="relative max-w-6xl mx-auto px-6 pt-10 pb-14 md:pt-16 md:pb-20 overflow-hidden">
             {/* Dot pattern background */}
             <div className="hero-pattern absolute inset-0 -z-10 pointer-events-none" />
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-x-10 lg:gap-x-16 items-start">
 
                 {/* ── Left: Text content (3/5) ── */}
-                <div className="md:col-span-3 order-2 md:order-1 space-y-6">
+                <div className="md:col-span-3 md:row-start-1 space-y-5">
 
                     {/* Greeting */}
                     <motion.p {...fadeUp(0.05)} className="text-sm font-medium text-gray-500 dark:text-gray-400 tracking-wide">
@@ -105,17 +105,17 @@ export default function Hero({ yearsExperience }) {
                     {/* Name */}
                     <motion.h1
                         {...fadeUp(0.1)}
-                        className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight"
+                        className="text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight"
                     >
                         <span className="text-gray-900 dark:text-white">
                             Fayaj Nakib
                         </span>
                     </motion.h1>
 
-                    {/* Typing role */}
+                    {/* Professional identity */}
                     <motion.div
                         {...fadeUp(0.15)}
-                        className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 h-8 flex items-center"
+                        className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 leading-snug"
                     >
                         Software Engineer
                     </motion.div>
@@ -134,7 +134,7 @@ export default function Hero({ yearsExperience }) {
                     <motion.div {...fadeUp(0.25)} className="flex gap-3 flex-wrap items-center">
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 font-semibold text-sm shadow-lg shadow-brand-primary/25 dark:shadow-brand-accent/20 hover:bg-emerald-800 dark:hover:bg-emerald-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2 transition-all"
+                            className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl bg-brand-primary dark:bg-brand-accent text-white dark:text-gray-950 font-semibold text-sm shadow-lg shadow-brand-primary/25 dark:shadow-brand-accent/20 hover:bg-emerald-800 dark:hover:bg-emerald-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2 transition-all"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -145,7 +145,7 @@ export default function Hero({ yearsExperience }) {
                             href="/Fayaj_Nakib_CV_2026.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2"
+                            className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:border-brand-primary dark:hover:border-brand-accent hover:text-brand-primary dark:hover:text-brand-accent transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-accent focus:ring-offset-2"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -163,6 +163,33 @@ export default function Hero({ yearsExperience }) {
                         </a>
                     </motion.div>
 
+                </div>
+
+                {/* Photo follows the introduction in the reading order. */}
+                <motion.figure
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="md:col-span-2 md:col-start-4 md:row-start-1 justify-self-center md:self-center"
+                >
+                    <div className="p-1.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm">
+                        <div className="relative aspect-[3/4] w-44 md:w-52 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            {!imageError ? (
+                                <Image src="/profile.jpg" alt="Fayaj Nakib" fill priority unoptimized
+                                    sizes="(max-width: 767px) 176px, 208px"
+                                    className="object-cover object-center"
+                                    onError={() => setImageError(true)} />
+                            ) : (
+                                <div className="h-full flex items-center justify-center text-white font-bold text-4xl bg-brand-primary">FN</div>
+                            )}
+                        </div>
+                    </div>
+                    <figcaption className="mt-3 flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-200">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true" />
+                        Available for hire
+                    </figcaption>
+                </motion.figure>
+
+                <div className="md:col-span-3 md:row-start-2 space-y-5">
                     {/* Divider + Stats row */}
                     <motion.div {...fadeUp(0.3)} className="pt-5 border-t border-gray-100 dark:border-gray-800">
                         <div className="flex gap-8">
@@ -191,57 +218,10 @@ export default function Hero({ yearsExperience }) {
                     </motion.div>
                 </div>
 
-                {/* ── Right: Photo + Info card (2/5) ── */}
-                <div className="md:col-span-2 order-1 md:order-2 flex flex-col items-center gap-5">
-
-                    {/* Profile photo */}
-                    <motion.div
-                        initial={{ scale: 0.94, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className="relative animate-float"
-                    >
-                        {/* Photo frame */}
-                        <div className="p-1.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-[20px] shadow-sm">
-                            <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-[16px] overflow-hidden bg-white dark:bg-gray-900">
-                                {!imageError ? (
-                                    <Image
-                                        src="/profile.jpg"
-                                        alt="Fayaj Nakib"
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                        sizes="(max-width: 768px) 176px, 208px"
-                                        unoptimized
-                                        onError={() => setImageError(true)}
-                                    />
-                                ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-white font-bold text-4xl bg-brand-primary">
-                                        FN
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Available badge */}
-                        <motion.div
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.45, type: 'spring', stiffness: 260, damping: 20 }}
-                            className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-900 rounded-full shadow-lg border border-gray-100 dark:border-gray-700 whitespace-nowrap"
-                        >
-                            <span className="relative flex h-2 w-2">
-                                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                            </span>
-                            <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">Available for hire</span>
-                        </motion.div>
-                    </motion.div>
-
                     {/* Info card */}
                     <motion.div
                         {...fadeUp(0.3)}
-                        className="w-full mt-3 p-5 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3.5"
+                        className="md:col-span-2 md:col-start-4 md:row-start-2 w-full p-5 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3.5"
                     >
                         <div className="flex items-center gap-2.5 text-sm">
                             <span className="text-gray-400 dark:text-gray-500 font-bold">▸</span>
@@ -270,7 +250,7 @@ export default function Hero({ yearsExperience }) {
                             </div>
                         </div>
                     </motion.div>
-                </div>
+
             </div>
         </header>
     )

@@ -94,8 +94,8 @@ export default function Home({ yearsExperience, buildYear }) {
               <div className="flex flex-col gap-2.5">
                 {[
                   { href: '#',               label: 'Home' },
-                  { href: '#projects',       label: 'Projects' },
                   { href: '#experience',     label: 'Experience' },
+                  { href: '#projects',       label: 'Projects' },
                   { href: '#skills',         label: 'Skills' },
                   { href: '#certifications', label: 'Certifications' },
                   { href: '#contact',        label: 'Contact' },

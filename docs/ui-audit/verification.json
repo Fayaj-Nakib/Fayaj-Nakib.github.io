@@ -1,0 +1,36 @@
+{
+  "widths": [
+    320,
+    375,
+    768,
+    1024,
+    1440
+  ],
+  "interactions": "passed",
+  "keyboard": "passed",
+  "image": "passed",
+  "resume": "passed",
+  "reducedMotion": "passed",
+  "emailRequests": 0,
+  "reactErrors": [],
+  "accessibility": [
+    {
+      "theme": "light",
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "violations": []
+    }
+  ],
+  "external": [
+    {
+      "url": "https://github.com/Fayaj-Nakib/DevBoard_backend",
+      "status": "unavailable from test environment"
+    },
+    {
+      "url": "https://dev-board-frontend.vercel.app",
+      "status": "unavailable from test environment"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ export default function Experience() {
             >
                 {/* Section header */}
                 <div className="mb-12">
-                    <span className="section-label">03 &nbsp;·&nbsp; Experience</span>
+                    <span className="section-label">02 &nbsp;·&nbsp; Experience</span>
                     <h2 id="experience-heading" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                         Work Experience<span className="text-brand-accent">.</span>
                     </h2>
@@ -29,7 +29,7 @@ export default function Experience() {
 
                     {items.map((it, idx) => (
                         <motion.div
-                            key={idx}
+                            key={it.org}
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
@@ -39,26 +39,23 @@ export default function Experience() {
                             {/* Timeline dot */}
                             <div className="hidden md:flex absolute left-0 top-5 w-10 h-10 items-center justify-center">
                                 <div className="relative flex items-center justify-center">
-                                    {idx === 0 && (
-                                        <span className="absolute inline-flex w-3 h-3 rounded-full bg-brand-accent animate-ping-slow" />
-                                    )}
                                     <div className="relative w-3 h-3 rounded-full bg-brand-accent ring-4 ring-white dark:ring-gray-950 shadow-sm z-10" />
                                 </div>
                             </div>
 
-                            <div className="p-6 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-250">
+                            <div className="p-6 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
                                 {/* Header */}
-                                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                                <div className="flex flex-col sm:flex-row sm:justify-between gap-3 mb-5">
                                     <div>
                                         <h3 className="font-bold text-lg text-gray-900 dark:text-white">{it.title}</h3>
                                         <div className="text-brand-primary dark:text-brand-accent font-semibold text-sm mt-0.5">{it.org}</div>
                                     </div>
-                                    <div className="text-right flex-shrink-0">
+                                    <div className="text-left sm:text-right shrink-0">
                                         <span className="inline-block text-xs font-semibold px-2.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
                                             {it.period}
                                         </span>
                                         {it.location && (
-                                            <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500 mt-1.5 justify-end">
+                                            <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500 mt-1.5 sm:justify-end">
                                                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -69,8 +66,18 @@ export default function Experience() {
                                     </div>
                                 </div>
 
+                                {it.metrics && (
+                                    <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-4 py-4 mb-5 border-y border-gray-100 dark:border-gray-700">
+                                        {it.metrics.map(metric => (
+                                            <div key={metric.label} className="flex flex-col-reverse gap-1">
+                                                <dt className="text-xs text-gray-500 dark:text-gray-400">{metric.label}</dt>
+                                                <dd className="text-lg font-semibold tabular-nums text-gray-900 dark:text-white">{metric.value}</dd>
+                                            </div>
+                                        ))}
+                                    </dl>
+                                )}
                                 {/* Bullets */}
-                                <ul className="space-y-2">
+                                <ul className="space-y-3">
                                     {it.bullets.map((b, i) => (
                                         <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                             <span className="text-gray-400 dark:text-gray-500 mt-1.5 flex-shrink-0 text-xs">▸</span>

@@ -9,7 +9,9 @@ To add your profile image:
    - JPG or PNG format
    - Professional headshot
 
-The image will be displayed as a circular profile picture in the Hero section.
+The image is displayed in a stable 3:4 rounded portrait card in the Hero section,
+176 px wide on mobile and 208 px wide from tablet upward. The availability caption
+sits beneath the image and does not overlap it. The original photograph is preserved.
 
-If you want to use a different filename, update `components/Hero.jsx` line 60 to match your filename.
+If you want to use a different filename, update the Image source in `components/Hero.jsx`.
 

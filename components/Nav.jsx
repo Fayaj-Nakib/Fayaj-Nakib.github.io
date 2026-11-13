@@ -21,7 +21,7 @@ export default function Nav() {
     }, [])
 
     useEffect(() => {
-        const sectionIds = ['projects', 'experience', 'skills', 'education', 'certifications']
+        const sectionIds = ['experience', 'projects', 'skills', 'education', 'certifications']
         const observers = []
 
         sectionIds.forEach((id) => {
@@ -57,8 +57,8 @@ export default function Nav() {
     }, [isOpen])
 
     const navLinks = [
-        { href: '#projects',       label: 'Projects',       id: 'projects' },
         { href: '#experience',     label: 'Experience',     id: 'experience' },
+        { href: '#projects',       label: 'Projects',       id: 'projects' },
         { href: '#skills',         label: 'Skills',         id: 'skills' },
         { href: '#education',      label: 'Education',      id: 'education' },
         { href: '#certifications', label: 'Certifications', id: 'certifications' },

@@ -13,7 +13,22 @@
     "github": "https://github.com/Fayaj-Nakib/DevBoard_backend",
     "year": "2026",
     "section": "featured",
-    "live": "https://dev-board-frontend.vercel.app"
+    "live": "https://dev-board-frontend.vercel.app",
+    "summary": "A multi-tenant project management platform with workspace- and project-level access control, real-time updates, GitHub integration, and Docker-based deployment workflows.",
+    "highlights": [
+      {
+        "value": "51",
+        "label": "Cross-tenant isolation tests"
+      },
+      {
+        "value": "76",
+        "label": "Automated CI tests"
+      },
+      {
+        "value": "HMAC-SHA256",
+        "label": "Signed webhooks with retries and asynchronous workflow automation"
+      }
+    ]
   },
   {
     "title": "IELTS Preparation App",

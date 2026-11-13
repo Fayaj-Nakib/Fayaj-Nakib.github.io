@@ -40,8 +40,8 @@ Personal portfolio website for **Md. Fayaj Nakib**, Software Engineer focused on
 |---|---|---|
 | — | Hero | Name, permanent role, stats, social links, profile photo |
 | 01 | About | Personal narrative, engineering philosophy, quick facts |
-| 02 | Projects | Featured DevBoard and five expandable Other Projects |
-| 03 | Experience | Cassetex · Eutropia IT with detailed bullet points |
+| 02 | Experience | Cassetex · Eutropia IT with verified metrics and detailed bullet points |
+| 03 | Projects | Full-width featured DevBoard and five expandable Other Projects |
 | 04 | Skills | Backend, Databases, DevOps & Cloud, Frontend, Engineering Practices, Soft Skills |
 | 05 | Education | BSc in CSE — University of Asia Pacific |
 | 06 | Certifications | IBM Professional Certs (expandable) + standalone courses |
@@ -186,3 +186,9 @@ Before enabling contact delivery, verify the EmailJS notification destination, R
 optional reply destination, allowed domains, and service-side spam controls. The hidden
 honeypot and duplicate-submit guard are lightweight client checks, not service-side protection.
 See `IMPLEMENTATION_REPORT.md` for validation results and remaining manual checks.
+
+The subsequent UI refinement audit, screenshots, and current validation results are in
+[`docs/ui-audit/REPORT.md`](docs/ui-audit/REPORT.md). Open
+[`docs/ui-audit/index.html`](docs/ui-audit/index.html) locally to compare before/after
+screenshots by theme and viewport. The owner confirmed successful deployment and EmailJS
+delivery before this refinement; the working integration was preserved.

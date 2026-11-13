@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
+import FeaturedProject from './FeaturedProject'
 import projectsData from '@/data/projects.json'
 
 export default function Projects() {
@@ -15,7 +16,7 @@ export default function Projects() {
                 transition={{ duration: 0.4 }}
             >
                 <div className="mb-12">
-                    <span className="section-label">02 &nbsp;·&nbsp; Projects</span>
+                    <span className="section-label">03 &nbsp;·&nbsp; Projects</span>
                     <h2 id="projects-heading" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                         Featured Work<span className="text-brand-accent">.</span>
                     </h2>
@@ -23,7 +24,7 @@ export default function Projects() {
                         A selection of projects I&apos;ve built — from web applications to research work and systems design.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-6">
                     {featured.map((p, i) => (
                         <motion.div
                             key={p.title}
@@ -32,14 +33,14 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, duration: 0.4 }}
                         >
-                            <ProjectCard {...p} />
+                            <FeaturedProject {...p} />
                         </motion.div>
                     ))}
                 </div>
 
                 {other.length > 0 && (
                     <details className="mt-10 group/other">
-                        <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-accent transition-colors">
+                        <summary className="cursor-pointer list-none flex items-center gap-2 rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-3 w-fit text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-accent transition-colors">
                             <svg className="w-4 h-4 transition-transform group-open/other:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

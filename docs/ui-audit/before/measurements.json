@@ -1,0 +1,132 @@
+[
+  {
+    "width": 320,
+    "theme": "light",
+    "overflow": false,
+    "ctaTop": 1052,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 176,
+      "height": 176
+    },
+    "featuredWidth": 272
+  },
+  {
+    "width": 375,
+    "theme": "light",
+    "overflow": false,
+    "ctaTop": 1002,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 176,
+      "height": 176
+    },
+    "featuredWidth": 327
+  },
+  {
+    "width": 768,
+    "theme": "light",
+    "overflow": false,
+    "ctaTop": 597,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 208,
+      "height": 208
+    },
+    "featuredWidth": 348
+  },
+  {
+    "width": 1024,
+    "theme": "light",
+    "overflow": false,
+    "ctaTop": 572,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 208,
+      "height": 208
+    },
+    "featuredWidth": 309
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "overflow": false,
+    "ctaTop": 572,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 208,
+      "height": 208
+    },
+    "featuredWidth": 352
+  },
+  {
+    "width": 320,
+    "theme": "dark",
+    "overflow": false,
+    "ctaTop": 1052,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 176,
+      "height": 176
+    },
+    "featuredWidth": 272
+  },
+  {
+    "width": 375,
+    "theme": "dark",
+    "overflow": false,
+    "ctaTop": 1002,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 176,
+      "height": 176
+    },
+    "featuredWidth": 327
+  },
+  {
+    "width": 768,
+    "theme": "dark",
+    "overflow": false,
+    "ctaTop": 597,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 208,
+      "height": 208
+    },
+    "featuredWidth": 348
+  },
+  {
+    "width": 1024,
+    "theme": "dark",
+    "overflow": false,
+    "ctaTop": 572,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 208,
+      "height": 208
+    },
+    "featuredWidth": 309
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "overflow": false,
+    "ctaTop": 572,
+    "photo": {
+      "naturalWidth": 1406,
+      "naturalHeight": 1874,
+      "width": 208,
+      "height": 208
+    },
+    "featuredWidth": 352
+  }
+]

@@ -161,20 +161,6 @@ code {
 .anim-delay-4        { animation-delay: 4s; }
 .anim-delay-6        { animation-delay: 6s; }
 
-/* ── Float (profile photo) ── */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
-}
-.animate-float { animation: float 5s ease-in-out infinite; }
-
-/* ── Slow ping (active timeline dot) ── */
-@keyframes ping-slow {
-  0%   { transform: scale(1);   opacity: 0.7; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-.animate-ping-slow { animation: ping-slow 2s ease-out infinite; }
-
 /* Keyboard access and motion preferences apply to every section. */
 /* Keep muted labels readable on the existing light and dark surfaces. */
 html:not(.dark) .text-gray-400,

@@ -181,7 +181,7 @@ export default function Contact() {
                                             href={item.href}
                                             target={item.external ? '_blank' : undefined}
                                             rel={item.external ? 'noopener noreferrer' : undefined}
-                                            className="text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-brand-primary dark:hover:text-brand-accent transition-colors truncate block"
+                                            className="text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-brand-primary dark:hover:text-brand-accent transition-colors break-all block"
                                         >
                                             {item.value}
                                         </a>
@@ -217,7 +217,7 @@ export default function Contact() {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.15, duration: 0.4 }}
-                        className="md:col-span-3 p-7 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm"
+                        className="md:col-span-3 p-5 sm:p-7 bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm"
                     >
                         <h3 className="font-bold text-base text-gray-900 dark:text-white mb-5">Send a Message</h3>
 

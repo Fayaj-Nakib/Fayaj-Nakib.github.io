@@ -11,6 +11,28 @@
       "Implement authentication and role-based authorization with 10 roles and 86 permissions, including scoped API keys for IoT communication.",
       "Optimize PostgreSQL queries and index migrations, and develop 40+ feature tests to check backend behavior.",
       "Maintain three Linux VPS environments with Nginx, SSL, queue workers, and backups, supporting deployments and operational maintenance."
+    ],
+    "metrics": [
+      {
+        "value": "11K+",
+        "label": "Completed swaps"
+      },
+      {
+        "value": "27K+",
+        "label": "Hardware commands"
+      },
+      {
+        "value": "15",
+        "label": "IoT cabinets"
+      },
+      {
+        "value": "90+",
+        "label": "Batteries"
+      },
+      {
+        "value": "40+",
+        "label": "Feature tests"
+      }
     ]
   },
   {
